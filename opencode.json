@@ -1,0 +1,81 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "github": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": true,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."],
+      "enabled": true
+    },
+    "memory": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "enabled": true,
+      "environment": {
+        "MEMORY_FILE_PATH": "docs/memoria/memoria.local.json"
+      }
+    },
+    "fetch": {
+      "type": "local",
+      "command": ["uvx", "mcp-server-fetch"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp", "--headless"],
+      "enabled": true
+    },
+    "sqlite": {
+      "type": "local",
+      "command": ["uvx", "--with", "mcp<2", "mcp-server-sqlite", "--db-path", "docs/candidaturas/candidaturas.db"],
+      "enabled": true
+    }
+  },
+  "permission": {
+    "context7_*": "deny",
+    "fetch_*": "deny",
+    "sequential-thinking_*": "deny",
+    "playwright_*": "deny",
+    "sqlite_*": "deny"
+  },
+  "agent": {
+    "build": {
+      "permission": {
+        "context7_*": "allow",
+        "fetch_*": "allow",
+        "sequential-thinking_*": "allow",
+        "playwright_*": "allow",
+        "sqlite_*": "allow"
+      }
+    },
+    "plan": {
+      "permission": {
+        "context7_*": "allow",
+        "fetch_*": "allow",
+        "sequential-thinking_*": "allow",
+        "playwright_*": "allow",
+        "sqlite_*": "allow"
+      }
+    }
+  }
+}

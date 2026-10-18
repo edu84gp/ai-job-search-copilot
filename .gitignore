@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.opencode/node_modules/
+docs/memoria/*.local.json
+docs/candidaturas/*.db
+docs/candidaturas/*.db-journal
+cv/*
+!cv/README.md
+docs/networking/contactos-networking.md
+docs/negociacion/registro-negociaciones.md
