@@ -43,3 +43,27 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Decisión: crear los skills flujo-candidatura, apunte-ejercicio y memoria-sesion.
 - Motivo: cubren los tres flujos repetitivos reales sin duplicar lo que ya hacen los agentes o `AGENTS.md`.
 - Descartado: skills de convenciones y de revisión de portfolio por solapar con `AGENTS.md` y github-portfolio-reviewer.
+
+## 2026-10-18 - Repositorio público con exclusiones de privacidad
+
+- Decisión: publicar `job-support-portfolio` como repo público excluyendo `cv/*` (salvo su README), `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`; la tabla de candidaturas sí se publica como evidencia.
+- Motivo: el repositorio funciona como portfolio ante reclutadores y a la vez protege datos personales y contactos.
+- Descartado: repositorio privado (pierde su función de portfolio) y publicación sin exclusiones.
+
+## 2026-10-18 - Calidad automatizada con markdownlint y lychee
+
+- Decisión: workflow `Calidad` en `.github/workflows/quality.yml` con lint de Markdown (markdownlint-cli2) y verificación de enlaces (lychee) en push, pull request y manual.
+- Motivo: la documentación es el producto del repositorio; el CI evita enlaces roto y formato inconsistente sin depender de revisión manual.
+- Descartado: lint solo en local y pre-commit hooks (el repo no es un paquete Node).
+
+## 2026-10-18 - Pages por workflow en cada proyecto estático
+
+- Decisión: añadir `deploy-pages.yml` a pokedex_web y el-juego-de-la-vida y activar Pages por API con `build_type=workflow`; WhatsChatGPT queda documentado como pendiente por requerir servidor con Ollama.
+- Motivo: despliegue reproducible y versionado por repo, sin ramas fantasma.
+- Descartado: publicar desde rama `gh-pages` y un Pages único con submódulos.
+
+## 2026-10-18 - Kanban en Projects v2 con campo Pipeline propio
+
+- Decisión: Project público con campo single-select `Pipeline` (Aplicada, En seguimiento, Entrevista tecnica, Entrevista final, Oferta, Descartada) además del Status por defecto, vinculado al repositorio.
+- Motivo: el campo propio refleja el pipeline real de candidaturas y se crea por gh CLI; las opciones del Status por defecto requieren GraphQL para editarse.
+- Descartado: reutilizar Status por defecto con opciones genéricas.

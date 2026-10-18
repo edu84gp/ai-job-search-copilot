@@ -882,6 +882,18 @@ El detalle de cada decisión también se refleja en el grafo del Memory MCP, que
 
 ---
 
+## Visibilidad en GitHub
+
+El repositorio es público en https://github.com/edu84gp/job-support-portfolio. El `.gitignore` excluye los datos sensibles: `cv/*` salvo su README, `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`. La tabla `docs/candidaturas/tabla-candidaturas.md` sí se publica como evidencia del proceso.
+
+**Calidad con GitHub Actions:** `.github/workflows/quality.yml` se ejecuta en cada push a main, en pull requests y manualmente. Dos trabajos: lint de Markdown con `DavidAnson/markdownlint-cli2-action` sobre `**/*.md` y verificación de enlaces con `lycheeverse/lychee-action`. La configuración del lint vive en `.markdownlint-cli2.jsonc`, que desactiva MD013, MD025, MD033, MD034, MD036 y MD040 por el estilo del proyecto (tablas largas, HTML embebido, URLs visibles) e ignora `node_modules/` y los prompts de `.opencode/agents` y `.opencode/commands` por no ser documentos. `.lycheeignore` excluye LinkedIn (bloquea automatización) y el endpoint MCP de context7 (solo acepta POST).
+
+**GitHub Pages en los proyectos:** cada repo estático tiene su propio `.github/workflows/deploy-pages.yml` con `actions/checkout@v6`, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v3` y `actions/deploy-pages@v5`. Pages se activó vía API REST con `build_type=workflow`. Demos: https://edu84gp.github.io/pokedex_web/ y https://edu84gp.github.io/el-juego-de-la-vida/. WhatsChatGPT no se despliega porque necesita servidor con Ollama.
+
+**Kanban de candidaturas:** Project v2 público en https://github.com/users/edu84gp/projects/3 con el campo propio `Pipeline` (Aplicada, En seguimiento, Entrevista tecnica, Entrevista final, Oferta, Descartada) y vinculado al repositorio.
+
+**gh CLI:** instalado con winget (GitHub.cli 2.102.0) y autenticado con el PAT de `.env` mediante `gh auth login --with-token`. Scopes del token: gist, project, read:org, repo y workflow, suficientes para push, workflows y Projects.
+
 ## Cambios aplicados en optimización
 
 - Eliminado bloque deprecado `tools: read_file, list_dir, write_file` en cv-optimizer, interview-coach y tracker-doc.
@@ -913,6 +925,11 @@ El detalle de cada decisión también se refleja en el grafo del Memory MCP, que
 - Creada la memoria del proyecto en Fase 20: Memory MCP con `MEMORY_FILE_PATH` en `docs/memoria/memoria.local.json` fuera de git, más `docs/memoria/estado-actual.md` y `docs/memoria/decisiones.md` versionados. AGENTS.md indica leerlos al iniciar sesión y actualizarlos al cerrar hitos.
 - Creados 3 skills en Fase 20 dentro de `.opencode/skills/`: flujo-candidatura, apunte-ejercicio y memoria-sesion. Se descartaron skills de convenciones y de revisión de portfolio por solapar con AGENTS.md y con github-portfolio-reviewer.
 - Ampliado el comando log-progress en Fase 20 para actualizar la memoria del proyecto antes del CHANGELOG.
+- Publicado el repositorio en Fase 21 tras autenticar gh CLI con el PAT existente. `.gitignore` ampliado para excluir CV, contactos, negociaciones y base de datos; la tabla de candidaturas se publica.
+- Reescrito el README en Fase 21 en bilingüe orientado a reclutadores: badges, stack, proyectos con demos, pipeline de candidatura y tabla de evidencias con el Kanban.
+- Añadido en Fase 21 el workflow `Calidad` con markdownlint-cli2 y lychee, más `.markdownlint-cli2.jsonc` y `.lycheeignore`. Corregidos separadores de tablas, MD037 en CHANGELOG y creado `docs/apuntes/README.md` para que las carpetas vacías existan en git.
+- Añadido en Fase 21 `deploy-pages.yml` a pokedex_web y el-juego-de-la-vida, activado Pages por API con build_type workflow y configuradas descripciones y homepage de ambos repos.
+- Creado en Fase 21 el Project público de candidaturas (#3) con campo Pipeline propio y vinculado al repositorio.
 
 ## Referencias técnicas
 
@@ -922,4 +939,7 @@ El detalle de cada decisión también se refleja en el grafo del Memory MCP, que
 - Memoria: `docs/memoria/estado-actual.md`, `docs/memoria/decisiones.md` y `docs/memoria/memoria.local.json` fuera de git
 - Directrices globales: `AGENTS.md`
 - MCPs: `opencode.json` canónico y `.opencode/mcp.json` legacy. Claves en `.env` no versionado y `.env.example` como plantilla: `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`.
+- Calidad: `.github/workflows/quality.yml`, `.markdownlint-cli2.jsonc` y `.lycheeignore`
+- Despliegue: `.github/workflows/deploy-pages.yml` en los repos pokedex_web y el-juego-de-la-vida
+- Visibilidad: repositorio en https://github.com/edu84gp/job-support-portfolio y Kanban en https://github.com/users/edu84gp/projects/3
 - Plan de aplicación: `PLAN.md`

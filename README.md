@@ -53,6 +53,7 @@ Cada etapa tiene agentes y comandos dedicados, con permisos mínimos y memoria p
 | Historial de progreso | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Referencia de agentes, MCPs, comandos y skills | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |
 | Pipeline de candidaturas | [docs/candidaturas/tabla-candidaturas.md](docs/candidaturas/tabla-candidaturas.md) |
+| Kanban del pipeline | [Project público](https://github.com/users/edu84gp/projects/3) |
 | Memoria y decisiones del proyecto | [docs/memoria/](docs/memoria/) |
 | Ejercicios y apuntes del programa | [docs/ejercicios/](docs/ejercicios/) · [docs/apuntes/](docs/apuntes/) |
 
@@ -139,6 +140,7 @@ Every stage has dedicated agents and commands, with least-privilege permissions 
 | Progress log | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Agents, MCPs, commands and skills reference | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |
 | Application pipeline | [docs/candidaturas/tabla-candidaturas.md](docs/candidaturas/tabla-candidaturas.md) |
+| Pipeline Kanban | [Public project](https://github.com/users/edu84gp/projects/3) |
 | Project memory and decisions | [docs/memoria/](docs/memoria/) |
 | Program exercises and notes | [docs/ejercicios/](docs/ejercicios/) · [docs/apuntes/](docs/apuntes/) |
 

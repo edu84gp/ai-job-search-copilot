@@ -25,7 +25,7 @@ Leyenda de estado: pendiente, en curso, completada.
 - [x] Fase 18: MCP sqlite y drive. Instalar sqlite como fuente unica del historial de candidaturas y evaluar notion o google-drive para respaldo.
 - [x] Fase 19: Commands opencode. Crear comandos cv-review, linkedin-review, interview-technical, interview-behavioral, interview-live-coding y log-progress. Migrar las directrices globales a AGENTS.md.
 - [x] Fase 20: Skills y memory-bank. Crear skills reutilizables y estructura docs/memoria para continuidad entre sesiones.
-- [ ] Fase 21: Visibilidad GitHub. Optimizar README para reclutadores, configurar GitHub Actions de despliegue, Projects Kanban y linter markdown.
+- [x] Fase 21: Visibilidad GitHub. Optimizar README para reclutadores, configurar GitHub Actions de despliegue, Projects Kanban y linter markdown.
 - [ ] Fase 22: Validación final. Ejecutar revisión cruzada de agentes, permisos y documentación. Cerrar CHANGELOG-progreso.md.
 
 ## Objetivo
@@ -57,7 +57,8 @@ Centralizar los ejercicios del curso pregrabado Employment Workshop 2026 y la do
 - Fase 19 completada: 6 comandos en .opencode/commands/. cv-review encadena ats-checker y cv-optimizer con confirmación, log-progress registra avance con tracker-doc y actualiza CHANGELOG con confirmación de fase, y hay un comando por coach para entrevista técnica, conductual y live-coding.
 - Migradas las directrices globales de .opencode/rules.md a AGENTS.md en la raíz, el archivo que opencode carga automáticamente. Descartado rules.md porque no se estaba cargando.
 - Fase 20 completada: memoria del proyecto con Memory MCP en docs/memoria/memoria.local.json, ficheros versionados estado-actual.md y decisiones.md, 3 skills (flujo-candidatura, apunte-ejercicio y memoria-sesion) y comando log-progress ampliado con la memoria.
-- Fases 21 a 22 pendientes según ToDo general por fases.
+- Fase 21 completada: repositorio público en GitHub con gh CLI autenticado, README bilingüe orientado a reclutadores, workflow de calidad (markdownlint y lychee) en verde, Pages desplegado en pokedex_web y el-juego-de-la-vida y Kanban público de candidaturas con campo Pipeline en Projects.
+- Fase 22 pendiente: validación final según ToDo general por fases.
 - El avance se marca en los checkboxes del ToDo y se detalla en CHANGELOG-progreso.md. El detalle técnico vive en docs/referencia-agentes-mcps.md.
 
 ## Documentación técnica

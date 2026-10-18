@@ -192,3 +192,17 @@ Historial de fases del plan definido en `PLAN.md`.
 - Ampliado el comando log-progress para actualizar la memoria del proyecto antes del CHANGELOG.
 - Actualizada docs/referencia-agentes-mcps.md con la sección de skills, la memoria del proyecto y el recuento a 15 agentes, 8 MCPs, 6 comandos y 3 skills.
 - Pendiente tras el reinicio: el grafo de memoria arranca vacío en la nueva ruta y se puede sembrar con los hitos de las fases anteriores.
+
+## 2026-10-18 - Fase 21 completada
+
+- Instalado gh CLI 2.102.0 con winget y autenticado con `gh auth login --with-token` usando el PAT de .env; scopes confirmados: gist, project, read:org, repo y workflow.
+- Creado el repositorio público edu84gp/job-support-portfolio con push inicial de 43 ficheros y topics orientados a reclutadores.
+- Ampliado .gitignore para el repo público: cv/* salvo su README, contactos de networking, registro de negociaciones, base SQLite y .env fuera; la tabla de candidaturas se publica como evidencia.
+- README reescrito en bilingüe orientado a reclutadores: badges de calidad y estado, stack, proyectos con demos, pipeline de candidatura y tabla de evidencias.
+- Creado .github/workflows/quality.yml con lint de Markdown (markdownlint-cli2, globs `**/*.md`) y verificación de enlaces (lychee); workflow en verde tras corregir separadores de tablas y MD037.
+- Configuración del lint en .markdownlint-cli2.jsonc con reglas desactivadas por estilo del proyecto y exclusiones de node_modules y prompts de .opencode; .lycheeignore excluye LinkedIn y el endpoint MCP de context7.
+- Añadido .github/workflows/deploy-pages.yml a pokedex_web y el-juego-de-la-vida con checkout@v6, configure-pages@v5, upload-pages-artifact@v3 y deploy-pages@v5; Pages activado vía API con build_type workflow y demos respondiendo 200.
+- Configuradas descripciones y homepage de ambos repos de proyectos con las URLs de las demos.
+- Creado el Project público "Candidaturas Employment Workshop 2026" (#3) con campo Pipeline (Aplicada, En seguimiento, Entrevista tecnica, Entrevista final, Oferta, Descartada) y vinculado al repositorio.
+- Creado docs/apuntes/README.md para que la carpeta exista en el repo y los enlaces relativos resuelvan.
+- Documentación en docs/referencia-agentes-mcps.md, actualización de PLAN.md y de docs/memoria/.
