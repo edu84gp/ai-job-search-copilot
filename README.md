@@ -23,7 +23,7 @@ Busco mi primera oportunidad como desarrollador Junior Full-Stack, con especial 
 ## Stack técnico
 
 | Área | Tecnologías |
-|---|---|
+| --- | --- |
 | Frontend | HTML5, CSS3, JavaScript, React |
 | Backend | Node.js, Express, Socket.io, WebSockets, APIs REST |
 | Datos | SQL, SQLite |
@@ -33,7 +33,7 @@ Busco mi primera oportunidad como desarrollador Junior Full-Stack, con especial 
 ## Proyectos destacados
 
 | Proyecto | Descripción | Enlaces |
-|---|---|---|
+| --- | --- | --- |
 | POKÉDEX WEB | Aplicación web que consume PokéAPI con paginación fluida, tarjetas interactivas y ficha detallada. | [Código](https://github.com/edu84gp/pokedex_web) · [Demo](https://edu84gp.github.io/pokedex_web/) |
 | El juego de la vida | Autómata celular Turing-completo: simula cualquier Máquina de Turing a partir del estado inicial. | [Código](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
 | WhatsChatGPT | Chatbot web en tiempo real con arquitectura cliente-servidor, WebSockets con Socket.io e IA local vía Ollama. Demo pendiente de despliegue: requiere un servidor con Ollama en ejecución. | [Código](https://github.com/edu84gp/WhatsChatGPT) |
@@ -48,7 +48,7 @@ Employment Workshop 2026 es un programa de inserción laboral. Para seguirlo, co
 Cada etapa tiene agentes y comandos dedicados, con permisos mínimos y memoria persistente entre sesiones. Las evidencias quedan versionadas en el repositorio:
 
 | Evidencia | Dónde |
-|---|---|
+| --- | --- |
 | Plan por fases (22 fases) | [PLAN.md](PLAN.md) |
 | Historial de progreso | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Referencia de agentes, MCPs, comandos y skills | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |
@@ -109,7 +109,7 @@ I am looking for my first opportunity as a Junior Full-Stack Developer, especial
 ## Tech stack
 
 | Area | Technologies |
-|---|---|
+| --- | --- |
 | Frontend | HTML5, CSS3, JavaScript, React |
 | Backend | Node.js, Express, Socket.io, WebSockets, REST APIs |
 | Data | SQL, SQLite |
@@ -119,7 +119,7 @@ I am looking for my first opportunity as a Junior Full-Stack Developer, especial
 ## Featured projects
 
 | Project | Description | Links |
-|---|---|---|
+| --- | --- | --- |
 | POKÉDEX WEB | Web application consuming PokéAPI with smooth pagination, interactive cards and detailed view. | [Code](https://github.com/edu84gp/pokedex_web) · [Demo](https://edu84gp.github.io/pokedex_web/) |
 | Game of Life | Turing-complete cellular automaton: simulates any Turing Machine from the initial state. | [Code](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
 | WhatsChatGPT | Real-time web chatbot with client-server architecture, WebSockets via Socket.io and local AI via Ollama. Demo pending deployment: requires a server with Ollama running. | [Code](https://github.com/edu84gp/WhatsChatGPT) |
@@ -134,7 +134,7 @@ Employment Workshop 2026 is a job placement program. To follow it, I built a sys
 Every stage has dedicated agents and commands, with least-privilege permissions and persistent memory across sessions. The evidence is versioned in the repository:
 
 | Evidence | Where |
-|---|---|
+| --- | --- |
 | Phased plan (22 phases) | [PLAN.md](PLAN.md) |
 | Progress log | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Agents, MCPs, commands and skills reference | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |

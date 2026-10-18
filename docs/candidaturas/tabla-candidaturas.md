@@ -15,4 +15,4 @@ Registro central de candidaturas con estado detallado y enlaces a oferta, carta 
 ## Registro
 
 | Fecha | Empresa | Rol | Estado | Oferta | Carta | CV | Contacto | Próximo paso |
-|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |

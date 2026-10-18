@@ -24,4 +24,4 @@ Canales futuros cuando mejore el inglés y la carga lo permita: blog dev.to, X y
 ## Calendario
 
 | Semana | Fecha | Canal | Formato | Pilar | Tema | Ángulo | Estado | Enlace publicado |
-|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |

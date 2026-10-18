@@ -12,7 +12,7 @@ Seguimiento de los ejercicios del Employment Workshop 2026.
 ## Índice
 
 | Ejercicio | Módulo | Agente experto | Estado | Registro |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 
 ## Notas
 

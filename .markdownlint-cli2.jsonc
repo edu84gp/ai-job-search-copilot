@@ -3,8 +3,15 @@
     "default": true,
     "MD013": false,
     "MD025": false,
+    "MD036": false,
     "MD033": false,
     "MD034": false,
     "MD040": false
-  }
+  },
+  "ignores": [
+    "node_modules/**",
+    ".opencode/node_modules/**",
+    ".opencode/agents/**",
+    ".opencode/commands/**"
+  ]
 }

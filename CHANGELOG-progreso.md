@@ -133,7 +133,7 @@ Historial de fases del plan definido en `PLAN.md`.
 - Instalación de uv 0.13.1 con winget y configuración del MCP fetch oficial con uvx mcp-server-fetch.
 - Configuración del MCP context7 remoto en https://mcp.context7.com/mcp con cabecera CONTEXT7_API_KEY.
 - Añadidos fetch y context7 a opencode.json canónico y por paridad a .opencode/mcp.json legacy.
-- Permisos context7_* y fetch_* denegados globalmente y habilitados por agente: context7 en course-exercise-solver, live-coding-coach e interview-coach; fetch en job-search-strategist, salary-negotiator, cv-optimizer y ats-checker.
+- Permisos `context7_*` y `fetch_*` denegados globalmente y habilitados por agente: context7 en course-exercise-solver, live-coding-coach e interview-coach; fetch en job-search-strategist, salary-negotiator, cv-optimizer y ats-checker.
 - Añadida CONTEXT7_API_KEY a .env.example y creado .env no versionado para claves.
 - Habilitados context7 y fetch en el agente primario build y en plan.
 - Verificado context7 con clave real frente a clave falsa y fetch con descarga real.
