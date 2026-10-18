@@ -16,7 +16,7 @@
 
 ## Bloqueos
 
-- Ninguno. Tras cambiar `opencode.json` hace falta reiniciar opencode para recargar los MCPs.
+- Ninguno. El grafo del Memory MCP queda pendiente de sembrar tras reiniciar opencode: se corrigió MEMORY_FILE_PATH a ruta absoluta porque el servidor resuelve las relativas contra la caché de npx.
 
 ## Pendientes anotados
 

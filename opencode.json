@@ -19,7 +19,7 @@
       "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
       "enabled": true,
       "environment": {
-        "MEMORY_FILE_PATH": "docs/memoria/memoria.local.json"
+        "MEMORY_FILE_PATH": "C:\\Users\\edu_g\\job-support-portfolio\\docs\\memoria\\memoria.local.json"
       }
     },
     "fetch": {

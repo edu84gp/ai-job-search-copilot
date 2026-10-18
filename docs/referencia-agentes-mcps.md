@@ -712,7 +712,7 @@ No requiere secreto. Está habilitado por defecto en `opencode.json`. Invocado a
 
 **Qué hace:**
 
-Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` mediante la variable `MEMORY_FILE_PATH`, en lugar de la ruta por defecto dentro de la caché de npx.
+Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` mediante la variable `MEMORY_FILE_PATH`, en lugar de la ruta por defecto dentro de la caché de npx. La ruta debe ser absoluta: el proceso del servidor trabaja con su propio directorio de trabajo (la caché de npx), así que una ruta relativa resuelve contra esa caché y falla con ENOENT.
 
 **Para qué sirve:**
 

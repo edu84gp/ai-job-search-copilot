@@ -206,3 +206,9 @@ Historial de fases del plan definido en `PLAN.md`.
 - Creado el Project público "Candidaturas Employment Workshop 2026" (#3) con campo Pipeline (Aplicada, En seguimiento, Entrevista tecnica, Entrevista final, Oferta, Descartada) y vinculado al repositorio.
 - Creado docs/apuntes/README.md para que la carpeta exista en el repo y los enlaces relativos resuelvan.
 - Documentación en docs/referencia-agentes-mcps.md, actualización de PLAN.md y de docs/memoria/.
+
+## 2026-10-18 - Corrección del Memory MCP
+
+- Detectado al sembrar el grafo que una ruta relativa en MEMORY_FILE_PATH falla con ENOENT: el servidor del MCP resuelve la ruta contra su propio directorio de trabajo, la caché de npx.
+- Solución: ruta absoluta C:\Users\edu_g\job-support-portfolio\docs\memoria\memoria.local.json en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
+- Pendiente tras reiniciar opencode: sembrar el grafo con los hitos de las fases 0 a 21.
