@@ -196,7 +196,7 @@ Historial de fases del plan definido en `PLAN.md`.
 ## 2026-10-18 - Fase 21 completada
 
 - Instalado gh CLI 2.102.0 con winget y autenticado con `gh auth login --with-token` usando el PAT de .env; scopes confirmados: gist, project, read:org, repo y workflow.
-- Creado el repositorio público edu84gp/job-support-portfolio con push inicial de 43 ficheros y topics orientados a reclutadores.
+- Creado el repositorio público edu84gp/ai-job-search-copilot (entonces job-support-portfolio) con push inicial de 43 ficheros y topics orientados a reclutadores.
 - Ampliado .gitignore para el repo público: cv/* salvo su README, contactos de networking, registro de negociaciones, base SQLite y .env fuera; la tabla de candidaturas se publica como evidencia.
 - README reescrito en bilingüe orientado a reclutadores: badges de calidad y estado, stack, proyectos con demos, pipeline de candidatura y tabla de evidencias.
 - Creado .github/workflows/quality.yml con lint de Markdown (markdownlint-cli2, globs `**/*.md`) y verificación de enlaces (lychee); workflow en verde tras corregir separadores de tablas y MD037.
@@ -210,12 +210,12 @@ Historial de fases del plan definido en `PLAN.md`.
 ## 2026-10-18 - Corrección del Memory MCP
 
 - Detectado al sembrar el grafo que una ruta relativa en MEMORY_FILE_PATH falla con ENOENT: el servidor del MCP resuelve la ruta contra su propio directorio de trabajo, la caché de npx.
-- Solución: ruta absoluta C:\Users\edu_g\job-support-portfolio\docs\memoria\memoria.local.json en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
+- Solución: ruta absoluta C:\Users\edu_g\ai-job-search-copilot\docs\memoria\memoria.local.json (carpeta local renombrada el 2026-10-19) en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
 - Pendiente tras reiniciar opencode: sembrar el grafo con los hitos de las fases 0 a 21.
 
 ## 2026-10-19 - Grafo de memoria sembrado
 
-- Sembrado el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades (Employment Workshop 2026, job-support-portfolio, Ecosistema IA opencode, Kanban candidaturas y Fase 21 visibilidad GitHub) y 5 relaciones.
+- Sembrado el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades (Employment Workshop 2026, ai-job-search-copilot, Ecosistema IA opencode, Kanban candidaturas y Fase 21 visibilidad GitHub) y 5 relaciones.
 - Detectada una segunda causa raíz: el servidor v2.0.0 carga el fichero en formato JSON Lines, con un registro JSON completo por línea; la siembra previa como objeto JSON único se ignoraba y el grafo arrancaba vacío. Reescrito el fichero con 10 líneas válidas.
 - Terminados los procesos server-memory huérfanos con el entorno antiguo que impedían la recarga tras los reinicios; el servidor se validó arrancándolo contra el fichero y carga las 5 entidades y 5 relaciones.
 
@@ -227,3 +227,9 @@ Historial de fases del plan definido en `PLAN.md`.
 - Correcciones aplicadas en GitHub: LICENSE MIT en los tres repositorios, topics en pokedex_web y el-juego-de-la-vida, descripciones con tildes y CTA y URL de clon corregidos en pokedex_web.
 - Creado templates/README.md para que la carpeta mencionada en el README exista en el repositorio público.
 - Plan cerrado: 22 de 22 fases. Pendientes anotados en estado-actual.md: fijar repo insignia, guía de reproducción, evidencia real, vista Board, README del juego, favicon y caso Aplika.
+
+## 2026-10-19 - Renombrado a ai-job-search-copilot
+
+- Renombrado el repositorio en GitHub de job-support-portfolio a ai-job-search-copilot con `gh repo rename`; la URL antigua redirige con 301 y el remoto local queda actualizado.
+- Actualizadas las referencias en README (badges), PLAN, estado-actual, referencia técnica, decisiones y entradas históricas del CHANGELOG; nueva decisión con motivo y alternativas descartadas.
+- Carpeta local renombrada a C:\Users\edu_g\ai-job-search-copilot con MEMORY_FILE_PATH actualizado en opencode.json y .opencode/mcp.json; el grafo de memoria renombra la entidad y mantiene sus relaciones.

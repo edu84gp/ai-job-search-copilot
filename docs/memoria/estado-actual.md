@@ -5,7 +5,7 @@
 - Última actualización: 2026-10-19.
 - Fase del plan: Fases 0 a 22 completadas; plan cerrado y validado.
 - Ecosistema: 15 agentes, 8 MCPs, 6 comandos y 3 skills.
-- Repositorio: público en https://github.com/edu84gp/job-support-portfolio con CI de calidad (markdownlint y lychee) en verde.
+- Repositorio: público en https://github.com/edu84gp/ai-job-search-copilot (renombrado desde job-support-portfolio el 2026-10-19) con CI de calidad (markdownlint y lychee) en verde.
 - Kanban público del pipeline de candidaturas: https://github.com/users/edu84gp/projects/3 con campo Pipeline propio.
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
 - Candidaturas: sin registros todavía. La tabla `candidaturas` se creará al primer registro con application-tracker.
@@ -21,7 +21,7 @@
 
 ## Pendientes anotados
 
-- Fijar job-support-portfolio en el perfil de GitHub: manual en el navegador (Customize your pins), pendiente tras la auditoría.
+- Fijar ai-job-search-copilot en el perfil de GitHub: manual en el navegador (Customize your pins), pendiente tras la auditoría.
 - Guía "Cómo reproducirlo" en el README del sistema: la ruta absoluta de MEMORY_FILE_PATH no es portable a otro equipo.
 - Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
 - Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo.

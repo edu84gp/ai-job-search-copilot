@@ -30,7 +30,7 @@ Leyenda de estado: pendiente, en curso, completada.
 
 ## Objetivo
 
-Centralizar los ejercicios del curso pregrabado Employment Workshop 2026 y la documentación del proceso de inserción laboral en el repositorio `job-support-portfolio` para evidenciar el progreso técnico ante reclutadores.
+Centralizar los ejercicios del curso pregrabado Employment Workshop 2026 y la documentación del proceso de inserción laboral en el repositorio `ai-job-search-copilot` para evidenciar el progreso técnico ante reclutadores.
 
 ## Estado de resolución
 

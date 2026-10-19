@@ -884,7 +884,7 @@ El detalle de cada decisión también se refleja en el grafo del Memory MCP, que
 
 ## Visibilidad en GitHub
 
-El repositorio es público en https://github.com/edu84gp/job-support-portfolio. El `.gitignore` excluye los datos sensibles: `cv/*` salvo su README, `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`. La tabla `docs/candidaturas/tabla-candidaturas.md` sí se publica como evidencia del proceso.
+El repositorio es público en https://github.com/edu84gp/ai-job-search-copilot. El `.gitignore` excluye los datos sensibles: `cv/*` salvo su README, `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`. La tabla `docs/candidaturas/tabla-candidaturas.md` sí se publica como evidencia del proceso.
 
 **Calidad con GitHub Actions:** `.github/workflows/quality.yml` se ejecuta en cada push a main, en pull requests y manualmente. Dos trabajos: lint de Markdown con `DavidAnson/markdownlint-cli2-action` sobre `**/*.md` y verificación de enlaces con `lycheeverse/lychee-action`. La configuración del lint vive en `.markdownlint-cli2.jsonc`, que desactiva MD013, MD025, MD033, MD034, MD036 y MD040 por el estilo del proyecto (tablas largas, HTML embebido, URLs visibles) e ignora `node_modules/` y los prompts de `.opencode/agents` y `.opencode/commands` por no ser documentos. `.lycheeignore` excluye LinkedIn (bloquea automatización) y el endpoint MCP de context7 (solo acepta POST).
 
@@ -933,6 +933,7 @@ El repositorio es público en https://github.com/edu84gp/job-support-portfolio. 
 - Corregido el Memory MCP tras la Fase 21: `MEMORY_FILE_PATH` pasa a ruta absoluta porque el servidor resuelve las relativas contra la caché de npx y las escrituras fallaban con ENOENT.
 - Sembrado tras la Fase 21 el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades y 5 relaciones. El servidor v2.0.0 usa formato JSON Lines, así que la siembra manual como objeto JSON único cargaba vacía; verificado arrancando el servidor contra el fichero.
 - Cerrada la Fase 22 con la auditoría final: permisos y frontmatter de los 15 agentes, handshakes de los 8 MCPs, comandos, skills, coherencia documental y seguridad del repo (sin secretos, .env ignorado). Corregidos interview-coach (`webfetch: deny`) y `.playwright-mcp/` en .gitignore. Pase de github-portfolio-reviewer y correcciones en los repos de proyectos: licencias MIT, topics, tildes y CTA de pokedex_web.
+- Renombrado el repositorio de job-support-portfolio a ai-job-search-copilot el 2026-10-19 por orientación a reclutadores; GitHub mantiene el redirect 301 de la URL antigua y se actualizaron badges, referencias de documentación y `MEMORY_FILE_PATH` con la carpeta local renombrada a juego.
 
 ## Referencias técnicas
 
@@ -944,5 +945,5 @@ El repositorio es público en https://github.com/edu84gp/job-support-portfolio. 
 - MCPs: `opencode.json` canónico y `.opencode/mcp.json` legacy. Claves en `.env` no versionado y `.env.example` como plantilla: `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`.
 - Calidad: `.github/workflows/quality.yml`, `.markdownlint-cli2.jsonc` y `.lycheeignore`
 - Despliegue: `.github/workflows/deploy-pages.yml` en los repos pokedex_web y el-juego-de-la-vida
-- Visibilidad: repositorio en https://github.com/edu84gp/job-support-portfolio y Kanban en https://github.com/users/edu84gp/projects/3
+- Visibilidad: repositorio en https://github.com/edu84gp/ai-job-search-copilot y Kanban en https://github.com/users/edu84gp/projects/3
 - Plan de aplicación: `PLAN.md`

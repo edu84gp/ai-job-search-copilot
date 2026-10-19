@@ -1,6 +1,6 @@
 # Eduardo García Prieto — Junior Full-Stack + IA
 
-![Calidad](https://github.com/edu84gp/job-support-portfolio/actions/workflows/quality.yml/badge.svg)
+![Calidad](https://github.com/edu84gp/ai-job-search-copilot/actions/workflows/quality.yml/badge.svg)
 ![Estado](https://img.shields.io/badge/estado-b%C3%BAsqueda%20activa-brightgreen)
 ![Employment Workshop 2026](https://img.shields.io/badge/Employment%20Workshop-2026-blue)
 
@@ -89,7 +89,7 @@ Cada etapa tiene agentes y comandos dedicados, con permisos mínimos y memoria p
 
 # Eduardo García Prieto — Junior Full-Stack + AI
 
-![Quality](https://github.com/edu84gp/job-support-portfolio/actions/workflows/quality.yml/badge.svg)
+![Quality](https://github.com/edu84gp/ai-job-search-copilot/actions/workflows/quality.yml/badge.svg)
 ![Status](https://img.shields.io/badge/status-open%20to%20work-brightgreen)
 ![Employment Workshop 2026](https://img.shields.io/badge/Employment%20Workshop-2026-blue)
 

@@ -46,7 +46,7 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 
 ## 2026-10-18 - Repositorio público con exclusiones de privacidad
 
-- Decisión: publicar `job-support-portfolio` como repo público excluyendo `cv/*` (salvo su README), `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`; la tabla de candidaturas sí se publica como evidencia.
+- Decisión: publicar `ai-job-search-copilot` (entonces job-support-portfolio) como repo público excluyendo `cv/*` (salvo su README), `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`; la tabla de candidaturas sí se publica como evidencia.
 - Motivo: el repositorio funciona como portfolio ante reclutadores y a la vez protege datos personales y contactos.
 - Descartado: repositorio privado (pierde su función de portfolio) y publicación sin exclusiones.
 
@@ -70,6 +70,12 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 
 ## 2026-10-19 - Licencia MIT única en los tres repositorios públicos
 
-- Decisión: licencia MIT en job-support-portfolio, pokedex_web y el-juego-de-la-vida.
+- Decisión: licencia MIT en ai-job-search-copilot, pokedex_web y el-juego-de-la-vida.
 - Motivo: una única licencia permisiva y conocida por reclutadores; MIT es válida tanto para código como para la documentación técnica del repositorio principal.
 - Descartado: CC BY 4.0 solo para la documentación del repo principal por añadir complejidad sin beneficio claro.
+
+## 2026-10-19 - Renombrado del repositorio a ai-job-search-copilot
+
+- Decisión: renombrar job-support-portfolio a ai-job-search-copilot en GitHub y renombrar la carpeta local a juego, actualizando MEMORY_FILE_PATH.
+- Motivo: el nombre anterior era genérico y ambiguo ("job-support" se lee como soporte técnico); el nuevo comunica de un vistazo IA y búsqueda de empleo en la lista de repositorios fijados, que es lo primero que ve un reclutador.
+- Descartado: mantener job-support-portfolio, ai-job-search-system (sobrio pero menos memorable), ai-career-copilot (más vago) y ai-job-search-agents (menos claro para perfiles no técnicos). GitHub mantiene redirect 301 de la URL antigua.
