@@ -212,3 +212,9 @@ Historial de fases del plan definido en `PLAN.md`.
 - Detectado al sembrar el grafo que una ruta relativa en MEMORY_FILE_PATH falla con ENOENT: el servidor del MCP resuelve la ruta contra su propio directorio de trabajo, la caché de npx.
 - Solución: ruta absoluta C:\Users\edu_g\job-support-portfolio\docs\memoria\memoria.local.json en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
 - Pendiente tras reiniciar opencode: sembrar el grafo con los hitos de las fases 0 a 21.
+
+## 2026-10-19 - Grafo de memoria sembrado
+
+- Sembrado el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades (Employment Workshop 2026, job-support-portfolio, Ecosistema IA opencode, Kanban candidaturas y Fase 21 visibilidad GitHub) y 5 relaciones.
+- Detectada una segunda causa raíz: el servidor v2.0.0 carga el fichero en formato JSON Lines, con un registro JSON completo por línea; la siembra previa como objeto JSON único se ignoraba y el grafo arrancaba vacío. Reescrito el fichero con 10 líneas válidas.
+- Terminados los procesos server-memory huérfanos con el entorno antiguo que impedían la recarga tras los reinicios; el servidor se validó arrancándolo contra el fichero y carga las 5 entidades y 5 relaciones.

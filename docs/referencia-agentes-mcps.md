@@ -712,7 +712,7 @@ No requiere secreto. Está habilitado por defecto en `opencode.json`. Invocado a
 
 **Qué hace:**
 
-Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` mediante la variable `MEMORY_FILE_PATH`, en lugar de la ruta por defecto dentro de la caché de npx. La ruta debe ser absoluta: el proceso del servidor trabaja con su propio directorio de trabajo (la caché de npx), así que una ruta relativa resuelve contra esa caché y falla con ENOENT.
+Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` mediante la variable `MEMORY_FILE_PATH`, en lugar de la ruta por defecto dentro de la caché de npx. La ruta debe ser absoluta: el proceso del servidor trabaja con su propio directorio de trabajo (la caché de npx), así que una ruta relativa resuelve contra esa caché y falla con ENOENT. El fichero se escribe en formato JSON Lines, con un registro JSON completo por línea (entidad o relación); al editarlo a mano hay que mantener ese formato porque el servidor lo carga línea a línea y cualquier línea ilegible se ignora conservándola en el siguiente guardado.
 
 **Para qué sirve:**
 
@@ -876,7 +876,7 @@ La carpeta `docs/memoria/` contiene la vista versionada del proyecto:
 
 - `estado-actual.md`: foto viva con la última actualización, la fase, el siguiente paso y los bloqueos.
 - `decisiones.md`: registro de decisiones con fecha, decisión, motivo y alternativas descartadas.
-- `memoria.local.json`: grafo del Memory MCP, excluido de git.
+- `memoria.local.json`: grafo del Memory MCP en formato JSON Lines, excluido de git.
 
 El detalle de cada decisión también se refleja en el grafo del Memory MCP, que los agentes pueden consultar con read_graph o search_nodes.
 
@@ -930,6 +930,8 @@ El repositorio es público en https://github.com/edu84gp/job-support-portfolio. 
 - Añadido en Fase 21 el workflow `Calidad` con markdownlint-cli2 y lychee, más `.markdownlint-cli2.jsonc` y `.lycheeignore`. Corregidos separadores de tablas, MD037 en CHANGELOG y creado `docs/apuntes/README.md` para que las carpetas vacías existan en git.
 - Añadido en Fase 21 `deploy-pages.yml` a pokedex_web y el-juego-de-la-vida, activado Pages por API con build_type workflow y configuradas descripciones y homepage de ambos repos.
 - Creado en Fase 21 el Project público de candidaturas (#3) con campo Pipeline propio y vinculado al repositorio.
+- Corregido el Memory MCP tras la Fase 21: `MEMORY_FILE_PATH` pasa a ruta absoluta porque el servidor resuelve las relativas contra la caché de npx y las escrituras fallaban con ENOENT.
+- Sembrado tras la Fase 21 el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades y 5 relaciones. El servidor v2.0.0 usa formato JSON Lines, así que la siembra manual como objeto JSON único cargaba vacía; verificado arrancando el servidor contra el fichero.
 
 ## Referencias técnicas
 
