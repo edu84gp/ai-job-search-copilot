@@ -932,6 +932,7 @@ El repositorio es público en https://github.com/edu84gp/job-support-portfolio. 
 - Creado en Fase 21 el Project público de candidaturas (#3) con campo Pipeline propio y vinculado al repositorio.
 - Corregido el Memory MCP tras la Fase 21: `MEMORY_FILE_PATH` pasa a ruta absoluta porque el servidor resuelve las relativas contra la caché de npx y las escrituras fallaban con ENOENT.
 - Sembrado tras la Fase 21 el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades y 5 relaciones. El servidor v2.0.0 usa formato JSON Lines, así que la siembra manual como objeto JSON único cargaba vacía; verificado arrancando el servidor contra el fichero.
+- Cerrada la Fase 22 con la auditoría final: permisos y frontmatter de los 15 agentes, handshakes de los 8 MCPs, comandos, skills, coherencia documental y seguridad del repo (sin secretos, .env ignorado). Corregidos interview-coach (`webfetch: deny`) y `.playwright-mcp/` en .gitignore. Pase de github-portfolio-reviewer y correcciones en los repos de proyectos: licencias MIT, topics, tildes y CTA de pokedex_web.
 
 ## Referencias técnicas
 

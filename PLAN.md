@@ -26,7 +26,7 @@ Leyenda de estado: pendiente, en curso, completada.
 - [x] Fase 19: Commands opencode. Crear comandos cv-review, linkedin-review, interview-technical, interview-behavioral, interview-live-coding y log-progress. Migrar las directrices globales a AGENTS.md.
 - [x] Fase 20: Skills y memory-bank. Crear skills reutilizables y estructura docs/memoria para continuidad entre sesiones.
 - [x] Fase 21: Visibilidad GitHub. Optimizar README para reclutadores, configurar GitHub Actions de despliegue, Projects Kanban y linter markdown.
-- [ ] Fase 22: Validación final. Ejecutar revisión cruzada de agentes, permisos y documentación. Cerrar CHANGELOG-progreso.md.
+- [x] Fase 22: Validación final. Ejecutar revisión cruzada de agentes, permisos y documentación. Cerrar CHANGELOG-progreso.md.
 
 ## Objetivo
 
@@ -58,7 +58,7 @@ Centralizar los ejercicios del curso pregrabado Employment Workshop 2026 y la do
 - Migradas las directrices globales de .opencode/rules.md a AGENTS.md en la raíz, el archivo que opencode carga automáticamente. Descartado rules.md porque no se estaba cargando.
 - Fase 20 completada: memoria del proyecto con Memory MCP en docs/memoria/memoria.local.json, ficheros versionados estado-actual.md y decisiones.md, 3 skills (flujo-candidatura, apunte-ejercicio y memoria-sesion) y comando log-progress ampliado con la memoria.
 - Fase 21 completada: repositorio público en GitHub con gh CLI autenticado, README bilingüe orientado a reclutadores, workflow de calidad (markdownlint y lychee) en verde, Pages desplegado en pokedex_web y el-juego-de-la-vida y Kanban público de candidaturas con campo Pipeline en Projects.
-- Fase 22 pendiente: validación final según ToDo general por fases.
+- Fase 22 completada: auditoría de los 15 agentes, los 8 MCPs, los 6 comandos y las 3 skills con handshakes funcionales, coherencia documental y seguridad del repo público (sin secretos). Corregidos interview-coach (webfetch deny) y .gitignore (.playwright-mcp), añadido templates/README.md, pase de github-portfolio-reviewer y correcciones en los repos de proyectos (licencias MIT, topics, tildes y CTA de pokedex_web). Plan cerrado: 22 de 22 fases.
 - El avance se marca en los checkboxes del ToDo y se detalla en CHANGELOG-progreso.md. El detalle técnico vive en docs/referencia-agentes-mcps.md.
 
 ## Documentación técnica

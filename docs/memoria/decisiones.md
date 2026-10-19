@@ -67,3 +67,9 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Decisión: Project público con campo single-select `Pipeline` (Aplicada, En seguimiento, Entrevista tecnica, Entrevista final, Oferta, Descartada) además del Status por defecto, vinculado al repositorio.
 - Motivo: el campo propio refleja el pipeline real de candidaturas y se crea por gh CLI; las opciones del Status por defecto requieren GraphQL para editarse.
 - Descartado: reutilizar Status por defecto con opciones genéricas.
+
+## 2026-10-19 - Licencia MIT única en los tres repositorios públicos
+
+- Decisión: licencia MIT en job-support-portfolio, pokedex_web y el-juego-de-la-vida.
+- Motivo: una única licencia permisiva y conocida por reclutadores; MIT es válida tanto para código como para la documentación técnica del repositorio principal.
+- Descartado: CC BY 4.0 solo para la documentación del repo principal por añadir complejidad sin beneficio claro.

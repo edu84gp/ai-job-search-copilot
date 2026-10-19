@@ -218,3 +218,12 @@ Historial de fases del plan definido en `PLAN.md`.
 - Sembrado el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades (Employment Workshop 2026, job-support-portfolio, Ecosistema IA opencode, Kanban candidaturas y Fase 21 visibilidad GitHub) y 5 relaciones.
 - Detectada una segunda causa raíz: el servidor v2.0.0 carga el fichero en formato JSON Lines, con un registro JSON completo por línea; la siembra previa como objeto JSON único se ignoraba y el grafo arrancaba vacío. Reescrito el fichero con 10 líneas válidas.
 - Terminados los procesos server-memory huérfanos con el entorno antiguo que impedían la recarga tras los reinicios; el servidor se validó arrancándolo contra el fichero y carga las 5 entidades y 5 relaciones.
+
+## 2026-10-19 - Fase 22 completada: validación final
+
+- Auditoría completa del ecosistema: frontmatter y permisos de los 15 agentes conformes a la matriz documentada, handshakes funcionales de los 8 MCPs, 6 comandos y 3 skills verificados, recuentos y URLs coherentes y CI en verde.
+- Correcciones durante la auditoría: interview-coach sin `webfetch: deny` (única desviación del estándar de los 15 agentes) y `.playwright-mcp/` añadido a .gitignore por los artefactos del MCP playwright.
+- Pase del agente github-portfolio-reviewer sobre el estado público: veredicto apto con reservas (3.0/5). Hallazgos principales: repo insignia sin fijar, falta guía de reproducción y evidencia real, CTA roto en pokedex_web, README de el-juego-de-la-vida mejorable, 0 topics en los proyectos y sin LICENSE.
+- Correcciones aplicadas en GitHub: LICENSE MIT en los tres repositorios, topics en pokedex_web y el-juego-de-la-vida, descripciones con tildes y CTA y URL de clon corregidos en pokedex_web.
+- Creado templates/README.md para que la carpeta mencionada en el README exista en el repositorio público.
+- Plan cerrado: 22 de 22 fases. Pendientes anotados en estado-actual.md: fijar repo insignia, guía de reproducción, evidencia real, vista Board, README del juego, favicon y caso Aplika.

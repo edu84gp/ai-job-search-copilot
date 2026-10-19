@@ -7,6 +7,7 @@ color: warning
 permission:
   edit: deny
   bash: deny
+  webfetch: deny
   context7_*: allow
 ---
 

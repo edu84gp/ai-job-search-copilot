@@ -3,7 +3,7 @@
 ## Foto
 
 - Última actualización: 2026-10-19.
-- Fase del plan: Fase 21 completada (Fases 0 a 21 cerradas; Fase 22 pendiente).
+- Fase del plan: Fases 0 a 22 completadas; plan cerrado y validado.
 - Ecosistema: 15 agentes, 8 MCPs, 6 comandos y 3 skills.
 - Repositorio: público en https://github.com/edu84gp/job-support-portfolio con CI de calidad (markdownlint y lychee) en verde.
 - Kanban público del pipeline de candidaturas: https://github.com/users/edu84gp/projects/3 con campo Pipeline propio.
@@ -13,7 +13,7 @@
 
 ## Siguiente paso
 
-- Fase 22: validación final con revisión cruzada de agentes, permisos y documentación, y cierre de CHANGELOG-progreso.md.
+- Plan completado. Siguiente hito operativo: registrar la primera candidatura real con application-tracker y mantener la memoria al día.
 
 ## Bloqueos
 
@@ -21,5 +21,11 @@
 
 ## Pendientes anotados
 
+- Fijar job-support-portfolio en el perfil de GitHub: manual en el navegador (Customize your pins), pendiente tras la auditoría.
+- Guía "Cómo reproducirlo" en el README del sistema: la ruta absoluta de MEMORY_FILE_PATH no es portable a otro equipo.
+- Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
+- Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo.
+- README de el-juego-de-la-vida por reescribir como README de proyecto y favicon ausente en pokedex_web.
+- Caso de estudio público de Aplika Jobs sin exponer propiedad intelectual.
 - Evaluación de respaldo externo de candidaturas con Notion o Google Drive, sin implementar. Notion es la opción de menor fricción.
 - Demo de WhatsChatGPT sin desplegar: necesita un servidor con Ollama en ejecución.
