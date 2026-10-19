@@ -233,3 +233,10 @@ Historial de fases del plan definido en `PLAN.md`.
 - Renombrado el repositorio en GitHub de job-support-portfolio a ai-job-search-copilot con `gh repo rename`; la URL antigua redirige con 301 y el remoto local queda actualizado.
 - Actualizadas las referencias en README (badges), PLAN, estado-actual, referencia técnica, decisiones y entradas históricas del CHANGELOG; nueva decisión con motivo y alternativas descartadas.
 - Carpeta local renombrada a C:\Users\edu_g\ai-job-search-copilot con MEMORY_FILE_PATH actualizado en opencode.json y .opencode/mcp.json; el grafo de memoria renombra la entidad y mantiene sus relaciones.
+
+## 2026-10-19 - Flecos del renombrado y guía de reproducción
+
+- Corregidas las dos referencias que aún indicaban que la carpeta local se había renombrado "a juego" en docs/referencia-agentes-mcps.md y docs/memoria/decisiones.md.
+- Verificado que ai-job-search-copilot ya figura fijado en el perfil de GitHub junto a pokedex_web y el-juego-de-la-vida; retirado de pendientes.
+- Añadida al README la guía "Cómo reproducirlo" en español e inglés: requisitos, clonado, .env, ajuste portable de MEMORY_FILE_PATH, creación de la base y del grafo al primer uso y verificación de MCPs y agentes.
+- Actualizada docs/memoria/estado-actual.md: pendientes reducidos a evidencia real, vista Board aplazada, README del juego, favicon, caso Aplika, respaldo externo y demo de WhatsChatGPT.

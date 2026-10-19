@@ -63,6 +63,31 @@ Cada etapa tiene agentes y comandos dedicados, con permisos mínimos y memoria p
 - **Calidad automatizada**: GitHub Actions ejecuta en cada push el lint de Markdown y la verificación de enlaces, con configuración versionada en el repositorio.
 - **IA con criterio**: los agentes tienen permisos mínimos por diseño (denegación global, habilitación por agente) y no entregan soluciones directas en los ejercicios del programa, solo guían el proceso.
 
+## Cómo reproducirlo
+
+Requisitos: opencode, Node.js con `npx`, Python con `uv` y Git. Para las tareas de GitHub, `gh` autenticado.
+
+1. Clona el repositorio:
+
+   ```powershell
+   git clone https://github.com/edu84gp/ai-job-search-copilot.git
+   cd ai-job-search-copilot
+   ```
+
+2. Crea el fichero de entorno y rellena las claves:
+
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+   `GITHUB_PERSONAL_ACCESS_TOKEN` necesita los scopes `repo`, `project`, `workflow`, `gist` y `read:org`. `CONTEXT7_API_KEY` solo es necesario si usas el MCP context7.
+
+3. Ajusta `MEMORY_FILE_PATH` en `opencode.json` y `.opencode/mcp.json` a la ruta absoluta de `docs/memoria/memoria.local.json` en tu equipo. Debe ser absoluta porque el Memory MCP resuelve las relativas contra su caché de npx; en Linux o macOS usa barras normales.
+
+4. Abre opencode en la carpeta del repositorio. La base SQLite y el grafo de memoria se crean al primer uso y están excluidos de git.
+
+5. Comprueba que arrancan los 8 MCPs y que los 15 agentes están disponibles. La referencia técnica de cada servidor, permiso y agente está en [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
+
 <details>
 <summary>Estructura del repositorio</summary>
 
@@ -149,6 +174,31 @@ Every stage has dedicated agents and commands, with least-privilege permissions 
 - **Full traceability**: every milestone is logged in the plan and changelog; every technical decision, with its discarded alternative, in `docs/memoria/decisiones.md`.
 - **Automated quality**: GitHub Actions runs Markdown lint and link checking on every push, with versioned configuration in the repository.
 - **AI with judgment**: agents have least-privilege permissions by design (global deny, per-agent enable) and never hand out direct solutions in program exercises, they only guide the process.
+
+## How to reproduce it
+
+Requirements: opencode, Node.js with `npx`, Python with `uv` and Git. For GitHub tasks, authenticated `gh`.
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/edu84gp/ai-job-search-copilot.git
+   cd ai-job-search-copilot
+   ```
+
+2. Create the environment file and fill in the keys:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   `GITHUB_PERSONAL_ACCESS_TOKEN` needs the `repo`, `project`, `workflow`, `gist` and `read:org` scopes. `CONTEXT7_API_KEY` is only required if you use the context7 MCP.
+
+3. Point `MEMORY_FILE_PATH` in `opencode.json` and `.opencode/mcp.json` to the absolute path of `docs/memoria/memoria.local.json` on your machine. It must be absolute because the Memory MCP resolves relative paths against its npx cache; on Linux or macOS use forward slashes.
+
+4. Open opencode in the repository folder. The SQLite database and the memory graph are created on first use and are excluded from git.
+
+5. Check that the 8 MCPs start and the 15 agents are available. The technical reference for each server, permission and agent is in [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
 
 <details>
 <summary>Repository structure</summary>

@@ -76,6 +76,6 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 
 ## 2026-10-19 - Renombrado del repositorio a ai-job-search-copilot
 
-- Decisión: renombrar job-support-portfolio a ai-job-search-copilot en GitHub y renombrar la carpeta local a juego, actualizando MEMORY_FILE_PATH.
+- Decisión: renombrar job-support-portfolio a ai-job-search-copilot en GitHub y renombrar la carpeta local a ai-job-search-copilot, actualizando MEMORY_FILE_PATH.
 - Motivo: el nombre anterior era genérico y ambiguo ("job-support" se lee como soporte técnico); el nuevo comunica de un vistazo IA y búsqueda de empleo en la lista de repositorios fijados, que es lo primero que ve un reclutador.
 - Descartado: mantener job-support-portfolio, ai-job-search-system (sobrio pero menos memorable), ai-career-copilot (más vago) y ai-job-search-agents (menos claro para perfiles no técnicos). GitHub mantiene redirect 301 de la URL antigua.

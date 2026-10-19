@@ -10,10 +10,11 @@
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
 - Candidaturas: sin registros todavía. La tabla `candidaturas` se creará al primer registro con application-tracker.
 - Memoria: grafo del Memory MCP sembrado el 2026-10-19 con los hitos de las fases 0 a 21 en formato JSON Lines (5 entidades y 5 relaciones), verificado contra el fichero.
+- Post-plan: flecos del renombrado corregidos, guía de reproducción añadida al README en español e inglés y repo insignia fijado en el perfil de GitHub.
 
 ## Siguiente paso
 
-- Plan completado. Siguiente hito operativo: registrar la primera candidatura real con application-tracker y mantener la memoria al día.
+- Vista Board del Project aplazada. Siguiente hito operativo: registrar la primera candidatura real con application-tracker y mantener la memoria al día.
 
 ## Bloqueos
 
@@ -21,10 +22,8 @@
 
 ## Pendientes anotados
 
-- Fijar ai-job-search-copilot en el perfil de GitHub: manual en el navegador (Customize your pins), pendiente tras la auditoría.
-- Guía "Cómo reproducirlo" en el README del sistema: la ruta absoluta de MEMORY_FILE_PATH no es portable a otro equipo.
 - Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
-- Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo.
+- Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo; aplazada por decisión del 2026-10-19.
 - README de el-juego-de-la-vida por reescribir como README de proyecto y favicon ausente en pokedex_web.
 - Caso de estudio público de Aplika Jobs sin exponer propiedad intelectual.
 - Evaluación de respaldo externo de candidaturas con Notion o Google Drive, sin implementar. Notion es la opción de menor fricción.
