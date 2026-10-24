@@ -25,7 +25,7 @@
         "@modelcontextprotocol/server-memory"
       ],
       "env": {
-        "MEMORY_FILE_PATH": "C:\\Users\\edu_g\\ai-job-search-copilot\\docs\\memoria\\memoria.local.json"
+        "MEMORY_FILE_PATH": "USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH"
       }
     },
     "fetch": {
