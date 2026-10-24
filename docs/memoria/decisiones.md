@@ -132,3 +132,17 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Motivo: Enter regeneraba el tablero y borraba el patrón dibujado, no había protección frente a intervalos duplicados y la accesibilidad del formulario y del estado era incompleta.
 - Alternativas descartadas: conservar Enter como atajo de generación (destruía el patrón), mantener `type="submit"` con validación adicional (seguía exponiendo el borrado accidental), añadir dependencias o bundler (el despliegue publica archivos estáticos) y generar el patrón aleatorio automáticamente al cargar (el tablero debe arrancar vacío). Para el patrón aleatorio se descartó sortear la densidad y dejar cada célula al azar porque el total podía salirse del 10–50 %; se fija un número exacto de celdas vivas y se colocan en posiciones aleatorias.
 - Verificación: Playwright en local y en la demo publicada (76 comprobaciones, 0 fallos), W3C sin errores, markdownlint sin incidencias y run de Pages `40100958847` en verde.
+
+## 2026-10-24 - Archivar repositorios de bajo valor
+
+- Decisión: archivar, sin borrar, `axios`, `WhatsChat`, `pokeapi` y `tarjeta_presentacion` con `gh repo archive`; mantener públicos `WhatsChatGPT`, `pokedex_web`, `el-juego-de-la-vida`, `aplika-jobs-case-study`, `ai-job-search-copilot` y `edu84gp`.
+- Motivo: los cuatro son ejercicios de bajo valor para un reclutador y restaban foco a los tres fijados; no tenían estrellas ni forks y la operación es reversible con `gh repo unarchive`.
+- Alternativas descartadas: borrarlos (pierde historial y no es reversible), hacerlos privados (sigue sin aportar al portfolio) y dejarlos públicos (ruido en el perfil).
+- Verificación: `gh repo view --json isArchived` devuelve `true` en los cuatro el 2026-10-24. `tarjeta_presentacion` conserva su demo en Vercel, no referenciada desde el perfil ni el CV.
+
+## 2026-10-24 - Externalizar MEMORY_FILE_PATH
+
+- Decisión: sustituir la ruta absoluta de Windows en `opencode.json` por `{env:MEMORY_FILE_PATH}` y en `.opencode/mcp.json` por el marcador `USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH`; documentar la variable en `.env.example` y cargarla desde `.env` no versionado.
+- Motivo: el repositorio público no debe publicar rutas locales con el nombre de usuario; la ruta sigue siendo obligatoria y absoluta porque el servidor de memoria resuelve las relativas contra la caché de npx.
+- Alternativas descartadas: mantener la ruta absoluta versionada (expone el entorno local), usar una ruta relativa (falla con ENOENT) y hardcodear la ruta en el marcador legacy (vuelve a exponerla).
+- Verificación: los dos JSON son válidos; `git grep -F 'C:\Users'` no devuelve resultados; una instancia aislada del servidor con `MEMORY_FILE_PATH` lee 11 entidades y 17 relaciones. La sesión de opencode requiere reinicio para cargar la variable.

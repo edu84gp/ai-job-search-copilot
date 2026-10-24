@@ -210,7 +210,7 @@ Historial de fases del plan definido en `PLAN.md`.
 ## 2026-10-18 - Corrección del Memory MCP
 
 - Detectado al sembrar el grafo que una ruta relativa en MEMORY_FILE_PATH falla con ENOENT: el servidor del MCP resuelve la ruta contra su propio directorio de trabajo, la caché de npx.
-- Solución: ruta absoluta C:\Users\edu_g\ai-job-search-copilot\docs\memoria\memoria.local.json (carpeta local renombrada el 2026-10-19) en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
+- Solución: ruta absoluta del proyecto a `docs/memoria/memoria.local.json` (carpeta local renombrada el 2026-10-19) en opencode.json y en .opencode/mcp.json, y exclusión docs/memoria/*.lock en .gitignore.
 - Pendiente tras reiniciar opencode: sembrar el grafo con los hitos de las fases 0 a 21.
 
 ## 2026-10-19 - Grafo de memoria sembrado
@@ -232,7 +232,7 @@ Historial de fases del plan definido en `PLAN.md`.
 
 - Renombrado el repositorio en GitHub de job-support-portfolio a ai-job-search-copilot con `gh repo rename`; la URL antigua redirige con 301 y el remoto local queda actualizado.
 - Actualizadas las referencias en README (badges), PLAN, estado-actual, referencia técnica, decisiones y entradas históricas del CHANGELOG; nueva decisión con motivo y alternativas descartadas.
-- Carpeta local renombrada a C:\Users\edu_g\ai-job-search-copilot con MEMORY_FILE_PATH actualizado en opencode.json y .opencode/mcp.json; el grafo de memoria renombra la entidad y mantiene sus relaciones.
+- Carpeta local renombrada a `ai-job-search-copilot` con MEMORY_FILE_PATH actualizado en opencode.json y .opencode/mcp.json; el grafo de memoria renombra la entidad y mantiene sus relaciones.
 
 ## 2026-10-19 - Flecos del renombrado y guía de reproducción
 
@@ -263,3 +263,12 @@ Historial de fases del plan definido en `PLAN.md`.
 - README principal: sustituido el overclaim `Turing-completo` del juego de la vida por las funciones reales del simulador y cambiado el enlace de acceso bajo petición de Aplika Jobs por el caso de estudio público, en español e inglés.
 - pokedex_web: añadido `assets/favicon.svg`, enlazado en `index.html` y documentado en el árbol de archivos del README; verificado en la demo desplegada.
 - CI en verde en ambos repositorios (runs 40091315369 y 40091295134).
+
+## 2026-10-24 - Cierre del plan del perfil de GitHub
+
+- Archivados sin borrar `axios`, `WhatsChat`, `pokeapi` y `tarjeta_presentacion` (`isArchived: true`); el perfil queda con seis repositorios públicos no archivados.
+- Externalizado `MEMORY_FILE_PATH`: `{env:MEMORY_FILE_PATH}` en `opencode.json`, marcador `USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH` en `.opencode/mcp.json`, plantilla en `.env.example` y ruta real solo en `.env`. Sin apariciones de `C:\Users` en archivos versionados.
+- README del perfil: aportación personal en Aplika (API REST con Express y TypeScript, Prisma/PostgreSQL/Supabase, motor de búsqueda y matching, CV ATS, carta y email) y motivo `código privado` unificado; publicado en `7f957b3`.
+- Plan `docs/privado/plan-perfil-github.md` reconciliado: 87 casillas cumplidas, evidencia de cierre y dos pendientes externos (revisión del bootcamp y descripción de `el-juego-de-la-vida`).
+- Revisión visual con Playwright en 390×844 y 1440×900, tema claro y oscuro: sin scroll horizontal, sin cortes y 21 enlaces visibles.
+- Memoria, decisiones y CHANGELOG actualizados; markdownlint sin incidencias y CI verificado en verde tras el push.
