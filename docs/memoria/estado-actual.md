@@ -25,7 +25,7 @@
 
 ## Siguiente paso
 
-- Iniciar la primera candidatura real a partir del 2026-10-27 con `flujo-candidatura` y `application-tracker`. El caso de estudio queda cerrado en contenido; solo mantiene la Fase 8 de mantenimiento continuo (primera revisión el 2026-12-24) y la revisión externa del plan del perfil por una persona del bootcamp.
+- Iniciar la primera candidatura real a partir del 2026-10-27 con `flujo-candidatura` y `application-tracker`. El caso de estudio queda cerrado en contenido; solo mantiene la Fase 8 de mantenimiento continuo (primera revisión el 2026-12-25) y la revisión externa del plan del perfil por una persona del bootcamp.
 
 ## Bloqueos
 
