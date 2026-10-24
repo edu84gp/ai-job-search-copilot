@@ -2,6 +2,12 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-10-24 - Descripción y topics de el-juego-de-la-vida
+
+- Descripción vigente: simulador del autómata celular de Conway (B3/S23) con tablero vacío configurable, edición de células, patrón aleatorio del 10 % al 50 % y velocidad ajustable; HTML, CSS y JavaScript sin dependencias.
+- Topics verificados: `cellular-automata`, `conway`, `css`, `frontend`, `game-of-life`, `github-pages`, `html`, `javascript`, `accessibility` y `vanilla-javascript`. No hay topic `canvas` porque el render usa DOM.
+- Demo con HTTP 200 y README remoto idéntico al local (blob `1379062f`). El plan del perfil queda con un único pendiente externo: la revisión del bootcamp.
+
 ## 2026-10-24 - Memory MCP con ruta resuelta por lanzador
 
 - Añadido `scripts/memory-mcp.mjs`, que calcula la ruta absoluta de `docs/memoria/memoria.local.json` desde la raíz del repositorio y arranca `@modelcontextprotocol/server-memory` con `MEMORY_FILE_PATH`.

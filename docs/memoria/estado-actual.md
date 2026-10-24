@@ -14,7 +14,7 @@
 - Post-plan: flecos del renombrado corregidos, guía de reproducción añadida al README en español e inglés y repo insignia fijado en el perfil de GitHub.
 - Plan privado de estudios: `docs/privado/plan-estudios-2026.md`, excluido del repo público con `docs/privado/` en `.gitignore`; fija 4 h/día, fases hasta el 2026-12-14, 3 candidaturas semanales y pausa de DevOps.
 - CV base ATS: `cv/cv-base-2026-10.md`, `.docx` y `.pdf` (privado), de una página, una columna, sin tablas, cuadros de texto, imágenes ni foto; PDF textual verificado y revisión ATS con correcciones aplicadas. El 2026-10-21 se ajustó a 11 pt, se añadió el nivel de inglés B1 (EF SET, 2026) y se enlazó al certificado https://cert.efset.org/es/dTcq2Q en DOCX, PDF y Markdown.
-- Plan del perfil de GitHub: `docs/privado/plan-perfil-github.md` cerrado el 2026-10-24 con 87 casillas cumplidas y dos pendientes externos (revisión por una persona del bootcamp y descripción de `el-juego-de-la-vida`). `edu84gp/edu84gp` contiene solo `README.md`, el borrador vive en `docs/privado/readme-perfil-github.md` y no se creó un repositorio local.
+- Plan del perfil de GitHub: `docs/privado/plan-perfil-github.md` cerrado el 2026-10-24 con 87 casillas cumplidas y un pendiente externo (revisión por una persona del bootcamp). `edu84gp/edu84gp` contiene solo `README.md`, el borrador vive en `docs/privado/readme-perfil-github.md` y no se creó un repositorio local.
 - Perfil de GitHub: `edu84gp/edu84gp` público con únicamente `README.md` desde el 2026-10-22; el README se renderiza en `https://github.com/edu84gp` y el borrador editable sigue en `docs/privado/readme-perfil-github.md`. El 2026-10-24 se publicó la aportación personal en Aplika y se unificó el motivo `código privado` (commit `7f957b3`); revisión visual en 390×844 y 1440×900, tema claro y oscuro, sin scroll horizontal ni cortes.
 - LinkedIn: perfil completo el 2026-10-23. `Acerca de` publicado; titular Junior Full-Stack; URL `https://www.linkedin.com/in/edu84gp/`; Open to Work activo; 4 proyectos (AI Job Search Copilot, Aplika Jobs, Pokédex Web y WhatsChatGPT); 28 aptitudes; 3 publicaciones en Destacado; certificación EF SET única; idioma inglés B1 (`Competencia básica limitada`); banner propio; Educación, Aptitudes, Proyectos, Licencias e Idiomas visibles en el perfil principal. GitHub: bio, ubicación y website ya configurados; 3 repos fijados el 2026-10-24 en este orden (ai-job-search-copilot, aplika-jobs-case-study y pokedex_web); el-juego-de-la-vida se retiró de los fijados.
 - Caso de estudio de Aplika Jobs: publicado el 2026-10-24 en https://github.com/edu84gp/aplika-jobs-case-study (público, rama `main`, commit inicial `a2d7fcb`). Contiene README, `LICENSE` restrictiva, `NOTICE.md`, arquitectura, decisiones, cuatro fragmentos y dos capturas de la superficie pública. CI `Calidad` en verde (run `39918208136`). Descripción, homepage `https://aplika-jobs.vercel.app` y topics `ai`, `case-study`, `full-stack`, `nodejs`, `postgresql`, `prisma`, `react`, `typescript`. El código sigue privado en `edu84gp/Aplika-Jobs` y no se enlaza.
@@ -25,7 +25,7 @@
 
 ## Siguiente paso
 
-- Cerrar los dos pendientes externos del plan del perfil: revisión por una persona del bootcamp y revisión de la descripción de `el-juego-de-la-vida` tras las correcciones J1-J8. Después, primera candidatura real o nueva mejora de portfolio.
+- Cerrar el pendiente externo del plan del perfil: revisión por una persona del bootcamp. Después, primera candidatura real o nueva mejora de portfolio.
 
 ## Bloqueos
 
@@ -33,12 +33,12 @@
 
 ## Pendientes anotados
 
-- Plan del perfil de GitHub: pendientes externos la revisión por una persona del bootcamp y la descripción de `el-juego-de-la-vida` (aún `tablero inicial de 900 celdas, configurable`). El resto del plan quedó cerrado el 2026-10-24.
+- Plan del perfil de GitHub: pendiente externo la revisión por una persona del bootcamp. La descripción y los topics de `el-juego-de-la-vida` se revisaron el 2026-10-24 (sin topic `canvas`, con `vanilla-javascript` y `accessibility`); el resto del plan quedó cerrado.
 - LinkedIn: mantener actualizado el perfil; no hay sección Experiencia porque los proyectos viven en `Proyectos`. Valorar añadir RAG y Groq/OpenAI si se refuerza el relato de IA.
 - Inglés: certificado EF SET B1 (2026) incorporado al CV y a LinkedIn (https://cert.efset.org/es/dTcq2Q); mantener la rutina y valorar el objetivo B2.
 - Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
 - Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo; aplazada por decisión del 2026-10-19.
-- el-juego-de-la-vida: correcciones de código, accesibilidad y README completadas y demo verificada el 2026-10-24; no quedan pendientes funcionales del plan. El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
+- el-juego-de-la-vida: correcciones de código, accesibilidad y README completadas, demo verificada y descripción y topics revisados el 2026-10-24; no quedan pendientes funcionales del plan. El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
 - Caso de estudio público de Aplika Jobs: publicado, fijado en el perfil y enlazado desde README, CV y proyecto de LinkedIn. Queda revisar la presentación de la URL en LinkedIn (la vista previa de GitHub bloquea el guardado).
 - Acceso al repositorio privado de Aplika: no prometer solo lectura mientras sea un repositorio privado de cuenta personal; GitHub solo permite escritura a colaboradores. Alternativa recomendada: caso de estudio público.
 - Evaluación de respaldo externo de candidaturas con Notion o Google Drive, sin implementar. Notion es la opción de menor fricción.
