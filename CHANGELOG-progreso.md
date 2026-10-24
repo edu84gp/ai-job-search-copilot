@@ -1,4 +1,4 @@
-﻿# CHANGELOG de progreso
+# CHANGELOG de progreso
 
 Historial de fases del plan definido en `PLAN.md`.
 
@@ -257,3 +257,9 @@ Historial de fases del plan definido en `PLAN.md`.
 - Playwright pasa a modo con ventana en opencode.json y .opencode/mcp.json para poder autenticar en la UI; los fijados no se pueden cambiar por REST ni por GraphQL público.
 - Limpiados .tmp/aplika-jobs-case-study y las capturas temporales de la raíz tras verificar el push (commit 124f7ed).
 - Actualizados docs/memoria/estado-actual.md, decisiones.md y el grafo del Memory MCP.
+
+## 2026-10-24 - Correcciones de README y favicon
+
+- README principal: sustituido el overclaim `Turing-completo` del juego de la vida por las funciones reales del simulador y cambiado el enlace de acceso bajo petición de Aplika Jobs por el caso de estudio público, en español e inglés.
+- pokedex_web: añadido `assets/favicon.svg`, enlazado en `index.html` y documentado en el árbol de archivos del README; verificado en la demo desplegada.
+- CI en verde en ambos repositorios (runs 40091315369 y 40091295134).

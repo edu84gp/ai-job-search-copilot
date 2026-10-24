@@ -19,10 +19,11 @@
 - Caso de estudio de Aplika Jobs: publicado el 2026-10-24 en https://github.com/edu84gp/aplika-jobs-case-study (público, rama `main`, commit inicial `a2d7fcb`). Contiene README, `LICENSE` restrictiva, `NOTICE.md`, arquitectura, decisiones, cuatro fragmentos y dos capturas de la superficie pública. CI `Calidad` en verde (run `39918208136`). Descripción, homepage `https://aplika-jobs.vercel.app` y topics `ai`, `case-study`, `full-stack`, `nodejs`, `postgresql`, `prisma`, `react`, `typescript`. El código sigue privado en `edu84gp/Aplika-Jobs` y no se enlaza.
 - Enlaces al caso de estudio: README del perfil `edu84gp/edu84gp` actualizado (commit `348d808`); proyecto Aplika Jobs de LinkedIn (`1704320950`) con la URL al final de la descripción; CV base con el enlace `Caso de estudio` en la ficha de Aplika Jobs, regenerado en DOCX y PDF con Word COM y verificado en una página.
 - Publicación de LinkedIn: el multimedia del proyecto no admite la vista previa de GitHub y bloquea `Guardar`; la URL queda como texto plano en la descripción y no se añadió a Destacados. En la sesión del 2026-10-24 la sección Destacados del perfil no renderiza el bloque de añadir enlace (errores de la interfaz), así que el enlace clicable sigue pendiente.
+- Repositorios de proyectos: `pokedex_web` con favicon SVG en `assets/favicon.svg`, enlazado en el HTML y desplegado (2026-10-24); el README principal ya no afirma que el juego sea Turing-completo y enlaza el caso de estudio de Aplika en la tabla de proyectos.
 
 ## Siguiente paso
 
-- Retomar los flecos técnicos de `el-juego-de-la-vida` (tablero inicial, orden de limpieza, Enter, intervalo y accesibilidad), el favicon de `pokedex_web` y la corrección del overclaim `Turing-completo` en el README de `ai-job-search-copilot`.
+- Retomar las correcciones de código y demo de `el-juego-de-la-vida`: tablero inicial vacío, limpiar antes de generar, Enter que recarga, intervalo al regenerar y accesibilidad.
 
 ## Bloqueos
 
@@ -34,7 +35,7 @@
 - Inglés: certificado EF SET B1 (2026) incorporado al CV y a LinkedIn (https://cert.efset.org/es/dTcq2Q); mantener la rutina y valorar el objetivo B2.
 - Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
 - Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo; aplazada por decisión del 2026-10-19.
-- README de el-juego-de-la-vida reescrito y verificado; quedan correcciones de código y demo (tablero inicial vacío, overclaim `Turing-completo`, limpiar antes de generar, Enter que recarga, intervalo al regenerar y accesibilidad) y favicon ausente en pokedex_web.
+- README de el-juego-de-la-vida reescrito y verificado; quedan correcciones de código y demo (tablero inicial vacío, limpiar antes de generar, Enter que recarga, intervalo al regenerar y accesibilidad). El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
 - Caso de estudio público de Aplika Jobs: publicado y enlazado desde README de perfil, CV y proyecto de LinkedIn. Queda pendiente fijarlo en GitHub y revisar la presentación de la URL en LinkedIn.
 - Acceso al repositorio privado de Aplika: no prometer solo lectura mientras sea un repositorio privado de cuenta personal; GitHub solo permite escritura a colaboradores. Alternativa recomendada: caso de estudio público.
 - Evaluación de respaldo externo de candidaturas con Notion o Google Drive, sin implementar. Notion es la opción de menor fricción.
