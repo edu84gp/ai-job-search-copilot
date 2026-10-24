@@ -154,3 +154,10 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Motivo: OpenCode V2 no carga `.env` en el entorno de los MCPs. El token de GitHub funcionaba porque está definido como variable de usuario de Windows, pero `MEMORY_FILE_PATH` llegaba vacía y el grafo se escribía en `dist/memory.jsonl` de la caché de npx.
 - Alternativas descartadas: variable de entorno del sistema (depende de cada equipo y obliga a reiniciar el servicio), `{file:...}` con un fichero de ruta (falla en silencio si falta o termina en salto de línea) y una ruta absoluta versionada (expone el entorno local).
 - Verificación: tras recargar la configuración, `read_graph` devuelve 11 entidades y 17 relaciones desde `docs/memoria/memoria.local.json`; una observación de prueba escrita con `add_observations` persiste en el fichero del repositorio.
+
+## 2026-10-24 - Capturas del panel con datos ficticios y sin JSearch
+
+- Decisión: completar la vista del producto del caso de estudio con tres capturas del panel (lista, detalle y flujo de matching) tomadas en tema oscuro con una cuenta ficticia, y mantener la landing existente con un aviso sobre logotipos de terceros y métricas de producto.
+- Motivo: la demo no ofrece tema claro ni estado de progreso del matching; las ofertas se crearon manualmente para evitar datos de terceros de JSearch y el umbral se bajó al 60 % para que las ofertas de 68 % siguieran visibles.
+- Alternativas descartadas: forzar un tema claro inexistente, usar ofertas reales de JSearch, inventar un estado de progreso y publicar `login.png` (484,8 KiB) en lugar de las capturas del panel.
+- Verificación: commit `635dd23`, CI `Calidad` en verde (run `40128199801`), imágenes de 1440×900 sin metadatos, README y NOTICE con datos ficticios y descargos.
