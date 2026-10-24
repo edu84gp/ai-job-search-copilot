@@ -160,4 +160,4 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Decisión: completar la vista del producto del caso de estudio con tres capturas del panel (lista, detalle y flujo de matching) tomadas en tema oscuro con una cuenta ficticia, y mantener la landing existente con un aviso sobre logotipos de terceros y métricas de producto.
 - Motivo: la demo no ofrece tema claro ni estado de progreso del matching; las ofertas se crearon manualmente para evitar datos de terceros de JSearch y el umbral se bajó al 60 % para que las ofertas de 68 % siguieran visibles.
 - Alternativas descartadas: forzar un tema claro inexistente, usar ofertas reales de JSearch, inventar un estado de progreso y publicar `login.png` (484,8 KiB) en lugar de las capturas del panel.
-- Verificación: commit `635dd23`, CI `Calidad` en verde (run `40128199801`), imágenes de 1440×900 sin metadatos, README y NOTICE con datos ficticios y descargos.
+- Verificación: commits `635dd23` y `2bc67f0`, CI `Calidad` en verde (runs `40128199801` y `40128521622`), imágenes de 1440×900 sin metadatos, README y NOTICE con datos ficticios y descargos.
