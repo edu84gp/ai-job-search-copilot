@@ -79,3 +79,49 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Decisión: renombrar job-support-portfolio a ai-job-search-copilot en GitHub y renombrar la carpeta local a ai-job-search-copilot, actualizando MEMORY_FILE_PATH.
 - Motivo: el nombre anterior era genérico y ambiguo ("job-support" se lee como soporte técnico); el nuevo comunica de un vistazo IA y búsqueda de empleo en la lista de repositorios fijados, que es lo primero que ve un reclutador.
 - Descartado: mantener job-support-portfolio, ai-job-search-system (sobrio pero menos memorable), ai-career-copilot (más vago) y ai-job-search-agents (menos claro para perfiles no técnicos). GitHub mantiene redirect 301 de la URL antigua.
+
+## 2026-10-20 - Prioridad al Employment Workshop y pausa de DevOps
+
+- Decisión: pausar el Máster DevOps & Cloud y dedicar 2 h 30 min diarias al Employment Workshop, 1 h a búsqueda y portfolio y 30 min a inglés, con un total medio de 4 h/día.
+- Motivo: el curso es la vía principal de inserción, el máster no caduca y compaginarlo ahora elevaría el riesgo de sobrecarga.
+- Descartado: iniciar DevOps en paralelo, ampliar a 5-6 h/día y sustituir horas de curso por cursos técnicos.
+
+## 2026-10-20 - CV ATS de una página y perfiles en español
+
+- Decisión: usar un CV base de una página, una columna y sin elementos gráficos; mantener GitHub y LinkedIn en español y construir english-coach después de la base de CV, GitHub y LinkedIn.
+- Motivo: el CV debe superar filtros ATS y el mercado español es el más accesible con el nivel actual de inglés; el proyecto de inglés aporta más valor cuando la base profesional ya está lista.
+- Descartado: CV de tres páginas con columnas, publicar los perfiles en inglés ahora y empezar english-coach antes de las candidaturas.
+
+## 2026-10-21 - Inglés B1 acreditado con EF SET
+
+- Decisión: reflejar el nivel B1 de EF SET en el CV y en los perfiles profesionales.
+- Motivo: sustituye la autoevaluación por una certificación verificable y evita afirmaciones no respaldadas.
+- Descartado: mantener "Inglés intermedio" sin certificación.
+
+## 2026-10-21 - Repositorio de perfil mínimo, sin repo local
+
+- Decisión: el repositorio `edu84gp/edu84gp` contendrá únicamente `README.md`; el borrador editable vivirá en `docs/privado/readme-perfil-github.md` y se publicará directamente en GitHub sin crear un repositorio local.
+- Motivo: evita un repositorio anidado dentro de `ai-job-search-copilot`, mantiene la fuente privada y reduce el mantenimiento a un solo archivo.
+- Descartado: crear una carpeta local `edu84gp` con `git init`, `.gitignore`, `AGENTS.md` y `assets/`, y publicar un CV PDF o código en el repo de perfil.
+
+## 2026-10-22 - Caso de estudio público de Aplika y límite de acceso read-only
+
+- Decisión: publicar `aplika-jobs-case-study` como repositorio público con documentación, capturas y fragmentos seleccionados; mantener `Aplika-Jobs` privado y no prometer acceso de solo lectura a ese repositorio privado.
+- Motivo: GitHub solo permite conceder escritura a colaboradores en repositorios privados de cuentas personales; el caso de estudio demuestra la aportación sin exponer el código ni obligar a transferir el repositorio.
+- Alternativas descartadas: añadir colaboradores con escritura, transferir el repositorio a una organización solo para asignar lectura y publicar el código completo.
+- Plan: `docs/privado/plan-caso-estudio-aplika.md`.
+
+## 2026-10-23 - LinkedIn completo con banner propio y certificación única
+
+- Decisión: cerrar LinkedIn con 4 proyectos, 28 aptitudes, 3 publicaciones en Destacado, una única certificación EF SET, inglés B1 como `Competencia básica limitada`, Open to Work y un banner propio; mantener los enlaces de GitHub fuera de Destacados por el fallo de vista previa y usar publicaciones.
+- Motivo: el perfil queda coherente con el CV y el README, evita duplicados y keywords sin respaldo, y el banner genera una portada profesional sin depender de una imagen externa.
+- Alternativas descartadas: mantener el banner por defecto, etiquetar el B1 como `Competencia profesional completa`, dejar dos certificaciones EF SET duplicadas y forzar el enlace de GitHub en Destacados con la vista previa rota.
+
+## 2026-10-24 - Caso de estudio público, licencia restrictiva y CV regenerado con Word
+
+- Decisión: publicar `aplika-jobs-case-study` como repositorio independiente con `LICENSE` restrictiva y `NOTICE.md` que separa la documentación de la titularidad compartida del producto; enlazarlo desde el README del perfil, el CV y la descripción del proyecto en LinkedIn.
+- Motivo: demuestra la aportación real sin exponer código, secretos ni datos, y deja claro que el producto es de autoría compartida.
+- Alternativas descartadas: enlazar el repositorio privado, usar licencia permisiva sobre documentación de un producto compartido y esperar a tener toolchain de Markdown a PDF.
+- Regeneración del CV: ante la ausencia de pandoc, xelatex, Python y LibreOffice, se editó el DOCX con automatización de Word (`Word.Application` COM) y se exportó el PDF; verificado en una página, con el enlace `Caso de estudio` sustituyendo al de la empresa.
+- LinkedIn: la vista previa de enlaces de GitHub falla en el multimedia del proyecto y bloquea el guardado, así que la URL se mantiene como texto en la descripción.
+- Fijados de GitHub: el 2026-10-24 se fijó `aplika-jobs-case-study` y se retiró `el-juego-de-la-vida`; el orden final es `ai-job-search-copilot`, `aplika-jobs-case-study` y `pokedex_web`. No existe mutación pública de GraphQL ni endpoint REST para los fijados: hay que hacerlo desde la UI con sesión iniciada.

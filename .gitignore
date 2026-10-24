@@ -6,6 +6,7 @@ node_modules/
 .opencode/node_modules/
 docs/memoria/*.local.json
 docs/memoria/*.lock
+docs/privado/
 docs/candidaturas/*.db
 docs/candidaturas/*.db-journal
 cv/*

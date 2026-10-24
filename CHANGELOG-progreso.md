@@ -1,4 +1,4 @@
-# CHANGELOG de progreso
+﻿# CHANGELOG de progreso
 
 Historial de fases del plan definido en `PLAN.md`.
 
@@ -240,3 +240,20 @@ Historial de fases del plan definido en `PLAN.md`.
 - Verificado que ai-job-search-copilot ya figura fijado en el perfil de GitHub junto a pokedex_web y el-juego-de-la-vida; retirado de pendientes.
 - Añadida al README la guía "Cómo reproducirlo" en español e inglés: requisitos, clonado, .env, ajuste portable de MEMORY_FILE_PATH, creación de la base y del grafo al primer uso y verificación de MCPs y agentes.
 - Actualizada docs/memoria/estado-actual.md: pendientes reducidos a evidencia real, vista Board aplazada, README del juego, favicon, caso Aplika, respaldo externo y demo de WhatsChatGPT.
+
+## 2026-10-20 - Plan privado y CV base ATS
+
+- Creado `docs/privado/plan-estudios-2026.md` con el reparto de 4 h/día, fases hasta el 2026-12-14, mapa del Employment Workshop, métricas semanales, plan de inglés y criterios de reinicio de DevOps.
+- Añadido `docs/privado/` a `.gitignore`; el plan y el CV no se publican.
+- Generado `cv/cv-base-2026-10.md`, `.docx` y `.pdf`: una página, una columna, sin tablas, cuadros de texto, imágenes ni foto; PDF textual de una página verificado con pypdf.
+- Revisión del agente `ats-checker`: APTO CON CORRECCIONES; aplicados encabezados estándar, contacto etiquetado, cronología, atribución de Aplika como proyecto en equipo y aclaración de la aportación full-stack.
+- Actualizados `docs/memoria/estado-actual.md`, `decisiones.md` y el grafo del Memory MCP con el plan, el CV y las decisiones del 2026-10-20.
+
+## 2026-10-24 - Caso de estudio público de Aplika Jobs
+
+- Publicado https://github.com/edu84gp/aplika-jobs-case-study: README, LICENSE restrictiva, NOTICE.md, arquitectura, decisiones, cuatro fragmentos y dos capturas de la superficie pública; CI Calidad en verde (run 39918208136).
+- Enlazado desde el README del perfil edu84gp/edu84gp, el CV base (DOCX y PDF regenerados con Word COM, una página) y la descripción del proyecto Aplika Jobs en LinkedIn.
+- Fijados de GitHub: añadido aplika-jobs-case-study y retirado el-juego-de-la-vida; orden final ai-job-search-copilot, aplika-jobs-case-study y pokedex_web.
+- Playwright pasa a modo con ventana en opencode.json y .opencode/mcp.json para poder autenticar en la UI; los fijados no se pueden cambiar por REST ni por GraphQL público.
+- Limpiados .tmp/aplika-jobs-case-study y las capturas temporales de la raíz tras verificar el push (commit 124f7ed).
+- Actualizados docs/memoria/estado-actual.md, decisiones.md y el grafo del Memory MCP.

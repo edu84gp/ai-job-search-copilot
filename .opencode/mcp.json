@@ -51,8 +51,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@playwright/mcp",
-        "--headless"
+        "@playwright/mcp"
       ]
     },
     "sqlite": {
