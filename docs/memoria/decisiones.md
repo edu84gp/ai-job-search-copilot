@@ -125,3 +125,10 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Regeneración del CV: ante la ausencia de pandoc, xelatex, Python y LibreOffice, se editó el DOCX con automatización de Word (`Word.Application` COM) y se exportó el PDF; verificado en una página, con el enlace `Caso de estudio` sustituyendo al de la empresa.
 - LinkedIn: la vista previa de enlaces de GitHub falla en el multimedia del proyecto y bloquea el guardado, así que la URL se mantiene como texto en la descripción.
 - Fijados de GitHub: el 2026-10-24 se fijó `aplika-jobs-case-study` y se retiró `el-juego-de-la-vida`; el orden final es `ai-job-search-copilot`, `aplika-jobs-case-study` y `pokedex_web`. No existe mutación pública de GraphQL ni endpoint REST para los fijados: hay que hacerlo desde la UI con sesión iniciada.
+
+## 2026-10-24 - Correcciones del Juego de la Vida y patrón aleatorio
+
+- Decisión: completar las correcciones de `el-juego-de-la-vida` con tablero inicial vacío, patrón aleatorio de entre el 10 % y el 50 %, generación solo por clic, intervalo único, controles con estado y anuncios accesibles.
+- Motivo: Enter regeneraba el tablero y borraba el patrón dibujado, no había protección frente a intervalos duplicados y la accesibilidad del formulario y del estado era incompleta.
+- Alternativas descartadas: conservar Enter como atajo de generación (destruía el patrón), mantener `type="submit"` con validación adicional (seguía exponiendo el borrado accidental), añadir dependencias o bundler (el despliegue publica archivos estáticos) y generar el patrón aleatorio automáticamente al cargar (el tablero debe arrancar vacío). Para el patrón aleatorio se descartó sortear la densidad y dejar cada célula al azar porque el total podía salirse del 10–50 %; se fija un número exacto de celdas vivas y se colocan en posiciones aleatorias.
+- Verificación: Playwright en local y en la demo publicada (76 comprobaciones, 0 fallos), W3C sin errores, markdownlint sin incidencias y run de Pages `40100958847` en verde.

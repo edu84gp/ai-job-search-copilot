@@ -35,7 +35,7 @@ Busco mi primera oportunidad como desarrollador Junior Full-Stack, con especial 
 | Proyecto | Descripción | Enlaces |
 | --- | --- | --- |
 | POKÉDEX WEB | Aplicación web que consume PokéAPI con paginación fluida, tarjetas interactivas y ficha detallada. | [Código](https://github.com/edu84gp/pokedex_web) · [Demo](https://edu84gp.github.io/pokedex_web/) |
-| El juego de la vida | Simulador web del autómata celular de Conway: tablero configurable de 1×1 a 99×99, edición de células, control de velocidad y evolución por generaciones. | [Código](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
+| El juego de la vida | Simulador web del autómata celular de Conway: tablero vacío configurable de 1×1 a 99×99, edición de células, patrón inicial aleatorio, control de velocidad y evolución por generaciones. | [Código](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
 | WhatsChatGPT | Chatbot web en tiempo real con arquitectura cliente-servidor, WebSockets con Socket.io e IA local vía Ollama. Demo pendiente de despliegue: requiere un servidor con Ollama en ejecución. | [Código](https://github.com/edu84gp/WhatsChatGPT) |
 | Aplika Jobs 🔒 | Conecta ofertas de empleo técnico con perfiles académicos: extrae el CV, busca ofertas relevantes, calcula el match con IA y genera CV optimizado ATS, carta y email adaptados. Proyecto en equipo con el código privado; la documentación técnica pública recoge la arquitectura, las decisiones y mi aportación. | [Caso de estudio](https://github.com/edu84gp/aplika-jobs-case-study) |
 
@@ -147,7 +147,7 @@ I am looking for my first opportunity as a Junior Full-Stack Developer, especial
 | Project | Description | Links |
 | --- | --- | --- |
 | POKÉDEX WEB | Web application consuming PokéAPI with smooth pagination, interactive cards and detailed view. | [Code](https://github.com/edu84gp/pokedex_web) · [Demo](https://edu84gp.github.io/pokedex_web/) |
-| Game of Life | Web simulator of Conway's cellular automaton: configurable 1×1 to 99×99 board, cell editing, speed control and generation-by-generation evolution. | [Code](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
+| Game of Life | Web simulator of Conway's cellular automaton: empty configurable 1×1 to 99×99 board, cell editing, random initial pattern, speed control and generation-by-generation evolution. | [Code](https://github.com/edu84gp/el-juego-de-la-vida) · [Demo](https://edu84gp.github.io/el-juego-de-la-vida/) |
 | WhatsChatGPT | Real-time web chatbot with client-server architecture, WebSockets via Socket.io and local AI via Ollama. Demo pending deployment: requires a server with Ollama running. | [Code](https://github.com/edu84gp/WhatsChatGPT) |
 | Aplika Jobs 🔒 | Matches tech job offers with student profiles: parses the CV, finds relevant offers, computes AI match and generates ATS-optimized CV, cover letter and tailored email. Team project with a private codebase; the public technical documentation covers architecture, decisions and my contribution. | [Case study](https://github.com/edu84gp/aplika-jobs-case-study) |
 

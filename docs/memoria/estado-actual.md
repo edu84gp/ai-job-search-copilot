@@ -8,6 +8,7 @@
 - Repositorio: público en https://github.com/edu84gp/ai-job-search-copilot (renombrado desde job-support-portfolio el 2026-10-19) con CI de calidad (markdownlint y lychee) en verde.
 - Kanban público del pipeline de candidaturas: https://github.com/users/edu84gp/projects/3 con campo Pipeline propio.
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
+- Juego de la vida: correcciones completadas y demo verificada el 2026-10-24 (tablero inicial vacío, patrón aleatorio entre el 10 % y el 50 %, Enter sin borrar el patrón, intervalo único, controles coherentes, anuncios accesibles y README alineado). Run de Pages en verde: https://github.com/edu84gp/el-juego-de-la-vida/actions/runs/40100958847.
 - Candidaturas: sin registros todavía. La tabla `candidaturas` se creará al primer registro con application-tracker.
 - Memoria: grafo del Memory MCP sembrado el 2026-10-19 con los hitos de las fases 0 a 21 en formato JSON Lines y ampliado el 2026-10-20 con el plan y el CV (8 entidades y 11 relaciones), verificado contra el fichero.
 - Post-plan: flecos del renombrado corregidos, guía de reproducción añadida al README en español e inglés y repo insignia fijado en el perfil de GitHub.
@@ -23,7 +24,7 @@
 
 ## Siguiente paso
 
-- Ejecutar el plan `docs/privado/plan-correcciones-juego-vida.md` (2026-10-24): tablero vacío al cargar, botón de patrón aleatorio, Enter sin borrar el tablero, intervalo único, estado de controles, anuncios accesibles y README alineado.
+- Plan de correcciones de `el-juego-de-la-vida` cerrado el 2026-10-24; siguiente acción pendiente de definir (primera candidatura real o nueva mejora de portfolio).
 
 ## Bloqueos
 
@@ -35,7 +36,7 @@
 - Inglés: certificado EF SET B1 (2026) incorporado al CV y a LinkedIn (https://cert.efset.org/es/dTcq2Q); mantener la rutina y valorar el objetivo B2.
 - Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
 - Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo; aplazada por decisión del 2026-10-19.
-- README de el-juego-de-la-vida reescrito y verificado; quedan correcciones de código y demo (tablero inicial vacío, limpiar antes de generar, Enter que recarga, intervalo al regenerar y accesibilidad). El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
+- el-juego-de-la-vida: correcciones de código, accesibilidad y README completadas y demo verificada el 2026-10-24; no quedan pendientes funcionales del plan. El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
 - Caso de estudio público de Aplika Jobs: publicado y enlazado desde README de perfil, CV y proyecto de LinkedIn. Queda pendiente fijarlo en GitHub y revisar la presentación de la URL en LinkedIn.
 - Acceso al repositorio privado de Aplika: no prometer solo lectura mientras sea un repositorio privado de cuenta personal; GitHub solo permite escritura a colaboradores. Alternativa recomendada: caso de estudio público.
 - Evaluación de respaldo externo de candidaturas con Notion o Google Drive, sin implementar. Notion es la opción de menor fricción.
