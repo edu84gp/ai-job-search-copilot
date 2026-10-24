@@ -25,7 +25,7 @@
 
 ## Siguiente paso
 
-- Cerrar el pendiente externo del plan del perfil: revisión por una persona del bootcamp. Después, primera candidatura real o nueva mejora de portfolio.
+- Cerrar la Fase 6 del caso de estudio (revisión final en móvil/incógnito, ortografía y decisión sobre la landing) y, desde el 2026-10-27, iniciar la primera candidatura real con `flujo-candidatura` y `application-tracker`. Queda pendiente la revisión externa del plan del perfil por una persona del bootcamp.
 
 ## Bloqueos
 
