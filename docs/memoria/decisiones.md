@@ -161,3 +161,10 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Motivo: la demo no ofrece tema claro ni estado de progreso del matching; las ofertas se crearon manualmente para evitar datos de terceros de JSearch y el umbral se bajó al 60 % para que las ofertas de 68 % siguieran visibles.
 - Alternativas descartadas: forzar un tema claro inexistente, usar ofertas reales de JSearch, inventar un estado de progreso y publicar `login.png` (484,8 KiB) en lugar de las capturas del panel.
 - Verificación: commits `635dd23` y `2bc67f0`, CI `Calidad` en verde (runs `40128199801` y `40128521622`), imágenes de 1440×900 sin metadatos, README y NOTICE con datos ficticios y descargos.
+
+## 2026-10-25 - Cierre del caso de estudio: landing fuera y lectura rápida
+
+- Decisión: retirar `landing-hero.png` y `login.png` del repositorio público, dejar tres capturas del panel, añadir un TL;DR de 56 palabras y un bloque `Stack principal` / `También he trabajado con`, y corregir el README para describir el modo demostración del panel.
+- Motivo: la landing mostraba marcas de terceros y cifras de marketing (95 %, 98 % y €85k) que el descargo no eliminaba; el panel es la evidencia relevante para la aportación backend. El README completo tarda 5,5-6,8 minutos, así que el criterio de lectura se ajusta a la lectura rápida del TL;DR. La demo abre el panel sin login con datos ficticios y el README afirmaba lo contrario.
+- Alternativas descartadas: mantener la landing con descargo (no cumple el checklist de métricas), recapturar un hero limpio (más trabajo y menos relevante), recortar el README a 700 palabras (pierde detalle técnico) y cambiar la demo para exigir login (mayor riesgo).
+- Verificación: commits `d7b25da` y `9dd8156`; CI `Calidad` en verde en el HEAD (run `40137561987`); el commit intermedio `d7b25da` falló porque el README aún referenciaba las imágenes borradas. Plan privado: 87/93; las 6 restantes son la Fase 8 continua.
