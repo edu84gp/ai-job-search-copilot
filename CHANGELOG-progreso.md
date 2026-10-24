@@ -267,7 +267,7 @@ Historial de fases del plan definido en `PLAN.md`.
 ## 2026-10-24 - Cierre del plan del perfil de GitHub
 
 - Archivados sin borrar `axios`, `WhatsChat`, `pokeapi` y `tarjeta_presentacion` (`isArchived: true`); el perfil queda con seis repositorios públicos no archivados.
-- Externalizado `MEMORY_FILE_PATH`: `{env:MEMORY_FILE_PATH}` en `opencode.json`, marcador `USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH` en `.opencode/mcp.json`, plantilla en `.env.example` y ruta real solo en `.env`. Sin apariciones de `C:\Users` en archivos versionados.
+- Externalizado `MEMORY_FILE_PATH`: `{env:MEMORY_FILE_PATH}` en `opencode.json`, marcador `USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH` en `.opencode/mcp.json`, plantilla en `.env.example` y ruta real solo en `.env`. Sin rutas locales de Windows en archivos versionados.
 - README del perfil: aportación personal en Aplika (API REST con Express y TypeScript, Prisma/PostgreSQL/Supabase, motor de búsqueda y matching, CV ATS, carta y email) y motivo `código privado` unificado; publicado en `7f957b3`.
 - Plan `docs/privado/plan-perfil-github.md` reconciliado: 87 casillas cumplidas, evidencia de cierre y dos pendientes externos (revisión del bootcamp y descripción de `el-juego-de-la-vida`).
 - Revisión visual con Playwright en 390×844 y 1440×900, tema claro y oscuro: sin scroll horizontal, sin cortes y 21 enlaces visibles.
