@@ -146,3 +146,11 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Motivo: el repositorio público no debe publicar rutas locales con el nombre de usuario; la ruta sigue siendo obligatoria y absoluta porque el servidor de memoria resuelve las relativas contra la caché de npx.
 - Alternativas descartadas: mantener la ruta absoluta versionada (expone el entorno local), usar una ruta relativa (falla con ENOENT) y hardcodear la ruta en el marcador legacy (vuelve a exponerla).
 - Verificación: los dos JSON son válidos; la búsqueda de rutas locales de Windows en archivos versionados no devuelve resultados; una instancia aislada del servidor con `MEMORY_FILE_PATH` lee 11 entidades y 17 relaciones. La sesión de opencode requiere reinicio para cargar la variable.
+- Sustituida el mismo día por el lanzador `scripts/memory-mcp.mjs`: OpenCode V2 no carga `.env`, así que `{env:MEMORY_FILE_PATH}` se resolvía como cadena vacía y el servidor escribía en la caché de npx. Detalle en la entrada siguiente.
+
+## 2026-10-24 - Lanzar el Memory MCP con la ruta resuelta
+
+- Decisión: arrancar `@modelcontextprotocol/server-memory` mediante `scripts/memory-mcp.mjs`, que calcula la ruta absoluta de `docs/memoria/memoria.local.json` desde la raíz del repositorio y la exporta en `MEMORY_FILE_PATH`; retirar la clave de `.env` y `.env.example`.
+- Motivo: OpenCode V2 no carga `.env` en el entorno de los MCPs. El token de GitHub funcionaba porque está definido como variable de usuario de Windows, pero `MEMORY_FILE_PATH` llegaba vacía y el grafo se escribía en `dist/memory.jsonl` de la caché de npx.
+- Alternativas descartadas: variable de entorno del sistema (depende de cada equipo y obliga a reiniciar el servicio), `{file:...}` con un fichero de ruta (falla en silencio si falta o termina en salto de línea) y una ruta absoluta versionada (expone el entorno local).
+- Verificación: tras recargar la configuración, `read_graph` devuelve 11 entidades y 17 relaciones desde `docs/memoria/memoria.local.json`; una observación de prueba escrita con `add_observations` persiste en el fichero del repositorio.

@@ -676,7 +676,7 @@ Configuración canónica en `opencode.json` con formato `type local`, `command` 
 
 Los tools de un MCP se registran en opencode con el nombre del servidor como prefijo. Por eso los permisos por agente usan el patrón `servidor_*`, por ejemplo `github_*`, `context7_*` o `fetch_*`.
 
-Protección aplicada: `.gitignore` con entradas `.env` y `node_modules/`. Plantilla `.env.example` con valores vacíos o de ejemplo para `GITHUB_PERSONAL_ACCESS_TOKEN`, `CONTEXT7_API_KEY` y `MEMORY_FILE_PATH`.
+Protección aplicada: `.gitignore` con entradas `.env` y `node_modules/`. Plantilla `.env.example` con valores vacíos para `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`. `MEMORY_FILE_PATH` no vive en `.env`: lo calcula `scripts/memory-mcp.mjs`. OpenCode no carga `.env`, así que las claves deben existir en el entorno del sistema para llegar a los MCPs.
 
 Política de acceso MCP: `context7_*`, `fetch_*`, `sequential-thinking_*`, `playwright_*` y `sqlite_*` están denegados a nivel global en `opencode.json` y habilitados solo en los agentes que los usan, mediante el bloque `permission` de cada agente. Al poner el permiso en `deny`, la herramienta queda deshabilitada y no consume contexto en el resto de agentes. Los agentes primarios `build` y `plan` también los tienen habilitados en `opencode.json` para poder invocarlos directamente sin delegar. El MCP sqlite además queda acotado a `application-tracker` y `job-search-strategist` por contener datos de candidaturas.
 
@@ -712,7 +712,7 @@ No requiere secreto. Está habilitado por defecto en `opencode.json`. Invocado a
 
 **Qué hace:**
 
-Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` mediante la variable `MEMORY_FILE_PATH`, en lugar de la ruta por defecto dentro de la caché de npx. La variable es obligatoria y se carga desde `.env` (no versionado); `opencode.json` la inyecta con `{env:MEMORY_FILE_PATH}` y `.opencode/mcp.json` conserva el marcador `USAR_VARIABLE_DE_ENTORNO_MEMORY_FILE_PATH`. La ruta debe ser absoluta: el proceso del servidor trabaja con su propio directorio de trabajo (la caché de npx), así que una ruta relativa resuelve contra esa caché y falla con ENOENT. El fichero se escribe en formato JSON Lines, con un registro JSON completo por línea (entidad o relación); al editarlo a mano hay que mantener ese formato porque el servidor lo carga línea a línea y cualquier línea ilegible se ignora conservándola en el siguiente guardado.
+Opera con `@modelcontextprotocol/server-memory`. Almacena entidades, observaciones y relaciones entre sesiones. Desde la Fase 20 persiste en `docs/memoria/memoria.local.json` en lugar de la ruta por defecto dentro de la caché de npx. `opencode.json` y `.opencode/mcp.json` arrancan `scripts/memory-mcp.mjs`, un lanzador que calcula la ruta absoluta desde la raíz del repositorio y exporta `MEMORY_FILE_PATH` antes de iniciar el servidor. La ruta debe ser absoluta porque el servidor resuelve las relativas contra su propio directorio (la caché de npx); el lanzador evita depender de variables del sistema o de `.env`, que OpenCode no carga. El fichero se escribe en formato JSON Lines, con un registro JSON completo por línea (entidad o relación); al editarlo a mano hay que mantener ese formato porque el servidor lo carga línea a línea y cualquier línea ilegible se ignora conservándola en el siguiente guardado.
 
 **Para qué sirve:**
 
@@ -720,7 +720,7 @@ Mantener continuidad entre sesiones del taller: decisiones tomadas, estado de fa
 
 **Cómo usar:**
 
-No requiere secreto, pero sí la variable obligatoria `MEMORY_FILE_PATH` con una ruta absoluta cargada desde `.env`. El agente primario lo utiliza para recordar contexto. Uso recomendado: guardar hito al completar cada fase con fecha, archivos creados y siguiente paso. Si el grafo crece, podar observaciones obsoletas para controlar el contexto. El fichero local está excluido de git por `.gitignore` con el patrón `docs/memoria/*.local.json`; para respaldarlo, copiarlo junto al resto de `docs/memoria/`.
+No requiere secreto ni variables de entorno del sistema: el lanzador fija `MEMORY_FILE_PATH` con la ruta absoluta del grafo. El agente primario lo utiliza para recordar contexto. Uso recomendado: guardar hito al completar cada fase con fecha, archivos creados y siguiente paso. Si el grafo crece, podar observaciones obsoletas para controlar el contexto. El fichero local está excluido de git por `.gitignore` con el patrón `docs/memoria/*.local.json`; para respaldarlo, copiarlo junto al resto de `docs/memoria/`.
 
 ### 4. fetch
 
@@ -942,7 +942,7 @@ El repositorio es público en https://github.com/edu84gp/ai-job-search-copilot. 
 - Skills: `.opencode/skills/flujo-candidatura/SKILL.md`, `.opencode/skills/apunte-ejercicio/SKILL.md`, `.opencode/skills/memoria-sesion/SKILL.md`
 - Memoria: `docs/memoria/estado-actual.md`, `docs/memoria/decisiones.md` y `docs/memoria/memoria.local.json` fuera de git
 - Directrices globales: `AGENTS.md`
-- MCPs: `opencode.json` canónico y `.opencode/mcp.json` legacy. Claves en `.env` no versionado y `.env.example` como plantilla: `GITHUB_PERSONAL_ACCESS_TOKEN`, `CONTEXT7_API_KEY` y `MEMORY_FILE_PATH`.
+- MCPs: `opencode.json` canónico y `.opencode/mcp.json` legacy. Claves en `.env` no versionado y `.env.example` como plantilla: `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`. La ruta del grafo la resuelve `scripts/memory-mcp.mjs`.
 - Calidad: `.github/workflows/quality.yml`, `.markdownlint-cli2.jsonc` y `.lycheeignore`
 - Despliegue: `.github/workflows/deploy-pages.yml` en los repos pokedex_web y el-juego-de-la-vida
 - Visibilidad: repositorio en https://github.com/edu84gp/ai-job-search-copilot y Kanban en https://github.com/users/edu84gp/projects/3

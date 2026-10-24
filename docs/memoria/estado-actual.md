@@ -10,7 +10,7 @@
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
 - Juego de la vida: correcciones completadas y demo verificada el 2026-10-24 (tablero inicial vacío, patrón aleatorio entre el 10 % y el 50 %, Enter sin borrar el patrón, intervalo único, controles coherentes, anuncios accesibles y README alineado). Run de Pages en verde: https://github.com/edu84gp/el-juego-de-la-vida/actions/runs/40100958847.
 - Candidaturas: sin registros todavía. La tabla `candidaturas` se creará al primer registro con application-tracker.
-- Memoria: grafo del Memory MCP en formato JSON Lines con 11 entidades y 17 relaciones (verificado el 2026-10-24); `MEMORY_FILE_PATH` se carga desde `.env` y se inyecta con `{env:MEMORY_FILE_PATH}`.
+- Memoria: grafo del Memory MCP en formato JSON Lines con 11 entidades y 17 relaciones (verificado el 2026-10-24); `scripts/memory-mcp.mjs` resuelve la ruta absoluta del grafo y arranca el servidor con `MEMORY_FILE_PATH`.
 - Post-plan: flecos del renombrado corregidos, guía de reproducción añadida al README en español e inglés y repo insignia fijado en el perfil de GitHub.
 - Plan privado de estudios: `docs/privado/plan-estudios-2026.md`, excluido del repo público con `docs/privado/` en `.gitignore`; fija 4 h/día, fases hasta el 2026-12-14, 3 candidaturas semanales y pausa de DevOps.
 - CV base ATS: `cv/cv-base-2026-10.md`, `.docx` y `.pdf` (privado), de una página, una columna, sin tablas, cuadros de texto, imágenes ni foto; PDF textual verificado y revisión ATS con correcciones aplicadas. El 2026-10-21 se ajustó a 11 pt, se añadió el nivel de inglés B1 (EF SET, 2026) y se enlazó al certificado https://cert.efset.org/es/dTcq2Q en DOCX, PDF y Markdown.
@@ -29,7 +29,7 @@
 
 ## Bloqueos
 
-- Ninguno funcional. El servidor de memoria de la sesión actual se inició antes de externalizar `MEMORY_FILE_PATH`; requiere reiniciar opencode para cargar la variable desde `.env`. La prueba aislada con la variable lee 11 entidades y 17 relaciones.
+- Ninguno funcional. El Memory MCP lee y escribe el grafo del repositorio mediante `scripts/memory-mcp.mjs` desde el 2026-10-24.
 
 ## Pendientes anotados
 

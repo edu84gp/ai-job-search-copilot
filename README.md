@@ -74,15 +74,15 @@ Requisitos: opencode, Node.js con `npx`, Python con `uv` y Git. Para las tareas 
    cd ai-job-search-copilot
    ```
 
-2. Crea el fichero de entorno y rellena las claves:
+2. Define las claves en el entorno del sistema; OpenCode V2 no lee `.env`. `.env.example` sirve como lista de variables:
 
    ```powershell
-   Copy-Item .env.example .env
+   setx GITHUB_PERSONAL_ACCESS_TOKEN "tu_token"
    ```
 
-   `GITHUB_PERSONAL_ACCESS_TOKEN` necesita los scopes `repo`, `project`, `workflow`, `gist` y `read:org`. `CONTEXT7_API_KEY` solo es necesario si usas el MCP context7.
+   `GITHUB_PERSONAL_ACCESS_TOKEN` necesita los scopes `repo`, `project`, `workflow`, `gist` y `read:org`. `CONTEXT7_API_KEY` solo es necesario si usas el MCP context7. Abre una sesión nueva después de definirlas.
 
-3. Ajusta `MEMORY_FILE_PATH` en `opencode.json` y `.opencode/mcp.json` a la ruta absoluta de `docs/memoria/memoria.local.json` en tu equipo. Debe ser absoluta porque el Memory MCP resuelve las relativas contra su caché de npx; en Linux o macOS usa barras normales.
+3. No hace falta configurar rutas: `scripts/memory-mcp.mjs` resuelve la ruta absoluta de `docs/memoria/memoria.local.json` desde la raíz del clon y arranca el Memory MCP con `MEMORY_FILE_PATH`.
 
 4. Abre opencode en la carpeta del repositorio. La base SQLite y el grafo de memoria se crean al primer uso y están excluidos de git.
 
@@ -99,6 +99,7 @@ Requisitos: opencode, Node.js con `npx`, Python con `uv` y Git. Para las tareas 
 - `cv/`: CV y cartas en local, fuera del repositorio público.
 - `portfolio/`: evidencias de proyectos.
 - `templates/`: plantillas `kebab-case`.
+- `scripts/`: lanzadores de apoyo, como el del Memory MCP.
 - `.opencode/`: agentes, comandos y skills.
 - `.github/workflows/`: automatizaciones de calidad.
 
@@ -186,15 +187,15 @@ Requirements: opencode, Node.js with `npx`, Python with `uv` and Git. For GitHub
    cd ai-job-search-copilot
    ```
 
-2. Create the environment file and fill in the keys:
+2. Define the keys in the system environment; OpenCode V2 does not read `.env`. `.env.example` lists the variables:
 
    ```bash
-   cp .env.example .env
+   export GITHUB_PERSONAL_ACCESS_TOKEN="your_token"
    ```
 
-   `GITHUB_PERSONAL_ACCESS_TOKEN` needs the `repo`, `project`, `workflow`, `gist` and `read:org` scopes. `CONTEXT7_API_KEY` is only required if you use the context7 MCP.
+   `GITHUB_PERSONAL_ACCESS_TOKEN` needs the `repo`, `project`, `workflow`, `gist` and `read:org` scopes. `CONTEXT7_API_KEY` is only required if you use the context7 MCP. Start a new session after defining them.
 
-3. Point `MEMORY_FILE_PATH` in `opencode.json` and `.opencode/mcp.json` to the absolute path of `docs/memoria/memoria.local.json` on your machine. It must be absolute because the Memory MCP resolves relative paths against its npx cache; on Linux or macOS use forward slashes.
+3. No path configuration is needed: `scripts/memory-mcp.mjs` resolves the absolute path of `docs/memoria/memoria.local.json` from the clone root and starts the Memory MCP with `MEMORY_FILE_PATH`.
 
 4. Open opencode in the repository folder. The SQLite database and the memory graph are created on first use and are excluded from git.
 
@@ -211,6 +212,7 @@ Requirements: opencode, Node.js with `npx`, Python with `uv` and Git. For GitHub
 - `cv/`: CV and cover letters kept local, outside the public repository.
 - `portfolio/`: project evidence.
 - `templates/`: `kebab-case` templates.
+- `scripts/`: supporting launchers, such as the Memory MCP one.
 - `.opencode/`: agents, commands and skills.
 - `.github/workflows/`: quality automations.
 

@@ -2,6 +2,12 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-10-24 - Memory MCP con ruta resuelta por lanzador
+
+- Añadido `scripts/memory-mcp.mjs`, que calcula la ruta absoluta de `docs/memoria/memoria.local.json` desde la raíz del repositorio y arranca `@modelcontextprotocol/server-memory` con `MEMORY_FILE_PATH`.
+- `opencode.json` y `.opencode/mcp.json` invocan el lanzador; retirada la clave `MEMORY_FILE_PATH` de `.env` y `.env.example` porque OpenCode V2 no carga `.env`.
+- Verificado en la sesión: `read_graph` devuelve 11 entidades y 17 relaciones y una escritura persiste en el grafo del repositorio.
+
 ## 2026-10-15 - Fase 0 completada
 
 - Inventario de agentes existentes: cv-optimizer, interview-coach y tracker-doc.
