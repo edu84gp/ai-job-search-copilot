@@ -23,7 +23,7 @@
 
 ## Siguiente paso
 
-- Retomar las correcciones de código y demo de `el-juego-de-la-vida`: tablero inicial vacío, limpiar antes de generar, Enter que recarga, intervalo al regenerar y accesibilidad.
+- Ejecutar el plan `docs/privado/plan-correcciones-juego-vida.md` (2026-10-24): tablero vacío al cargar, botón de patrón aleatorio, Enter sin borrar el tablero, intervalo único, estado de controles, anuncios accesibles y README alineado.
 
 ## Bloqueos
 
