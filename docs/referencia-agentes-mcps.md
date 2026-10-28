@@ -20,8 +20,8 @@ Centralizar la documentación técnica de los subagentes de opencode, de los ser
 
 ## Estado de resolución
 
-- Referencia creada con 15 agentes, 8 MCPs, 6 comandos y 3 skills.
-- Pendiente de ampliación en la Fase 21 según ToDo en `PLAN.md`.
+- Referencia creada con 15 agentes, 8 MCPs, 17 comandos y 14 skills. Ampliada el 2026-10-26 con el MCP remoto microsoft-learn, que eleva el total a 9 MCPs.
+- Referencia viva: se actualiza al crear o modificar agentes, MCPs, comandos y skills.
 
 ---
 
@@ -678,7 +678,7 @@ Los tools de un MCP se registran en opencode con el nombre del servidor como pre
 
 Protección aplicada: `.gitignore` con entradas `.env` y `node_modules/`. Plantilla `.env.example` con valores vacíos para `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`. `MEMORY_FILE_PATH` no vive en `.env`: lo calcula `scripts/memory-mcp.mjs`. OpenCode no carga `.env`, así que las claves deben existir en el entorno del sistema para llegar a los MCPs.
 
-Política de acceso MCP: `context7_*`, `fetch_*`, `sequential-thinking_*`, `playwright_*` y `sqlite_*` están denegados a nivel global en `opencode.json` y habilitados solo en los agentes que los usan, mediante el bloque `permission` de cada agente. Al poner el permiso en `deny`, la herramienta queda deshabilitada y no consume contexto en el resto de agentes. Los agentes primarios `build` y `plan` también los tienen habilitados en `opencode.json` para poder invocarlos directamente sin delegar. El MCP sqlite además queda acotado a `application-tracker` y `job-search-strategist` por contener datos de candidaturas.
+Política de acceso MCP: `context7_*`, `fetch_*`, `microsoft-learn_*`, `sequential-thinking_*`, `playwright_*` y `sqlite_*` están denegados a nivel global en `opencode.json` y habilitados solo en los agentes que los usan, mediante el bloque `permission` de cada agente. Al poner el permiso en `deny`, la herramienta queda deshabilitada y no consume contexto en el resto de agentes. Los agentes primarios `build` y `plan` también los tienen habilitados en `opencode.json` para poder invocarlos directamente sin delegar. El MCP sqlite además queda acotado a `application-tracker` y `job-search-strategist` por contener datos de candidaturas.
 
 ### 1. github
 
@@ -794,6 +794,24 @@ No requiere secreto. Habilitado por defecto en `opencode.json`. Debe estar en `d
 
 El pin `--with "mcp<2"` es necesario: el servidor oficial usa la API `Server.list_resources`, retirada en el SDK 2.x. Sin el pin, uvx resuelve el SDK nuevo y el servidor arranca y cae con error `AttributeError: 'Server' object has no attribute 'list_resources'`, que opencode muestra como `MCP error -32000: Connection closed`. Con el pin responde al handshake y expone read_query, write_query, create_table, list_tables, describe_table y append_insight.
 
+### 9. microsoft-learn
+
+**Qué hace:**
+
+Opera como servidor MCP remoto en `https://learn.microsoft.com/api/mcp`, sin autenticación ni clave de API. El handshake devuelve `Microsoft Learn MCP Server` versión 1.0.0 sobre el protocolo MCP `2025-06-18`, con transporte HTTP y respuestas en `text/event-stream`. Expone tres herramientas: `microsoft_docs_search`, que devuelve hasta 10 fragmentos de documentación con título, URL y extracto; `microsoft_code_sample_search`, que devuelve hasta 20 ejemplos de código y acepta el parámetro opcional `language`; y `microsoft_docs_fetch`, que convierte una página de Microsoft Learn a Markdown completo.
+
+**Para qué sirve:**
+
+Consultar documentación oficial de Microsoft y de Azure sin salir de opencode, con la ventaja de que en `learn.microsoft.com` también se publica la documentación de las APIs de LinkedIn. Eso incluye los productos regulatorios de portabilidad de datos, los scopes de OAuth y los endpoints de la API de LinkedIn, que no se pueden leer directamente porque `linkedin.com` bloquea el acceso automatizado en su `robots.txt` y Microsoft Learn sí lo permite. Es la vía para verificar una cifra, un nombre de scope o una versión de endpoint antes de escribir código contra ellos.
+
+**Cómo usar:**
+
+No requiere secreto. Habilitado por defecto en `opencode.json` con `type remote` y la URL como único parámetro. El permiso `microsoft-learn_*` se deniega globalmente y se habilita en los agentes primarios `build` y plan, siguiendo la política del resto de MCPs.
+
+Flujo de uso recomendado por el propio servidor: primero `microsoft_docs_search` para localizar el documento, después `microsoft_code_sample_search` si hacen falta ejemplos, y por último `microsoft_docs_fetch` sobre la URL concreta cuando se necesita el contenido completo.
+
+Límite: solo cubre lo publicado en Microsoft Learn. La documentación de terceros, los foros y los blogs no entran, y una búsqueda vacía no significa que el dato no exista, sino que no está en ese dominio.
+
 ### Respaldo externo pendiente de evaluación: Notion y Google Drive
 
 **Qué hace:**
@@ -852,11 +870,31 @@ Uso: `/log-progress hoy terminé el módulo de hooks de React`
 
 Si un comando con `agent` apuntando a un subagente no mantiene la conversación interactiva en la sesión, la alternativa es convertir ese agente a `mode: all` y cambiar de agente con Tab antes de conversar.
 
+### 7. Comandos del pack LinkedIn
+
+Once comandos `li-*` que cargan el skill correspondiente y se ejecutan con el agente `build` en la sesión actual. No publican en LinkedIn: entregan texto listo para copiar. El detalle está en `docs/marca-personal/linkedin-agent-skill.md`.
+
+| Comando | Skill |
+| --- | --- |
+| `/li-post` | `li-post` |
+| `/li-human` | `li-human` |
+| `/li-comment` | `li-comment` |
+| `/li-reply` | `li-reply` |
+| `/li-profile` | `li-profile` |
+| `/li-plan` | `li-plan` |
+| `/li-carousel` | `li-carousel` |
+| `/li-repurpose` | `li-repurpose` |
+| `/li-dm` | `li-dm` |
+| `/li-inbox` | `li-inbox` |
+| `/li-audit` | `li-audit` |
+
+Uso: `/li-post he instalado un pack de 11 skills de LinkedIn tras auditar el código`. Si falta el perfil de voz, el comando pide tres publicaciones propias antes de escribir.
+
 ---
 
 ## Skills
 
-Los skills viven en `.opencode/skills/<nombre>/SKILL.md` y se cargan solos cuando la tarea encaja con su descripción. Se eligieron tres para no duplicar lo que ya cubren los agentes y `AGENTS.md`.
+Los skills viven en `.opencode/skills/<nombre>/SKILL.md` y se cargan solos cuando la tarea encaja con su descripción. Se mantienen tres skills propios para no duplicar lo que ya cubren los agentes y `AGENTS.md`, y el 2026-10-25 se añadió el pack externo de LinkedIn `li-*`.
 
 ### 1. flujo-candidatura
 
@@ -869,6 +907,26 @@ Estructura obligatoria de apuntes y registros de ejercicios: Objetivo, Conceptos
 ### 3. memoria-sesion
 
 Ciclo de memoria entre sesiones: al retomar trabajo, leer `docs/memoria/estado-actual.md` y consultar `docs/memoria/decisiones.md` antes de contradecir decisiones previas; al cerrar hito, actualizar ambos, ampliar el grafo del Memory MCP y usar `/log-progress` para el registro completo.
+
+### 4. Pack LinkedIn `li-*`
+
+Once skills externos instalados el 2026-10-25 desde `Jakeschincariol/linkedin-agent-skill` (MIT, commit `add2c23882fe79180737d242ff80a5da205eda6a`). Escriben y puntúan contenido de LinkedIn, pero no publican ni automatizan la cuenta. La auditoría, las adaptaciones y la verificación están en `docs/marca-personal/linkedin-agent-skill.md`.
+
+| Skill | Función |
+| --- | --- |
+| `li-post` | Convierte una idea en un post con tres ganchos y humanización. |
+| `li-human` | Limpia marcas de IA y puntúa el texto con cinco heurísticas locales. |
+| `li-comment` | Redacta comentarios para publicaciones de otras personas. |
+| `li-reply` | Clasifica y responde a los comentarios de un post propio. |
+| `li-profile` | Puntúa el perfil sobre 100 y reescribe lo que pierde puntos. |
+| `li-plan` | Planifica la semana y guarda el plan en la carpeta privada. |
+| `li-carousel` | Convierte una idea secuencial en un carrusel. |
+| `li-repurpose` | Extrae una semana de posts de un vídeo, artículo o transcripción. |
+| `li-dm` | Redacta la nota de conexión y los seguimientos. |
+| `li-inbox` | Clasifica la bandeja y redacta solo las respuestas útiles. |
+| `li-audit` | Analiza el rendimiento de lo ya publicado. |
+
+El perfil de voz, el plan y el registro viven en `docs/privado/linkedin/`, excluido de git. Los scripts se ejecutan con `uv run --no-project python` porque este equipo no tiene `python3` en el PATH. El panel del humanizador está calibrado para inglés; en español se usa como lista de comprobación, no como veredicto.
 
 ### Memoria del proyecto
 
@@ -884,7 +942,7 @@ El detalle de cada decisión también se refleja en el grafo del Memory MCP, que
 
 ## Visibilidad en GitHub
 
-El repositorio es público en https://github.com/edu84gp/ai-job-search-copilot. El `.gitignore` excluye los datos sensibles: `cv/*` salvo su README, `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`. La tabla `docs/candidaturas/tabla-candidaturas.md` sí se publica como evidencia del proceso.
+El repositorio es público en https://github.com/edu84gp/ai-job-search-copilot. El `.gitignore` excluye los datos sensibles: `cv/*` salvo su README, `docs/privado/`, `docs/networking/contactos-networking.md`, `docs/negociacion/registro-negociaciones.md`, `docs/memoria/*.local.json`, `docs/candidaturas/*.db` y `.env`. La tabla `docs/candidaturas/tabla-candidaturas.md` sí se publica como evidencia del proceso.
 
 **Calidad con GitHub Actions:** `.github/workflows/quality.yml` se ejecuta en cada push a main, en pull requests y manualmente. Dos trabajos: lint de Markdown con `DavidAnson/markdownlint-cli2-action` sobre `**/*.md` y verificación de enlaces con `lycheeverse/lychee-action`. La configuración del lint vive en `.markdownlint-cli2.jsonc`, que desactiva MD013, MD025, MD033, MD034, MD036 y MD040 por el estilo del proyecto (tablas largas, HTML embebido, URLs visibles) e ignora `node_modules/` y los prompts de `.opencode/agents` y `.opencode/commands` por no ser documentos. `.lycheeignore` excluye LinkedIn (bloquea automatización) y el endpoint MCP de context7 (solo acepta POST).
 
@@ -929,6 +987,7 @@ El repositorio es público en https://github.com/edu84gp/ai-job-search-copilot. 
 - Reescrito el README en Fase 21 en bilingüe orientado a reclutadores: badges, stack, proyectos con demos, pipeline de candidatura y tabla de evidencias con el Kanban.
 - Añadido en Fase 21 el workflow `Calidad` con markdownlint-cli2 y lychee, más `.markdownlint-cli2.jsonc` y `.lycheeignore`. Corregidos separadores de tablas, MD037 en CHANGELOG y creado `docs/apuntes/README.md` para que las carpetas vacías existan en git.
 - Añadido en Fase 21 `deploy-pages.yml` a pokedex_web y el-juego-de-la-vida, activado Pages por API con build_type workflow y configuradas descripciones y homepage de ambos repos.
+- Instalado el pack LinkedIn `li-*` el 2026-10-25: 11 skills y 11 comandos, auditoría de seguridad, adaptación de rutas a `docs/privado/linkedin/` y ejecución con `uv`. Detalle en `docs/marca-personal/linkedin-agent-skill.md`.
 - Creado en Fase 21 el Project público de candidaturas (#3) con campo Pipeline propio y vinculado al repositorio.
 - Corregido el Memory MCP tras la Fase 21: `MEMORY_FILE_PATH` pasa a ruta absoluta porque el servidor resuelve las relativas contra la caché de npx y las escrituras fallaban con ENOENT.
 - Sembrado tras la Fase 21 el grafo del Memory MCP con los hitos de las fases 0 a 21: 5 entidades y 5 relaciones. El servidor v2.0.0 usa formato JSON Lines, así que la siembra manual como objeto JSON único cargaba vacía; verificado arrancando el servidor contra el fichero.

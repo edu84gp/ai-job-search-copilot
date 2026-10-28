@@ -36,6 +36,9 @@
         "CONTEXT7_API_KEY": "USAR_VARIABLE_DE_ENTORNO_CONTEXT7_API_KEY"
       }
     },
+    "microsoft-learn": {
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
     "sequential-thinking": {
       "command": "npx",
       "args": [

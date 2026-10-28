@@ -25,3 +25,7 @@ Canales futuros cuando mejore el inglés y la carga lo permita: blog dev.to, X y
 
 | Semana | Fecha | Canal | Formato | Pilar | Tema | Ángulo | Estado | Enlace publicado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-W44 | 2026-10-27 | LinkedIn | Texto + imagen | Proyectos y decisiones técnicas con métrica | Caso de estudio de Aplika Jobs | Cuatro fragmentos, tres capturas y un NOTICE sin publicar código propietario | Publicado | [Ver publicación](https://www.linkedin.com/feed/update/urn:li:share:7520826633126133760) |
+| 2026-W44 | 2026-10-28 | LinkedIn | Texto | Uso de IA aplicada y agentes | Skills de IA | Una skill es código que se ejecuta, no un prompt | Planificado | — |
+| 2026-W44 | 2026-10-29 | LinkedIn | Texto | Uso de IA aplicada y agentes | Auditoría de skills | Siete comprobaciones antes de instalar | Planificado | — |
+| 2026-W44 | 2026-10-30 | LinkedIn | Texto | Aprendizaje del bootcamp y Employment Workshop | Error de CI en el caso de estudio | El commit en rojo por dos imágenes borradas | Planificado | — |

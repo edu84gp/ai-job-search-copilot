@@ -32,6 +32,11 @@
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       }
     },
+    "microsoft-learn": {
+      "type": "remote",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "enabled": true
+    },
     "sequential-thinking": {
       "type": "local",
       "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
@@ -51,6 +56,7 @@
   "permission": {
     "context7_*": "deny",
     "fetch_*": "deny",
+    "microsoft-learn_*": "deny",
     "sequential-thinking_*": "deny",
     "playwright_*": "deny",
     "sqlite_*": "deny"
@@ -60,6 +66,7 @@
       "permission": {
         "context7_*": "allow",
         "fetch_*": "allow",
+        "microsoft-learn_*": "allow",
         "sequential-thinking_*": "allow",
         "playwright_*": "allow",
         "sqlite_*": "allow"
@@ -69,6 +76,7 @@
       "permission": {
         "context7_*": "allow",
         "fetch_*": "allow",
+        "microsoft-learn_*": "allow",
         "sequential-thinking_*": "allow",
         "playwright_*": "allow",
         "sqlite_*": "allow"

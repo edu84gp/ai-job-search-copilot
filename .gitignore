@@ -13,3 +13,6 @@ cv/*
 !cv/README.md
 docs/networking/contactos-networking.md
 docs/negociacion/registro-negociaciones.md
+
+__pycache__/
+*.pyc

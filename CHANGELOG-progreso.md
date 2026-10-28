@@ -2,6 +2,76 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-10-27 - Primera publicación con el sistema completo
+
+- Publicado el post del martes (Proof, gancho #11 Myth Bust) sobre el caso de estudio de Aplika Jobs, con `detalle-oferta.png` adjunta y el enlace en el primer comentario.
+- Descartada la cifra «87 de 93» del plan: es la rúbrica interna del taller y no aparece en el repositorio público, así que el lector no puede verificarla. Sustituida por tres datos contables del repositorio: cuatro fragmentos, tres capturas y un NOTICE.
+- Creado `docs/privado/linkedin/log.md` con la ficha del post, el texto íntegro, el comentario y la justificación de lo que se dejó fuera.
+- El changelog de la API registró siete eventos en tiempo real durante la publicación, entre ellos `ugcPosts CREATE` y `socialActions/comments CREATE`, lo que confirma el archivado automático y permite obtener el URN de la publicación.
+- Calendario público actualizado: la fila del 27 de octubre pasa a Publicado con el enlace.
+
+## 2026-10-26 - Evaluación de Aplika Copilot
+
+- Creados `docs/privado/aplika-copilot-posibilidades.md` y `docs/privado/aplika-copilot-propuesta-companero.md` con la evaluación de producto, arquitectura, modelo de datos, esfuerzo, costes, privacidad y propuesta al compañero.
+- Recomendación: módulo premium dentro de Aplika centrado en el seguimiento posterior a la candidatura, con la app independiente como alternativa y el caso de estudio como respaldo. No se implementa hasta validar al compañero, 5-10 usuarios beta y tres candidaturas reales.
+- Hallazgos del esquema real: `ApplicationStatus` no incluye `REJECTED` ni `WITHDRAWN`; `Application.jobOfferId` es obligatorio, lo que bloquea candidaturas externas. El MVP requiere migración y estados de cierre.
+- Verificación: `markdownlint-cli2` sin incidencias en los dos documentos privados.
+
+## 2026-10-26 - Guía de uso y cierre de la preparación de la Fase 1
+
+- Creada `docs/guia-uso-ai-job-search-copilot.md` con `tracker-doc`: modelo de cinco capas, comprobaciones, rutina diaria, pipeline de candidatura, flujos de estudio, entrevistas, LinkedIn y memoria, privacidad, solución de problemas y chuleta. Enlazada desde `README.md` en español e inglés y desde `AGENTS.md`.
+- Enlazado el plan de estudios con el plan de LinkedIn en ambos sentidos: columna diaria en la semana tipo, métricas de comentarios y publicaciones, rutina diaria y semana del 26 al 30 de octubre.
+- Añadidos 11 topics a `WhatsChatGPT`: `ai`, `chatbot`, `express`, `full-stack`, `javascript`, `llm`, `nodejs`, `ollama`, `realtime`, `socket-io` y `websockets`. Cierra el ítem de Fase 1; el favicon de `pokedex_web` ya estaba desplegado.
+- Verificación: `markdownlint-cli2` sin incidencias en los archivos públicos y en el plan privado; recuento de 15 agentes, 9 MCPs, 17 comandos y 14 skills.
+
+## 2026-10-26 - Cliente de la API de portabilidad de LinkedIn
+
+- Escrito `scripts/linkedin-portability.py`, cliente de solo lectura sobre la API DMA de LinkedIn, sin dependencias y con la biblioteca estándar de Python.
+- Superficie mínima: dos endpoints de datos (`memberSnapshotData` y `memberChangeLogs`) y uno de control (`memberAuthorizations`), todos con `GET`. El cliente valida el host y el recurso contra una lista cerrada y aborta antes de la red si algo no coincide; verificado con dos intentos rechazados.
+- Comandos: `check`, `domains`, `snapshot`, `changelog` y `describe`. El punto de control del changelog se guarda en `state.json` y los datos en `docs/privado/linkedin/api/`, fuera de git. `INBOX`, `SEARCHES`, `PREMIUM_NOTES` y `AD_TARGETING` quedan excluidos del conjunto por defecto.
+- Documentado en `docs/marca-personal/linkedin-api-portabilidad.md` y añadido `LINKEDIN_DMA_TOKEN` a `.env.example`. Pendiente el alta en el portal y la primera descarga real.
+- Alta completada el mismo día: consentimiento activo a las 13:09 UTC con el scope `DMA` y primera descarga correcta de `PROFILE`, `SKILLS` (28 aptitudes) y `CONNECTIONS` (43 contactos). Los dominios de publicaciones y comentarios seguían en proceso, porque LinkedIn los collaciona de forma progresiva.
+- Corregido el tratamiento del 404 `No data found for this domain and memberId`: no es un fallo, es un dominio aún no procesado. El cliente lo marca como pendiente y sigue con los demás en lugar de abortar la tanda.
+- Segunda tanda de la exportación recibida el 2026-10-27 en `docs/privado/linkedin/exportaciones/2026-10-26.2`: 38 ficheros, 323 filas normalizadas. Aporta `Shares` (34), `Comments` (38), `Reactions` (71), `InstantReposts` (5), `SearchQueries`, `Logins` y `Security Challenges`, estos últimos excluidos por ser privados.
+- Escrito `scripts/linkedin-export-import.py`, que salta el bloque `Notes:` multilínea de los CSV, normaliza a JSON en `_normalizado/` y omite por defecto los ficheros sensibles.
+- Cruce de fuentes: `MEMBER_SHARE_INFO` de la API y `Shares.csv` coinciden en 34; `ALL_COMMENTS` y `Comments.csv` coinciden en 38. Queda descartado que la API exponga comentarios ajenos, así que `li-reply` sigue necesitando el hilo pegado a mano.
+- La paginación de `ALL_COMMENTS` devolvió 75 filas con 37 duplicados exactos entre páginas. El cliente ahora deduplica por fila completa antes de guardar.
+
+## 2026-10-26 - MCP remoto microsoft-learn
+
+- Añadido el servidor `microsoft-learn` en `opencode.json` con `type remote` y la URL `https://learn.microsoft.com/api/mcp`, sin autenticación ni clave, y replicado en el espejo `.opencode/mcp.json`.
+- Verificado el handshake antes de documentarlo: responde 200 en `text/event-stream` con `Microsoft Learn MCP Server` 1.0.0 sobre protocolo `2025-06-18` y expone `microsoft_docs_search`, `microsoft_code_sample_search` y `microsoft_docs_fetch`.
+- Motivo: la documentación de las APIs de LinkedIn se publica en `learn.microsoft.com`, que permite acceso automatizado, mientras que `linkedin.com` lo prohíbe en su `robots.txt`. Permite verificar scopes, endpoints y versiones sin abrir el navegador.
+- Permiso `microsoft-learn_*` denegado globalmente y habilitado en los agentes primarios `build` y `plan`, igual que el resto de MCPs. Ecosistema actualizado a 9 MCPs.
+
+## 2026-10-25 - Pack LinkedIn auditado e instalado
+
+- Auditado `Jakeschincariol/linkedin-agent-skill` (MIT, commit `add2c23`, 2.618 estrellas): sin red, sin ejecución de procesos, sin dependencias, sin binarios, sin secretos y sin publicación automática.
+- Instalados 11 skills `li-*` en `.opencode/skills/` y 11 comandos `li-*.md` en `.opencode/commands/`; OpenCode no convierte skills en comandos, así que cada uno tiene su envoltorio.
+- Adaptaciones: `~/.claude/linkedin/` pasa a `docs/privado/linkedin/`, los scripts se ejecutan con `uv run --no-project python` porque Windows no incluye `python3` y el proceso heredó un PATH sin Python, y las referencias internas entre skills sustituyen a los comandos de la TUI.
+- Verificado `/li-post` de extremo a extremo: tres ganchos, borrador de 1.102 caracteres y humanizador local. El panel está calibrado para inglés: el control inglés llega a 95,6 PASS y el borrador español queda en 57,2 REVIEW por la señal VOICE.
+- Documentación: `docs/marca-personal/linkedin-agent-skill.md`, `docs/referencia-agentes-mcps.md`, `docs/memoria/estado-actual.md` y `docs/memoria/decisiones.md`. Memory MCP actualizado a 12 entidades y 20 relaciones.
+
+## 2026-10-25 - Perfil de voz de LinkedIn desde tres publicaciones
+
+- Construido `docs/privado/linkedin/voice.md` desde el post de los dos meses, el avance del proyecto y el extractor de CV; sustituye al borrador provisional, que describía mal la voz (decía que no había emojis).
+- El perfil recoge dos registros (hito personal y anuncio de equipo), tres aperturas, el giro, tres cierres, la estructura, las posiciones, los límites y las pruebas verificables.
+- Las tres muestras se guardan íntegras en bloques `text` y una sección separa siete patrones que no se replican (`Aplica Jobs`, `developper`, hashtags dentro de la frase, puntuación acumulada).
+- Verificado con `markdownlint-cli2` sin incidencias; el archivo sigue fuera de git por `docs/privado/`.
+
+## 2026-10-25 - Python ya instalado: se corrige la premisa del PATH
+
+- Python 3.14.7 con pip 26.2.1, el lanzador `py` y el componente Add to Path está instalado hoy; no se reinstala para no duplicar intérpretes.
+- Los procesos abiertos antes de la instalación heredaron un PATH sin las entradas nuevas, así que `python` no resolvía en la sesión. Tras reiniciar el equipo, `python` y `py` resuelven al intérprete real y `detect.py` devuelve el mismo 57,2 que con `uv`.
+- Los scripts del pack siguen con `uv run --no-project python` por reproducibilidad y aislamiento, no porque falte el intérprete. Documentación corregida en la ficha del pack, decisiones y estado.
+
+## 2026-10-25 - Plan semanal de LinkedIn del 26 al 30 de octubre
+
+- Generado `docs/privado/linkedin/plan.md` con cuatro publicaciones: prueba del caso de estudio (martes), opinión sobre las skills como código (miércoles), siete comprobaciones de auditoría (jueves) e historia del commit en rojo (viernes).
+- Interacción: cinco cuentas de alcance (NEOLAND, midudev, Brais Moure, Carlos Azaustre y Spain AI), tres pares (Roberto Antonio López, Fernando Martinez y un junior de otro bootcamp de Neoland) y dos de contratación (Neoland Empleo y el reclutador de la primera oferta real). La promoción fue de dos personas, así que el tercer par sale de la comunidad del centro, no de la clase.
+- No se abre LinkedIn con Playwright: automatizar la sesión es el comportamiento que el pack desaconseja y puede restringir la cuenta. Los dos huecos de contratación se llenan con ofertas reales.
+- Calendario público actualizado con las cuatro filas de la semana en `docs/marca-personal/calendario-contenido.md`. Nada programado ni publicado.
+
 ## 2026-10-24 - Descripción y topics de el-juego-de-la-vida
 
 - Descripción vigente: simulador del autómata celular de Conway (B3/S23) con tablero vacío configurable, edición de células, patrón aleatorio del 10 % al 50 % y velocidad ajustable; HTML, CSS y JavaScript sin dependencias.

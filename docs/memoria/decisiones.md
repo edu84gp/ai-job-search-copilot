@@ -2,6 +2,15 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-10-26 - Aplika Copilot: módulo premium como opción principal
+
+- Decisión: evaluar la integración de `ai-job-search-copilot` en Aplika como módulo premium centrado en el seguimiento posterior a la candidatura, con la aplicación independiente como alternativa y el caso de estudio como respaldo. No se implementa nada hasta validar al compañero, 5-10 usuarios beta y tres candidaturas reales.
+- Motivo: Aplika cubre la parte inicial (perfil, ofertas, matching, CV y carta); el copilot cubre la parte posterior (seguimiento, entrevistas, LinkedIn, networking, negociación y memoria). El módulo reutiliza autenticación, PostgreSQL/Prisma, IA y `Application`, y evita duplicar el núcleo.
+- Alternativas descartadas: aplicación independiente como opción principal (duplica autenticación, infraestructura y soporte, y carece de distribución), API híbrida con dos frontends (complejidad prematura), widget embebido (deuda técnica), escritorio o CLI (poca distribución) y runtime de OpenCode en el navegador (riesgo de seguridad y 4-8 semanas).
+- Hallazgos del esquema real de Aplika: `ApplicationStatus` no incluye `REJECTED` ni `WITHDRAWN`, y `Application.jobOfferId` es obligatorio, lo que impide registrar candidaturas externas sin una `JobOffer`. El MVP requiere migración, estados de cierre y campos de candidatura externa.
+- Documentos: `docs/privado/aplika-copilot-posibilidades.md` y `docs/privado/aplika-copilot-propuesta-companero.md`, verificados con `markdownlint-cli2`.
+- Estado: pendiente la conversación con el compañero; la prioridad inmediata sigue siendo la primera candidatura real del 2026-10-27.
+
 ## 2026-10-15 - Nombres de agentes en inglés y documentación en español
 
 - Decisión: agentes en inglés kebab-case (cv-optimizer, application-tracker) y documentación en español.
@@ -168,3 +177,70 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Motivo: la landing mostraba marcas de terceros y cifras de marketing (95 %, 98 % y €85k) que el descargo no eliminaba; el panel es la evidencia relevante para la aportación backend. El README completo tarda 5,5-6,8 minutos, así que el criterio de lectura se ajusta a la lectura rápida del TL;DR. La demo abre el panel sin login con datos ficticios y el README afirmaba lo contrario.
 - Alternativas descartadas: mantener la landing con descargo (no cumple el checklist de métricas), recapturar un hero limpio (más trabajo y menos relevante), recortar el README a 700 palabras (pierde detalle técnico) y cambiar la demo para exigir login (mayor riesgo).
 - Verificación: commits `d7b25da` y `9dd8156`; CI `Calidad` en verde en el HEAD (run `40137561987`); el commit intermedio `d7b25da` falló porque el README aún referenciaba las imágenes borradas. Plan privado: 87/93; las 6 restantes son la Fase 8 continua.
+
+## 2026-10-25 - Pack LinkedIn auditado e instalado con adaptaciones locales
+
+- Decisión: instalar los 11 skills y 11 comandos del repositorio `Jakeschincariol/linkedin-agent-skill` (MIT, commit `add2c23882fe79180737d242ff80a5da205eda6a`) tras auditar su contenido, con el perfil de voz, el plan y el historial en `docs/privado/linkedin/` y los scripts ejecutados con `uv run --no-project python`.
+- Motivo: el pack cubre la escritura y la planificación de LinkedIn con 21 fórmulas de gancho y un humanizador local, sin publicar ni automatizar la cuenta. La auditoría no encontró red, ejecución de procesos, dependencias, binarios, secretos ni exfiltración; las únicas escrituras son locales y el README prohíbe la publicación automática.
+- Alternativas descartadas: instalar el pack global en `~/.claude/skills/` (mezcla con otros proyectos y rutas fuera del repositorio), mantener las rutas `~/.claude/linkedin/` (saca datos personales del control del proyecto), ejecutar con `python3` (Windows no lo incluye y el PATH heredado de esta sesión no resuelve `python`), copiar solo `li-post` (rompe la dependencia con `li-human` y el resto del pack) y confiar en la invocación automática de skills sin comandos (OpenCode no los expone como `/li-*`).
+- Verificación: los tres JSON parsean; `humanize.py` y `detect.py` funcionan con `uv`; un texto de control en inglés pasa de 78,0 a 95,6 PASS; el borrador español de prueba queda en 1.102 caracteres y 57,2 REVIEW por la comprobación VOICE calibrada para inglés; `/li-post` carga el skill, lee el perfil de voz y entrega tres ganchos y un borrador humanizado. Detalle en `docs/marca-personal/linkedin-agent-skill.md`.
+
+## 2026-10-25 - Perfil de voz construido desde tres publicaciones reales
+
+- Decisión: sustituir el perfil provisional de `docs/privado/linkedin/voice.md` por uno construido desde tres publicaciones propias, con dos registros (hito personal en primera del singular y anuncio de equipo en primera del plural), aperturas, giro, cierres y una sección de patrones que no se replican.
+- Motivo: el borrador anterior inventaba rasgos (decía que no se usaban emojis y listaba un léxico que no aparece en las muestras). Las tres publicaciones reales muestran emoji, puntuación expresiva, vocabulario coloquial de España y un cierre con pregunta en todos los casos; el perfil tiene que describir eso, no lo que el repositorio sugiere.
+- Alternativas descartadas: rellenar solo las casillas de la plantilla (pierde ritmo, aperturas y cierres), copiar las muestras sin filtro (arrastra erratas como `Aplica Jobs`, `developper` y los hashtags dentro de la frase) y normalizar las muestras (borra la evidencia que permite imitar el ritmo).
+- Verificación: las tres muestras se guardan íntegras en bloques `text`; la sección de ruido documenta los siete patrones detectados; el fichero pasa `markdownlint-cli2` sin incidencias y está excluido de git por `docs/privado/`.
+
+## 2026-10-25 - Python 3.14.7: no reinstalar y corregir la premisa del PATH
+
+- Decisión: no instalar una segunda versión de Python. El equipo ya tiene Python 3.14.7 con pip 26.2.1, el lanzador `py` y el componente Add to Path; el problema era que el proceso de OpenCode arrancó antes de la instalación y heredó un PATH sin las entradas nuevas.
+- Motivo: reinstalar habría duplicado intérpretes y abierto un conflicto de PATH. Con el PATH actualizado, `python --version`, `pip --version` y `py --version` responden, y `detect.py` devuelve el mismo 57,2 que con `uv`.
+- Alternativas descartadas: instalar Python 3.13 desde winget (duplica sin aportar), crear un alias `python3.exe` en la carpeta de Python (Windows no lo necesita y se pierde en la próxima actualización) y cambiar los comandos del pack a `python` (pierde la reproducibilidad entre equipos).
+- Verificación: el PATH de usuario contiene `Python314`, `Python314\Scripts` y `Launcher` antes de `WindowsApps`. Tras reiniciar el equipo, `python --version` devuelve 3.14.7 desde la ruta real, `pip` 26.2.1 y `py` 3.14.7; `detect.py` ejecutado con el intérprete del sistema devuelve el mismo 57,2 que con `uv`. `uv` sigue siendo el ejecutor canónico del pack porque fija Python 3.15 y evita paquetes globales.
+
+## 2026-10-25 - Plan semanal de LinkedIn sin automatizar la cuenta
+
+- Decisión: generar el plan semanal en `docs/privado/linkedin/plan.md` con cuatro publicaciones del 27 al 30 de octubre y diez cuentas de interacción, sin abrir LinkedIn con Playwright ni automatizar la sesión.
+- Motivo: la lista se puede construir con cuentas públicas y con las ofertas reales de la semana; automatizar la sesión es el comportamiento que el propio pack advierte y puede restringir la cuenta. El coste de un bloqueo supera el beneficio de diez nombres elegidos a ciegas.
+- Alternativas descartadas: usar Playwright con la sesión de LinkedIn (riesgo de restricción y contradice la auditoría del pack), inventar nombres de reclutadores (rompe la regla de no fabricar) y dejar la lista vacía (el plan dejaría de ser operativo).
+- Verificación: `plan.md` pasa `markdownlint-cli2`; las cuentas de alcance y pares son verificables; los dos huecos de contratación se llenan con la primera oferta registrada; las cuatro filas están en el calendario público.
+
+## 2026-10-26 - Plan de estudios enlazado con el plan de LinkedIn
+
+- Decisión: añadir al plan de estudios una columna diaria de LinkedIn en la semana tipo, dos métricas semanales (comentarios y publicaciones) y una rutina diaria con la semana en curso; mantener `docs/privado/linkedin/plan.md` como fuente operativa y enlazar ambos documentos en los dos sentidos.
+- Motivo: el plan de estudios repartía el tiempo en «Búsqueda, portfolio y LinkedIn/GitHub» sin decir qué tocaba en LinkedIn, y el plan semanal vivía en otro fichero, así que la acción del día no era visible al abrir el plan de estudios.
+- Alternativas descartadas: copiar el plan semanal completo en el plan de estudios (duplica contenido y se desincroniza), mover el plan de LinkedIn al plan de estudios (pierde el detalle de ganchos y cuentas de interacción) y dejar solo un enlace sin vista diaria (no resuelve la consulta de qué hacer hoy).
+- Cambio asociado: se sustituye «un post cada una o dos semanas» por la cadencia que fije el plan semanal, porque contradecía las cuatro publicaciones del 27 al 30 de octubre.
+- Correcciones de coherencia: se elimina la entrada de Experiencia en §8, porque la decisión del 2026-10-23 dejó los proyectos en `Proyectos`, y se sustituye la lista de Destacados por las tres publicaciones reales, sin `english-coach` porque aún no existe.
+- Verificación: las tablas mantienen el número de columnas y pasan `markdownlint-cli2`; `plan.md` enlaza de vuelta al plan de estudios; la tabla de la semana en curso se actualiza al regenerar `plan.md` con `li-plan`.
+
+## 2026-10-26 - Guía de uso operativa del sistema
+
+- Decisión: crear `docs/guia-uso-ai-job-search-copilot.md` con el modelo de cinco capas, comprobaciones de entorno, formas de invocación, rutina diaria, pipeline de candidatura, flujos de estudio, entrevistas, LinkedIn y memoria, privacidad, solución de problemas y chuleta; enlazarla desde `README.md` en español e inglés y desde `AGENTS.md`.
+- Motivo: `docs/referencia-agentes-mcps.md` es una referencia técnica densa, no un manual de arranque; faltaba un documento que explicara el orden de uso y qué pieza tocar en cada momento.
+- Alternativas descartadas: ampliar la referencia técnica (mezcla manual y referencia), crear un README aparte (duplica el existente) y dejar las instrucciones solo en la conversación (no persisten).
+- Redacción: delegada en `tracker-doc`, con revisión posterior de dos imprecisiones de OpenCode V2: el cambio de agente es `Ctrl+X A` o `Shift+Tab`, no `/agents`, y el CLI de npm no es requisito porque en este equipo el shim no encuentra el binario de plataforma.
+- Verificación: `markdownlint-cli2` sin incidencias en la guía, `README.md` y `AGENTS.md`; enlaces locales a la guía comprobados; recuento contrastado de 15 agentes, 9 MCPs, 17 comandos y 14 skills.
+
+## 2026-10-26 - microsoft-learn como MCP remoto sin credenciales
+
+- Decisión: añadir el servidor MCP `microsoft-learn` en modo remoto contra `https://learn.microsoft.com/api/mcp`, sin clave ni cabeceras, denegado globalmente y habilitado solo en los agentes `build` y `plan`.
+- Motivo: la documentación de las APIs de LinkedIn vive en `learn.microsoft.com`, que permite el acceso automatizado, mientras que `linkedin.com` lo prohíbe expresamente en su `robots.txt`. Es la única vía limpia para comprobar scopes, versiones de endpoint y productos regulatorios antes de escribir código.
+- Alternativas descartadas: extraer la documentación con Playwright desde `linkedin.com` (bloqueado y con riesgo de restricción), depender de `context7` para documentación de LinkedIn (no la indexa) y pegar los fragmentos a mano en el chat (no verificable ni repetible).
+- Verificación: handshake correcto con respuesta 200 en `text/event-stream`, servidor `Microsoft Learn MCP Server` 1.0.0 sobre protocolo `2025-06-18`, tres herramientas listadas y una búsqueda real devolviendo resultados. `opencode.json` y `.opencode/mcp.json` mantienen el mismo inventario.
+
+## 2026-10-26 - Lectura de LinkedIn por la API DMA, no por automatización
+
+- Decisión: leer el perfil, la red y las publicaciones propias con la API de portabilidad de LinkedIn (`Member Data Portability (Member)`), mediante un cliente local de solo lectura en `scripts/linkedin-portability.py`, con token personal guardado en `.env`.
+- Motivo: es la vía que LinkedIn documenta para extraer datos con consentimiento revocable y no entraña riesgo de restricción. Automatizar la sesión con Playwright sigue prohibido por `robots.txt` y por el propio interés de la cuenta con la que se busca empleo. El export por CSV sigue disponible como respaldo, pero la API entrega JSON por dominio, más dominios y eventos de los últimos 28 días.
+- Alternativas descartadas: export manual mensual como única vía (sin changelog ni consulta por dominio), automatización del navegador (riesgo de bloqueo) y renunciar al acceso (deja sin base el historial de `li-audit`).
+- Limitación aceptada: ningún dominio incluye impresiones ni alcance, así que las métricas de rendimiento se siguen copiando a mano. Queda por confirmar si `ALL_COMMENTS` incluye comentarios ajenos en publicaciones propias.
+- Verificación: listado de dominios, resumen de datos y guardas de host y recurso probadas en local; el cliente rechaza un host ajeno y un recurso no permitido antes de salir a la red. La primera llamada autenticada queda pendiente del alta en el portal.
+
+## 2026-10-27 - Publicar solo cifras que el lector pueda verificar
+
+- Decisión: retirar del post del martes la cifra «87 de 93» que figuraba en el plan y sustituirla por tres datos contables del repositorio público: cuatro fragmentos, tres capturas y un NOTICE.
+- Motivo: la rúbrica de 93 casillas es interna del taller y no aparece en el repositorio, así que nadie que lea el post puede comprobarla. Un número autoconcedido y no verificable es el riesgo que el propio plan advertía y contradice la regla del perfil de voz: no afirmar resultados que no se puedan demostrar con un enlace, una captura o un dato del repositorio.
+- Alternativas descartadas: publicar el 87/93 como «mi rúbrica interna» (sigue sin poder comprobarse), publicar el número sin contexto (parece un farol) y suprimir toda cifra (deja el post sin prueba, que es su único valor).
+- Verificación: el repositorio público tiene exactamente cuatro ficheros en `docs/fragmentos/`, tres en `docs/capturas/` y un `NOTICE.md`, comprobado contra el árbol de GitHub antes de escribir el post.

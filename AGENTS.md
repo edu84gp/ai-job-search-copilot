@@ -38,6 +38,7 @@ Operas como un tutor técnico experimentado en Desarrollo Web e Inteligencia Art
 
 ## Referencias del repositorio
 
+- Guía de uso: `docs/guia-uso-ai-job-search-copilot.md`
 - Agentes, MCPs y comandos: `docs/referencia-agentes-mcps.md`
 - Plan por fases: `PLAN.md`
 - Historial de progreso: `CHANGELOG-progreso.md`

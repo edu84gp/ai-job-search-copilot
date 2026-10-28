@@ -12,7 +12,7 @@
 
 ## Perfil
 
-Desarrollador Junior Full-Stack con enfoque en IA aplicada, recién graduado del bootcamp de desarrollo web y participante del programa Employment Workshop 2026. Como parte del programa construí un sistema completo de búsqueda de empleo asistido por IA sobre opencode: 15 subagentes especializados, 8 servidores MCP, 6 comandos y 3 skills con permisos acotados por agente. Este repositorio documenta ese sistema y todo el proceso con trazabilidad total.
+Desarrollador Junior Full-Stack con enfoque en IA aplicada, recién graduado del bootcamp de desarrollo web y participante del programa Employment Workshop 2026. Como parte del programa construí un sistema completo de búsqueda de empleo asistido por IA sobre opencode: 15 subagentes especializados, 9 servidores MCP, 17 comandos y 14 skills con permisos acotados por agente. Este repositorio documenta ese sistema y todo el proceso con trazabilidad total.
 
 Busco mi primera oportunidad como desarrollador Junior Full-Stack, con especial interés en equipos que apliquen IA al desarrollo de producto.
 
@@ -52,6 +52,8 @@ Cada etapa tiene agentes y comandos dedicados, con permisos mínimos y memoria p
 | Plan por fases (22 fases) | [PLAN.md](PLAN.md) |
 | Historial de progreso | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Referencia de agentes, MCPs, comandos y skills | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |
+| Guía de uso del sistema | [docs/guia-uso-ai-job-search-copilot.md](docs/guia-uso-ai-job-search-copilot.md) |
+| Auditoría del pack LinkedIn `li-*` | [docs/marca-personal/linkedin-agent-skill.md](docs/marca-personal/linkedin-agent-skill.md) |
 | Pipeline de candidaturas | [docs/candidaturas/tabla-candidaturas.md](docs/candidaturas/tabla-candidaturas.md) |
 | Kanban del pipeline | [Project público](https://github.com/users/edu84gp/projects/3) |
 | Memoria y decisiones del proyecto | [docs/memoria/](docs/memoria/) |
@@ -86,7 +88,7 @@ Requisitos: opencode, Node.js con `npx`, Python con `uv` y Git. Para las tareas 
 
 4. Abre opencode en la carpeta del repositorio. La base SQLite y el grafo de memoria se crean al primer uso y están excluidos de git.
 
-5. Comprueba que arrancan los 8 MCPs y que los 15 agentes están disponibles. La referencia técnica de cada servidor, permiso y agente está en [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
+5. Comprueba que arrancan los 9 MCPs y que los 15 agentes están disponibles. La referencia técnica de cada servidor, permiso y agente está en [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
 
 <details>
 <summary>Estructura del repositorio</summary>
@@ -125,7 +127,7 @@ Requisitos: opencode, Node.js con `npx`, Python con `uv` y Git. Para las tareas 
 
 ## Profile
 
-Junior Full-Stack Developer focused on applied AI, recent web development bootcamp graduate and Employment Workshop 2026 participant. As part of the program I built a complete AI-assisted job search system on top of opencode: 15 specialized subagents, 8 MCP servers, 6 commands and 3 skills with per-agent scoped permissions. This repository documents that system and the whole process with full traceability.
+Junior Full-Stack Developer focused on applied AI, recent web development bootcamp graduate and Employment Workshop 2026 participant. As part of the program I built a complete AI-assisted job search system on top of opencode: 15 specialized subagents, 8 MCP servers, 17 commands and 14 skills with per-agent scoped permissions. This repository documents that system and the whole process with full traceability.
 
 I am looking for my first opportunity as a Junior Full-Stack Developer, especially in teams applying AI to product development.
 
@@ -165,6 +167,8 @@ Every stage has dedicated agents and commands, with least-privilege permissions 
 | Phased plan (22 phases) | [PLAN.md](PLAN.md) |
 | Progress log | [CHANGELOG-progreso.md](CHANGELOG-progreso.md) |
 | Agents, MCPs, commands and skills reference | [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md) |
+| System usage guide | [docs/guia-uso-ai-job-search-copilot.md](docs/guia-uso-ai-job-search-copilot.md) |
+| LinkedIn `li-*` pack audit | [docs/marca-personal/linkedin-agent-skill.md](docs/marca-personal/linkedin-agent-skill.md) |
 | Application pipeline | [docs/candidaturas/tabla-candidaturas.md](docs/candidaturas/tabla-candidaturas.md) |
 | Pipeline Kanban | [Public project](https://github.com/users/edu84gp/projects/3) |
 | Project memory and decisions | [docs/memoria/](docs/memoria/) |
@@ -199,7 +203,7 @@ Requirements: opencode, Node.js with `npx`, Python with `uv` and Git. For GitHub
 
 4. Open opencode in the repository folder. The SQLite database and the memory graph are created on first use and are excluded from git.
 
-5. Check that the 8 MCPs start and the 15 agents are available. The technical reference for each server, permission and agent is in [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
+5. Check that the 9 MCPs start and the 15 agents are available. The technical reference for each server, permission and agent is in [docs/referencia-agentes-mcps.md](docs/referencia-agentes-mcps.md).
 
 <details>
 <summary>Repository structure</summary>
