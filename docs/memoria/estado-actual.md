@@ -2,7 +2,8 @@
 
 ## Foto
 
-- Última actualización: 2026-10-26.
+- Última actualización: 2026-10-29.
+- Employment Workshop 2026: unidad 2 al 12 % de progreso. Lecciones 2.2, 2.3, 2.4 y 2.5 cerradas y registradas en `docs/ejercicios/`; la 2.5 se entregó con dos documentos en `docs/ejercicios/entregables/` generados por `scripts/build-entrega-2-5.py`. La siguiente lección es la 2.6 Casos reales de aplicación.
 - Fase del plan: Fases 0 a 22 completadas; plan cerrado y validado. Fase 0 de identidad profesional cerrada el 2026-10-23 y ampliada el 2026-10-24 con el caso de estudio público de Aplika Jobs, cerrado en contenido el 2026-10-25 (87/93; las 6 restantes son la Fase 8 de mantenimiento continuo).
 - Ecosistema: 15 agentes, 9 MCPs, 17 comandos y 14 skills.
 - Entorno: Python 3.14.7 con pip 26.2.1 y el lanzador `py`, verificado tras reiniciar el equipo el 2026-10-25; `python` y `py` resuelven al intérprete real. Los scripts siguen ejecutándose con `uv run --no-project python` por reproducibilidad y no por ausencia del intérprete.
@@ -10,7 +11,7 @@
 - Kanban público del pipeline de candidaturas: https://github.com/users/edu84gp/projects/3 con campo Pipeline propio.
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
 - Juego de la vida: correcciones completadas y demo verificada el 2026-10-24 (tablero inicial vacío, patrón aleatorio entre el 10 % y el 50 %, Enter sin borrar el patrón, intervalo único, controles coherentes, anuncios accesibles y README alineado). Run de Pages en verde: https://github.com/edu84gp/el-juego-de-la-vida/actions/runs/40100958847.
-- Candidaturas: sin registros todavía. La tabla `candidaturas` se creará al primer registro con application-tracker.
+- Candidaturas: primer registro en SQLite el 2026-10-28: IGNIS, Junior Fullstack Developer (GdD), Madrid, estado aplicada, con CV y carta en `cv/` y seguimiento el 2026-11-04. La tabla `docs/candidaturas/tabla-candidaturas.md` se regeneró desde la base y las rutas privadas de `cv/` se muestran como código, no como enlace.
 - Memoria: grafo del Memory MCP en formato JSON Lines con 12 entidades y 20 relaciones (verificado el 2026-10-25); `scripts/memory-mcp.mjs` resuelve la ruta absoluta del grafo y arranca el servidor con `MEMORY_FILE_PATH`.
 - Post-plan: flecos del renombrado corregidos, guía de reproducción añadida al README en español e inglés y repo insignia fijado en el perfil de GitHub.
 - Plan privado de estudios: `docs/privado/plan-estudios-2026.md`, excluido del repo público con `docs/privado/` en `.gitignore`; fija 4 h/día, fases hasta el 2026-12-14, 3 candidaturas semanales y pausa de DevOps.
@@ -29,11 +30,12 @@
 
 ## Siguiente paso
 
-- Iniciar la primera candidatura real a partir del 2026-10-27 con `flujo-candidatura` y `application-tracker`. El caso de estudio queda cerrado en contenido; solo mantiene la Fase 8 de mantenimiento continuo (primera revisión el 2026-12-25) y la revisión externa del plan del perfil por una persona del bootcamp. En paralelo, compartir la propuesta de Aplika Copilot con el compañero y, solo si hay interés, agendar una conversación de 45 minutos; no escribir código.
+- Hacer seguimiento de la candidatura de IGNIS el 2026-11-04 (Junior Fullstack Developer GdD, aplicada el 2026-10-28). En paralelo, continuar el Employment Workshop por la lección 2.6 y cerrar la unidad 2 con la 2.7, y preparar la siguiente candidatura con `flujo-candidatura`. El caso de estudio queda cerrado en contenido; solo mantiene la Fase 8 de mantenimiento continuo (primera revisión el 2026-12-25) y la revisión externa del plan del perfil por una persona del bootcamp. Compartir la propuesta de Aplika Copilot con el compañero y, solo si hay interés, agendar una conversación de 45 minutos; no escribir código.
 
 ## Bloqueos
 
 - Ninguno funcional. El Memory MCP lee y escribe el grafo del repositorio mediante `scripts/memory-mcp.mjs` desde el 2026-10-24.
+- El subagente `ats-checker` se quedó colgado dos veces el 2026-10-28 (2 h 34 min y más de 5 h) porque intentaba descomprimir el PDF a mano dentro de Code Mode. Está reparado: el PDF se audita con `scripts/verify-cv-pdf.py` y el agente ya no tiene acceso a Code Mode ni a la lectura directa de PDF. No quedan incidencias abiertas de ese bloqueo.
 
 ## Pendientes anotados
 
@@ -43,7 +45,7 @@
 - Acceso a LinkedIn: cliente de solo lectura `scripts/linkedin-portability.py` sobre la API DMA, documentado en `docs/marca-personal/linkedin-api-portabilidad.md`. Consentimiento activo desde el 2026-10-26 13:09 UTC. Descargados `PROFILE`, `SKILLS`, `CONNECTIONS`, `MEMBER_SHARE_INFO` y `ALL_COMMENTS`, con cifras idénticas a las de la exportación CSV; `POSITIONS` sigue pendiente en la API. Queda descartado que `ALL_COMMENTS` incluya comentarios ajenos.
 - Exportación de datos: dos tandas en `docs/privado/linkedin/exportaciones/`, la segunda con `Shares`, `Comments`, `Reactions` e `InstantReposts`. Normalizadas con `scripts/linkedin-export-import.py` en subcarpetas `_normalizado`. Pendiente unificar ambas carpetas y generar el archivo de actividad.
 - Inglés: certificado EF SET B1 (2026) incorporado al CV y a LinkedIn (https://cert.efset.org/es/dTcq2Q); mantener la rutina y valorar el objetivo B2.
-- Evidencia real pendiente de avance del curso: apuntes y ejercicios en docs/apuntes y docs/ejercicios, y vídeo corto del sistema y del Kanban.
+- Evidencia real de avance del curso: cuatro registros creados el 2026-10-29 en `docs/ejercicios/` (temas 2.2, 2.3, 2.4 y 2.5). Se excluyen del repositorio público porque contienen análisis personal, debilidades propias y datos de contacto; el índice público queda sin filas. Sigue pendiente el vídeo corto del sistema y del Kanban.
 - Vista Board del Project agrupada por Pipeline, con una candidatura anonimizada de ejemplo; aplazada por decisión del 2026-10-19.
 - el-juego-de-la-vida: correcciones de código, accesibilidad y README completadas, demo verificada y descripción y topics revisados el 2026-10-24; no quedan pendientes funcionales del plan. El overclaim `Turing-completo` del README principal se sustituyó el 2026-10-24 por las funciones reales del simulador y el favicon de pokedex_web está publicado y enlazado.
 - Caso de estudio público de Aplika Jobs: cerrado en contenido el 2026-10-25. Plan privado 87/93; las 6 restantes son la Fase 8 de mantenimiento continuo. La landing con métricas y marcas y `login.png` se retiraron del repositorio; quedan tres capturas del panel. Pendientes vivos: cuenta ficticia de la demo sin eliminar (no se conserva la contraseña), inconsistencia «El candidato»/«Candidata Demo» documentada como limitación y vista previa de la URL en LinkedIn (la plataforma bloquea el guardado).

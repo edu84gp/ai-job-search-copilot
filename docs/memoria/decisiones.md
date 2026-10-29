@@ -2,6 +2,42 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-10-29 - Los registros del curso no se publican en el repositorio
+
+- Decisión: excluir `docs/ejercicios/` del repositorio público salvo el índice vacío, con las reglas `docs/ejercicios/*` y `!docs/ejercicios/indice-ejercicios.md` en `.gitignore`.
+- Motivo: los apuntes y los entregables del Employment Workshop contienen el DAFO con doce debilidades propias, el autodiagnóstico de competencias, la lista de empresas a evitar y dos direcciones de correo. Publicarlos entrega a cualquier reclutador argumentos en contra del candidato y expone datos de contacto.
+- Alternativas descartadas: publicarlos íntegros, que perjudica la candidatura; sanearlos hasta dejar solo lo positivo, que convierte el apunte en marketing y le quita su función de trabajo real; y borrarlos, que pierde el seguimiento del curso.
+- Consecuencia: el índice público `docs/ejercicios/indice-ejercicios.md` se mantiene como plantilla sin filas y la memoria del proyecto queda como única referencia pública al avance del curso.
+
+## 2026-10-29 - Entregables del curso en primera persona y sin restringir el sector
+
+- Decisión: redactar los entregables del Employment Workshop en primera persona y en lenguaje llano, sin identificadores de commit, acrónimos de arquitectura, nombres de bibliotecas ni referencias a códigos internos del repositorio; y presentar los sectores de experiencia previa como punto de partida y no como límite del puesto al que se aspira.
+- Motivo: la primera versión del DAFO del ejercicio 2.5 usaba vocabulario interno que un evaluador externo no entiende y que delataba que el texto no lo había escrito la persona. Además, fijar logística, hostelería, producción y gestión ecuestre en la dirección profesional convertía una ventaja de acceso en una restricción del puesto.
+- Alternativas descartadas: mantener los códigos internos con un glosario al pie, que sigue sin sonar propio; eliminar la mención a los sectores, que pierde una ventaja real; y dejar el documento como borrador interno sin entregar, que incumple la actividad.
+- Consecuencia aceptada: el entregable y el registro interno del 2.3 ya no coinciden palabra por palabra. La correspondencia se mantiene por código en `docs/ejercicios/tema-2-5-actividades-practicas.md`.
+- Verificación: la lección 2.5 quedó entregada y completada en la plataforma el 2026-10-29, con el progreso del 11 % al 12 %.
+
+## 2026-10-29 - Dirección profesional fijada por el ejercicio 2.2: full-stack junior con IA
+
+- Decisión: fijar como dirección el puesto de Desarrollador Full-Stack Junior con orientación a automatización e IA, en software para pymes de logística, hostelería, producción y gestión ecuestre, con HR-tech y empleo como alternativa, y en pymes de software o consultoras medianas de 20 a 200 personas con producto propio e infraestructura propia.
+- Motivo: de las seis intersecciones del Ikigai, la de vocación y profesión es la única con demanda demostrada, porque 5 de 5 ofertas de la muestra son de desarrollo; la de profesión y misión es la ventaja diferencial por el acceso de primera mano a cuatro sectores de baja digitalización; la de pasión y profesión, agentes e infraestructura, no aparece en la muestra y queda como diferenciador de entrevista y dirección a dos o tres años.
+- Alternativas descartadas: AI Engineer, que no es el título que contrata junior en la muestra; DevOps o SRE, con 0 de 5; arquitecto, porque aún no se implementa lo que se diseña; y el posicionamiento como especialista en automatización con IA, porque ninguna oferta menciona agentes y reduciría el embudo.
+- Verificación: registro completo en `docs/ejercicios/tema-2-2-ikigai-y-dafo.md`, validado el 2026-10-29. La muestra es de cinco ofertas, una de ellas salida de Aplika con un 70 % de match, y queda pendiente ampliarla a 25 antes de dar la dirección sectorial por cerrada.
+
+## 2026-10-28 - El PDF se audita con un script determinista, no con código del agente
+
+- Decisión: retirar al subagente `ats-checker` el acceso a Code Mode, a la lectura directa de PDF y a las herramientas del servidor `filesystem`, y darle una única vía para el PDF: `python scripts/verify-cv-pdf.py <pdf> --md <markdown> --json`.
+- Motivo: el agente intentaba extraer el texto del PDF a mano, sin bibliotecas, y escribía decodificadores DEFLATE en JavaScript dentro de Code Mode. La llamada no terminaba nunca y bloqueaba la sesión durante horas; ocurrió dos veces el mismo día. La extracción de PDF es un problema resuelto que no debe improvisar un modelo.
+- Alternativas descartadas: seguir confiando en el prompt y pedirle que no lo hiciera, que ya falló dos veces; instalar una biblioteca de PDF externa, que añade una dependencia y no impide que el agente vuelva a escribir código; dejar el agente sin acceso al PDF, que elimina la verificación mecánica del bloque de parseo.
+- Verificación: el script tarda unos 150 ms, decodifica las cadenas CID con los mapas `ToUnicode`, conserva los acentos y devuelve las mismas 512 palabras que el Markdown. El agente corregido terminó la auditoría en segundos.
+
+## 2026-10-28 - Primera candidatura real: IGNIS y ángulo electrotécnico
+
+- Decisión: adaptar el CV a la oferta de IGNIS, Junior Fullstack Developer (GdD), enviarla el 2026-10-28 y registrarla en SQLite como aplicada, con el eje de la formación electrotécnica y las prácticas en Telefónica y Enerpal, sin incluir Python, y ofrecer disponibilidad de traslado a Madrid y contrato de prácticas gestionado por Neoland.
+- Motivo: la oferta pide formación afín, APIs y PostgreSQL, y valora el conocimiento del sector energético y la gestión de la demanda. El perfil acredita el título, las prácticas y el stack full-stack, pero no Python; el ángulo diferencial es el dominio eléctrico, no competir por una palabra clave que no se puede defender en entrevista.
+- Alternativas descartadas: incluir Python como «en aprendizaje» sin evidencia, ocultar la brecha en la carta, limitar la candidatura a remoto y no mencionar la vía de prácticas.
+- Verificación: CV de una página y 500 palabras, PDF textual, carta de 237 palabras, auditoría ATS manual (el subagente `ats-checker` se quedó colgado y se descartó); oferta resumida en `docs/candidaturas/ofertas/ignis-junior-fullstack-gdd-2026-10.md`, análisis privado en `docs/privado/candidaturas/` y candidatura registrada en SQLite como aplicada con seguimiento el 2026-11-04.
+
 ## 2026-10-26 - Aplika Copilot: módulo premium como opción principal
 
 - Decisión: evaluar la integración de `ai-job-search-copilot` en Aplika como módulo premium centrado en el seguimiento posterior a la candidatura, con la aplicación independiente como alternativa y el caso de estudio como respaldo. No se implementa nada hasta validar al compañero, 5-10 usuarios beta y tres candidaturas reales.

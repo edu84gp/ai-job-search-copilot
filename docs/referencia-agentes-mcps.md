@@ -246,7 +246,7 @@ Detectar bloqueos automáticos antes de la reescritura estratégica, priorizar c
 
 **Cómo usar:**
 
-Se invoca como subagente de solo lectura con inspección local vía lectura y listado, sin bash. Requiere ruta del PDF o Markdown en `cv/`. Acepta ambos para comparar coherencia. Recibe oferta objetivo cuando exista. Si no hay oferta, evalúa contra Junior Full-Stack con IA.
+Se invoca como subagente de solo lectura. Lee el Markdown con la herramienta de lectura y audita el PDF únicamente mediante `python scripts/verify-cv-pdf.py <pdf> --md <markdown> --json`, que extrae el texto de forma determinista, decodifica los códigos CID con los mapas `ToUnicode`, cuenta páginas, fuentes, imágenes y enlaces, y compara el número de palabras con el Markdown. El agente no abre el PDF como binario ni ejecuta código propio. Requiere ruta del PDF o Markdown en `cv/`. Acepta ambos para comparar coherencia. Recibe oferta objetivo cuando exista. Si no hay oferta, evalúa contra Junior Full-Stack con IA.
 
 Ejemplo de uso en opencode:
 
@@ -265,13 +265,12 @@ Configuración aplicada en `.opencode/agents/ats-checker.md`:
 
 ```text
 mode: subagent
-temperature: 0.1
-color: error
-permission:
-  edit: deny
-  bash: deny
-  webfetch: deny
+color: "#b00020"
+steps: 30
+permissions: deny global, allow read glob grep y shell limitado al script
 ```
+
+El bloqueo de Code Mode (`execute`) y la lectura directa de PDF están denegados a propósito: son las dos vías por las que el agente intentó descomprimir el PDF a mano y se quedó en bucle.
 
 Ponderación fija: parseo 35, keywords 35, legibilidad 20, coherencia PDF Markdown 10. Umbrales: APTO con 80 o más, CORREGIR de 60 a 79, NO APTO por debajo de 60.
 

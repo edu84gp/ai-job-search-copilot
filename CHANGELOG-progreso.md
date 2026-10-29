@@ -2,6 +2,21 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-10-28 - Reparación del bloqueo de ats-checker
+
+- Causa del bloqueo: el agente no podía leer el PDF con la herramienta de lectura y se puso a extraer el texto a mano. Leyó el archivo en base64, descubrió que el entorno no tiene `DecompressionStream` y escribió un decodificador DEFLATE propio dentro de Code Mode. El bucle no tenía condición de salida y la llamada nunca devolvía, así que la sesión quedaba «en ejecución» durante horas. Ocurrió dos veces: 2 h 34 min el 2026-10-28 por la mañana y más de 5 h por la tarde.
+- Creado `scripts/verify-cv-pdf.py`: verifica el PDF con la biblioteca estándar, decodifica las cadenas CID con los mapas `ToUnicode`, cuenta páginas, fuentes, imágenes y enlaces, conserva los acentos y compara el número de palabras con el Markdown. Tarda unos 150 ms.
+- `.opencode/agents/ats-checker.md` migrado a permisos V2: denegación global, lectura y búsqueda permitidas, `shell` limitado al script, y denegados Code Mode, lectura directa de PDF y herramientas del servidor `filesystem`. Añadido `steps: 30` como tope de iteraciones.
+- El primer informe del agente corregido señalaba un desfase de 120 palabras y dos fuentes sin `ToUnicode`. Era un artefacto del verificador: no decodificaba las cadenas hexadecimales y la consola de Windows rompía los acentos. Corregido: el PDF y el Markdown coinciden en 512 palabras y no hay códigos sin mapa.
+
+## 2026-10-28 - Primera candidatura real enviada
+
+- Enviada la candidatura a IGNIS (Junior Fullstack Developer, GdD), Madrid, con CV adaptado y carta de presentación.
+- CV de una página y 500 palabras; carta de 237 palabras. Se incorporaron el título de Técnico Superior en Instalaciones Electrotécnicas MT/BT y las prácticas FCT de 2006 en Telefónica y Enerpal.
+- Python no se incluye porque no se puede defender en entrevista; la carta declara la brecha de gestión de la demanda sin maquillarla.
+- Registrada en SQLite (id 1) como aplicada, con seguimiento el 2026-11-04; `docs/candidaturas/tabla-candidaturas.md` regenerada.
+- El subagente `ats-checker` se quedó colgado; la verificación ATS se hizo manualmente y se ajustó su definición para priorizar el Markdown sobre el PDF.
+
 ## 2026-10-27 - Primera publicación con el sistema completo
 
 - Publicado el post del martes (Proof, gancho #11 Myth Bust) sobre el caso de estudio de Aplika Jobs, con `detalle-oferta.png` adjunta y el enlace en el primer comentario.

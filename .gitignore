@@ -13,6 +13,8 @@ cv/*
 !cv/README.md
 docs/networking/contactos-networking.md
 docs/negociacion/registro-negociaciones.md
+docs/ejercicios/*
+!docs/ejercicios/indice-ejercicios.md
 
 __pycache__/
 *.pyc

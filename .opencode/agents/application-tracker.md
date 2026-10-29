@@ -65,7 +65,7 @@ Procedimiento obligatorio antes de escribir:
 2. Buscarás si ya existe una candidatura con misma empresa, rol y fecha. Si no existe, insertarás una fila nueva.
 3. Si existe, actualizarás solo los campos estado, contacto y proximo_paso, sin borrar historial ni otros campos.
 4. Tras cada cambio, regenerarás `tabla-candidaturas.md` volcando todas las filas ordenadas por fecha descendente, con columnas Fecha, Empresa, Rol, Estado, Oferta, Carta, CV, Contacto y Próximo paso.
-5. Enlazarás oferta, carta y cv con rutas o URLs verificadas. Si falta, dejarás el campo vacío y lo declararás en tu informe. No inventarás rutas.
+5. Enlazarás la oferta con una URL verificada. Las rutas de carta y CV viven en `cv/`, fuera del repositorio público: muéstralas como código en línea, no como enlace, para no romper la verificación de enlaces. Si falta, dejarás el campo vacío y lo declararás en tu informe. No inventarás rutas.
 
 Estados válidos:
 
