@@ -2,6 +2,13 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-10-30 - Agenda diaria con SQLite, ICS y comandos `/hoy` y `/hecho`
+
+- Creada la base privada `docs/privado/agenda/agenda.db` con 36 tareas y 5 recurrencias: los plazos D1-D12 y A1-A6, los hitos de fase, las publicaciones de LinkedIn, la entrevista con Patricia del 31 de octubre, el seguimiento de IGNIS del 4 de noviembre y seis tareas de backlog.
+- `scripts/agenda.py` usa solo la biblioteca estándar y expone `init`, `seed`, `sync`, `hoy`, `semana`, `done`, `skip`, `add`, `ics` y `memoria`. La tabla de recurrencias evita duplicar los bloques diarios; `recurrence_done` guarda los hábitos ya hechos.
+- Genera `hoy.md`, `semana.md` y `agenda.ics` en la carpeta privada. El calendario incluye todas las tareas pendientes y las cinco recurrencias, con `UID` estable, horas flotantes y aviso de 15 minutos antes solo en las tareas con hora.
+- Añadidos los comandos `/hoy` y `/hecho`, la guía `docs/agenda-diaria.md` y el bloque generado entre marcadores en `docs/memoria/estado-actual.md`. La interfaz React queda pospuesta hasta cerrar D2 y D9, según D12.
+
 ## 2026-10-28 - Reparación del bloqueo de ats-checker
 
 - Causa del bloqueo: el agente no podía leer el PDF con la herramienta de lectura y se puso a extraer el texto a mano. Leyó el archivo en base64, descubrió que el entorno no tiene `DecompressionStream` y escribió un decodificador DEFLATE propio dentro de Code Mode. El bucle no tenía condición de salida y la llamada nunca devolvía, así que la sesión quedaba «en ejecución» durante horas. Ocurrió dos veces: 2 h 34 min el 2026-10-28 por la mañana y más de 5 h por la tarde.
