@@ -2,6 +2,13 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-01 - El trabajo diario pasa a la rama `dev`
+
+- Decisión: `main` queda como rama estable y el trabajo diario se hace en `dev`, que se creó ese día desde `main` y ya tiene upstream en `origin`. Los cambios llegan a `main` por fusión o pull request, no por commit directo.
+- Motivo: el CI `Calidad` solo se dispara en `push` a `main` y en `pull_request`. Trabajar en `dev` permite agrupar varios commits y verlos pasar juntos antes de que toquen la rama publicada, sin dejar `main` a medias entre dos sesiones.
+- Alternativas descartadas: seguir en `main` con commits directos (cada push publica el estado intermedio y el CI solo avisa después); una rama por tema (más limpio, pero el repositorio es de una sola persona y añade ceremonia sin beneficio mientras el trabajo sea secuencial); trabajar en `dev` sin publicarla (se pierde la copia remota y la posibilidad de abrir PR desde el móvil).
+- Consecuencia: los `push` a `dev` no ejecutan el CI, así que la comprobación de calidad llega al abrir el pull request o al fusionar en `main`. Si una sesión se queda a medias, `dev` puede estar roja sin que nadie lo note.
+
 ## 2026-10-31 - Detector li-human bilingüe y calibrado con la voz propia
 
 - Decisión: adaptar `detect.py` y `slop.json` al castellano. Regex Unicode para palabras y nombres propios, pronombres españoles en lugar de contracciones inglesas, umbrales calibrados con las 36 publicaciones descargadas de la API de portabilidad, 57 palabras y 51 frases nuevas en el léxico, 13 estructuras españolas y una puerta de PASS que ignora los checks que no pueden juzgar textos cortos.

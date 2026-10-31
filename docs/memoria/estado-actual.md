@@ -15,7 +15,7 @@ _Agenda generada por `scripts/agenda.py` el 2026-11-01._
 - Fase del plan: Fases 0 a 22 completadas; plan cerrado y validado. Fase 0 de identidad profesional cerrada el 2026-10-23 y ampliada el 2026-10-24 con el caso de estudio público de Aplika Jobs, cerrado en contenido el 2026-10-25 (87/93; las 6 restantes son la Fase 8 de mantenimiento continuo).
 - Ecosistema: 15 agentes, 10 MCPs, 19 comandos y 14 skills.
 - Entorno: Python 3.14.7 con pip 26.2.1 y el lanzador `py`, verificado tras reiniciar el equipo el 2026-10-25; `python` y `py` resuelven al intérprete real. Los scripts siguen ejecutándose con `uv run --no-project python` por reproducibilidad y no por ausencia del intérprete.
-- Repositorio: público en https://github.com/edu84gp/ai-job-search-copilot (renombrado desde job-support-portfolio el 2026-10-19) con CI de calidad (markdownlint y lychee) en verde.
+- Repositorio: público en https://github.com/edu84gp/ai-job-search-copilot (renombrado desde job-support-portfolio el 2026-10-19) con CI de calidad (markdownlint y lychee) en verde. Desde el 2026-11-01 `main` es la rama estable y el trabajo diario va en `dev`.
 - Kanban público del pipeline de candidaturas: https://github.com/users/edu84gp/projects/3 con campo Pipeline propio.
 - Demos desplegadas en GitHub Pages: pokedex_web y el-juego-de-la-vida. WhatsChatGPT pendiente por requerir servidor con Ollama.
 - Juego de la vida: correcciones completadas y demo verificada el 2026-10-24 (tablero inicial vacío, patrón aleatorio entre el 10 % y el 50 %, Enter sin borrar el patrón, intervalo único, controles coherentes, anuncios accesibles y README alineado). Run de Pages en verde: https://github.com/edu84gp/el-juego-de-la-vida/actions/runs/40100958847.
