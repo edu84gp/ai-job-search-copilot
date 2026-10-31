@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "note": "Lexicon used by humanize.py and detect.py. Replacements are plain-English and keep the sentence grammatical. Edit freely - it is meant to be yours.",
+  "version": "1.2",
+  "note": "Lexicon used by humanize.py and detect.py. Replacements are plain and keep the sentence grammatical. English and Spanish words, phrases and structural tells. Edit freely - it is meant to be yours.",
   "invisible": [
     {
       "cp": "U+200B",
@@ -550,6 +550,291 @@
       "find": "it is worth noting that",
       "replace": "note that",
       "family": "connectives"
+    },
+    {
+      "find": "potenciar",
+      "replace": "mejorar",
+      "family": "verbs"
+    },
+    {
+      "find": "potenciando",
+      "replace": "mejorando",
+      "family": "verbs"
+    },
+    {
+      "find": "potenciado",
+      "replace": "mejorado",
+      "family": "verbs"
+    },
+    {
+      "find": "potenciada",
+      "replace": "mejorada",
+      "family": "verbs"
+    },
+    {
+      "find": "revolucionar",
+      "replace": "cambiar",
+      "family": "verbs"
+    },
+    {
+      "find": "reinventar",
+      "replace": "cambiar",
+      "family": "verbs"
+    },
+    {
+      "find": "reinventarse",
+      "replace": "cambiar",
+      "family": "verbs"
+    },
+    {
+      "find": "apalancar",
+      "replace": "aprovechar",
+      "family": "verbs"
+    },
+    {
+      "find": "visibilizar",
+      "replace": "mostrar",
+      "family": "verbs"
+    },
+    {
+      "find": "disruptivo",
+      "replace": "nuevo",
+      "family": "adjectives"
+    },
+    {
+      "find": "disruptiva",
+      "replace": "nueva",
+      "family": "adjectives"
+    },
+    {
+      "find": "disruptivos",
+      "replace": "nuevos",
+      "family": "adjectives"
+    },
+    {
+      "find": "disruptivas",
+      "replace": "nuevas",
+      "family": "adjectives"
+    },
+    {
+      "find": "sinérgico",
+      "replace": "conjunto",
+      "family": "adjectives"
+    },
+    {
+      "find": "sinérgica",
+      "replace": "conjunta",
+      "family": "adjectives"
+    },
+    {
+      "find": "sinérgicos",
+      "replace": "conjuntos",
+      "family": "adjectives"
+    },
+    {
+      "find": "sinérgicas",
+      "replace": "conjuntas",
+      "family": "adjectives"
+    },
+    {
+      "find": "holístico",
+      "replace": "completo",
+      "family": "adjectives"
+    },
+    {
+      "find": "holística",
+      "replace": "completa",
+      "family": "adjectives"
+    },
+    {
+      "find": "holísticos",
+      "replace": "completos",
+      "family": "adjectives"
+    },
+    {
+      "find": "holísticas",
+      "replace": "completas",
+      "family": "adjectives"
+    },
+    {
+      "find": "robusto",
+      "replace": "sólido",
+      "family": "adjectives"
+    },
+    {
+      "find": "robusta",
+      "replace": "sólida",
+      "family": "adjectives"
+    },
+    {
+      "find": "robustos",
+      "replace": "sólidos",
+      "family": "adjectives"
+    },
+    {
+      "find": "robustas",
+      "replace": "sólidas",
+      "family": "adjectives"
+    },
+    {
+      "find": "transformador",
+      "replace": "útil",
+      "family": "adjectives"
+    },
+    {
+      "find": "transformadora",
+      "replace": "útil",
+      "family": "adjectives"
+    },
+    {
+      "find": "innovador",
+      "replace": "nuevo",
+      "family": "adjectives"
+    },
+    {
+      "find": "innovadora",
+      "replace": "nueva",
+      "family": "adjectives"
+    },
+    {
+      "find": "innovadores",
+      "replace": "nuevos",
+      "family": "adjectives"
+    },
+    {
+      "find": "innovadoras",
+      "replace": "nuevas",
+      "family": "adjectives"
+    },
+    {
+      "find": "vanguardista",
+      "replace": "nuevo",
+      "family": "adjectives"
+    },
+    {
+      "find": "proactivo",
+      "replace": "activo",
+      "family": "adjectives"
+    },
+    {
+      "find": "proactiva",
+      "replace": "activa",
+      "family": "adjectives"
+    },
+    {
+      "find": "proactivos",
+      "replace": "activos",
+      "family": "adjectives"
+    },
+    {
+      "find": "proactivas",
+      "replace": "activas",
+      "family": "adjectives"
+    },
+    {
+      "find": "sinergia",
+      "replace": "colaboración",
+      "family": "nouns"
+    },
+    {
+      "find": "sinergias",
+      "replace": "colaboraciones",
+      "family": "nouns"
+    },
+    {
+      "find": "disrupción",
+      "replace": "cambio",
+      "family": "nouns"
+    },
+    {
+      "find": "mindset",
+      "replace": "mentalidad",
+      "family": "nouns"
+    },
+    {
+      "find": "gurú",
+      "replace": "experto",
+      "family": "nouns"
+    },
+    {
+      "find": "gurús",
+      "replace": "expertos",
+      "family": "nouns"
+    },
+    {
+      "find": "empoderamiento",
+      "replace": "autonomía",
+      "family": "nouns"
+    },
+    {
+      "find": "resiliencia",
+      "replace": "constancia",
+      "family": "nouns"
+    },
+    {
+      "find": "storytelling",
+      "replace": "narrativa",
+      "family": "nouns"
+    },
+    {
+      "find": "engagement",
+      "replace": "participación",
+      "family": "nouns"
+    },
+    {
+      "find": "insight",
+      "replace": "hallazgo",
+      "family": "nouns"
+    },
+    {
+      "find": "insights",
+      "replace": "hallazgos",
+      "family": "nouns"
+    },
+    {
+      "find": "learnings",
+      "replace": "aprendizajes",
+      "family": "nouns"
+    },
+    {
+      "find": "growth",
+      "replace": "crecimiento",
+      "family": "nouns"
+    },
+    {
+      "find": "upskilling",
+      "replace": "formación",
+      "family": "nouns"
+    },
+    {
+      "find": "reskilling",
+      "replace": "reciclaje",
+      "family": "nouns"
+    },
+    {
+      "find": "networking",
+      "replace": "contactos",
+      "family": "nouns"
+    },
+    {
+      "find": "roadmap",
+      "replace": "plan",
+      "family": "nouns"
+    },
+    {
+      "find": "asimismo",
+      "replace": "además",
+      "family": "connectives"
+    },
+    {
+      "find": "sumamente",
+      "replace": "muy",
+      "family": "connectives"
+    },
+    {
+      "find": "extremadamente",
+      "replace": "muy",
+      "family": "connectives"
     }
   ],
   "phrases": [
@@ -712,6 +997,256 @@
       "find": "who's with me",
       "replace": "",
       "family": "closers"
+    },
+    {
+      "find": "en el mundo actual",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "en la era digital",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "en la sociedad actual",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "hoy en día",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "a día de hoy",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "en los tiempos que corren",
+      "replace": "hoy",
+      "family": "openers"
+    },
+    {
+      "find": "ha llegado para quedarse",
+      "replace": "está aquí",
+      "family": "openers"
+    },
+    {
+      "find": "potencia tu marca personal",
+      "replace": "trabaja tu marca personal",
+      "family": "openers"
+    },
+    {
+      "find": "desbloquear el potencial",
+      "replace": "aprovechar",
+      "family": "openers"
+    },
+    {
+      "find": "desbloquear todo el potencial",
+      "replace": "aprovechar",
+      "family": "openers"
+    },
+    {
+      "find": "llevar al siguiente nivel",
+      "replace": "mejorar",
+      "family": "openers"
+    },
+    {
+      "find": "llevar a otro nivel",
+      "replace": "mejorar",
+      "family": "openers"
+    },
+    {
+      "find": "marcar la diferencia",
+      "replace": "ayudar",
+      "family": "openers"
+    },
+    {
+      "find": "juega un papel fundamental",
+      "replace": "es clave",
+      "family": "openers"
+    },
+    {
+      "find": "juega un papel clave",
+      "replace": "es clave",
+      "family": "openers"
+    },
+    {
+      "find": "juega un papel importante",
+      "replace": "es clave",
+      "family": "openers"
+    },
+    {
+      "find": "un antes y un después",
+      "replace": "un cambio",
+      "family": "nouns"
+    },
+    {
+      "find": "un mundo de posibilidades",
+      "replace": "muchas opciones",
+      "family": "nouns"
+    },
+    {
+      "find": "el futuro es hoy",
+      "replace": "ya está aquí",
+      "family": "openers"
+    },
+    {
+      "find": "la clave está en",
+      "replace": "depende de",
+      "family": "connectives"
+    },
+    {
+      "find": "el secreto está en",
+      "replace": "depende de",
+      "family": "connectives"
+    },
+    {
+      "find": "es fundamental",
+      "replace": "hace falta",
+      "family": "connectives"
+    },
+    {
+      "find": "es crucial",
+      "replace": "hace falta",
+      "family": "connectives"
+    },
+    {
+      "find": "es esencial",
+      "replace": "hace falta",
+      "family": "connectives"
+    },
+    {
+      "find": "cabe destacar",
+      "replace": "destaca",
+      "family": "connectives"
+    },
+    {
+      "find": "es importante destacar",
+      "replace": "destaca",
+      "family": "connectives"
+    },
+    {
+      "find": "sin lugar a dudas",
+      "replace": "sin duda",
+      "family": "connectives"
+    },
+    {
+      "find": "en definitiva",
+      "replace": "al final",
+      "family": "connectives"
+    },
+    {
+      "find": "de cara a",
+      "replace": "para",
+      "family": "connectives"
+    },
+    {
+      "find": "con el objetivo de",
+      "replace": "para",
+      "family": "connectives"
+    },
+    {
+      "find": "con la finalidad de",
+      "replace": "para",
+      "family": "connectives"
+    },
+    {
+      "find": "en términos de",
+      "replace": "en",
+      "family": "connectives"
+    },
+    {
+      "find": "en el día a día",
+      "replace": "a diario",
+      "family": "connectives"
+    },
+    {
+      "find": "poner en valor",
+      "replace": "destacar",
+      "family": "verbs"
+    },
+    {
+      "find": "sacar el máximo partido",
+      "replace": "aprovechar",
+      "family": "verbs"
+    },
+    {
+      "find": "sacar el máximo provecho",
+      "replace": "aprovechar",
+      "family": "verbs"
+    },
+    {
+      "find": "nunca dejes de aprender",
+      "replace": "sigue aprendiendo",
+      "family": "closers"
+    },
+    {
+      "find": "mantenerse actualizado",
+      "replace": "estudiar",
+      "family": "closers"
+    },
+    {
+      "find": "adaptarse al cambio",
+      "replace": "cambiar",
+      "family": "closers"
+    },
+    {
+      "find": "apasionado de",
+      "replace": "me interesa",
+      "family": "openers"
+    },
+    {
+      "find": "apasionada de",
+      "replace": "me interesa",
+      "family": "openers"
+    },
+    {
+      "find": "apasionado por",
+      "replace": "me interesa",
+      "family": "openers"
+    },
+    {
+      "find": "apasionada por",
+      "replace": "me interesa",
+      "family": "openers"
+    },
+    {
+      "find": "el poder de",
+      "replace": "lo que puede hacer",
+      "family": "nouns"
+    },
+    {
+      "find": "abrir un abanico de",
+      "replace": "dar muchas",
+      "family": "verbs"
+    },
+    {
+      "find": "game changer",
+      "replace": "cambio",
+      "family": "nouns"
+    },
+    {
+      "find": "best practices",
+      "replace": "buenas prácticas",
+      "family": "nouns"
+    },
+    {
+      "find": "key takeaways",
+      "replace": "conclusiones",
+      "family": "nouns"
+    },
+    {
+      "find": "soft skills",
+      "replace": "habilidades",
+      "family": "nouns"
+    },
+    {
+      "find": "hard skills",
+      "replace": "conocimientos técnicos",
+      "family": "nouns"
     }
   ],
   "structures": [
@@ -780,6 +1315,84 @@
       "regex": "(?i)\\b(?:agree\\?|thoughts\\?|who else\\b|am i wrong\\?)\\s*$",
       "name": "Reflex engagement bait",
       "fix": "Ask a question only you could ask, about the specific thing above it."
+    },
+    {
+      "id": "no-es-solo",
+      "regex": "(?i)\\bno (?:es|fue) (?:solo|solamente|únicamente)\\b[^.!?\\n]{2,60}[,.]\\s*(?:es|fue|sino)\\b",
+      "name": "\"No es solo X, es Y\"",
+      "fix": "Di directamente la parte Y. La primera mitad solo prepara el giro."
+    },
+    {
+      "id": "no-solo-sino",
+      "regex": "(?i)\\bno solo\\b[^.!?\\n]{2,80}\\bsino (?:que )?tambi[?e]n\\b",
+      "name": "\"No solo X, sino también Y\"",
+      "fix": "Parte la frase en dos o quita la mitad más débil."
+    },
+    {
+      "id": "no-se-trata-de",
+      "regex": "(?i)\\bno (?:se trata|va) de\\b[^.!?\\n]{2,60}[.!]\\s*(?:se trata|va) de\\b",
+      "name": "\"No se trata de X. Se trata de Y.\"",
+      "fix": "Empieza por Y. La vuelta atrás es el aviso."
+    },
+    {
+      "id": "titular-el-resultado",
+      "regex": "(?i)^\\s*¿?(?:el resultado|lo mejor|la clave|el truco|la trampa|el problema)\\?\\s*$",
+      "name": "Línea de pregunta retórica de una palabra",
+      "fix": "Respóndela en la misma línea en vez de preparar un misterio."
+    },
+    {
+      "id": "aqui-esta-lo-que",
+      "regex": "(?i)\\baquí (?:está|están|va|van) (?:lo|la|el|los|las) que (?:aprendí|aprendimos|saqué|sacamos)\\b",
+      "name": "\"Aquí está lo que aprendí\"",
+      "fix": "Escribe el aprendizaje. Sobra el anuncio."
+    },
+    {
+      "id": "triada",
+      "regex": "(?i)\\b\\w+, \\w+ y \\w+[.!]",
+      "name": "Tríada de tres elementos",
+      "fix": "Dos elementos o cuatro. Tres es el ritmo por defecto del modelo."
+    },
+    {
+      "id": "como-ia",
+      "regex": "(?i)\\bcomo (?:una )?ia\\b(?=\\s*,)|\\bcomo (?:modelo de lenguaje|modelo lingüístico|asistente de ia)\\b",
+      "name": "Autorreferencia al modelo",
+      "fix": "Borra la frase."
+    },
+    {
+      "id": "en-resumen",
+      "regex": "(?i)(?:^|[.!?]\\s+)\\s*(?:en resumen|en conclusi?n|para resumir|resumiendo)\\b",
+      "name": "Apertura de cierre de redacción",
+      "fix": "Un post no necesita párrafo de conclusión."
+    },
+    {
+      "id": "cierre-generico",
+      "regex": "(?i)\\b(?:estás de acuerdo|piensas lo mismo|qué opinas|no crees|tú qué crees|y tú)\\s*\\?\\s*$",
+      "name": "Cierre genérico de interacción",
+      "fix": "Pregunta algo que solo tú puedas preguntar sobre lo de arriba."
+    },
+    {
+      "id": "lo-que-nadie-te-cuenta",
+      "regex": "(?i)\\blo que nadie te (?:cuenta|dice|enseña|ha contado)\\b",
+      "name": "\"Lo que nadie te cuenta\"",
+      "fix": "Cuenta el dato concreto en vez de prometer el secreto."
+    },
+    {
+      "id": "en-un-mundo-donde",
+      "regex": "(?i)\\ben un mundo (?:donde|cada vez más)\\b",
+      "name": "\"En un mundo donde...\"",
+      "fix": "Empieza por el hecho, no por el decorado."
+    },
+    {
+      "id": "dejame-contarte",
+      "regex": "(?i)\\bdéjame (?:contarte|contaros|explicarte)\\b",
+      "name": "\"Déjame contarte\"",
+      "fix": "Cuéntalo. El anuncio previo sobra."
+    },
+    {
+      "id": "esto-no-es-un-post",
+      "regex": "(?i)\\besto no es (?:un post|una publicación|un artículo)\\b",
+      "name": "\"Esto no es un post\"",
+      "fix": "Si lo es, no hace falta decirlo."
     }
   ]
 }

@@ -22,10 +22,11 @@ uv run --no-project python .opencode/skills/li-human/detect.py before.txt after.
 
 En este equipo no existe `python3` en el PATH. `uv` aporta Python 3.15 y ejecuta los scripts sin dependencias externas. Los comandos se lanzan desde la raíz del repositorio.
 
-Both read `slop.json`, which is the lexicon: 100+ stock words and phrases with
-plain-English replacements, 17 invisible character classes, 11 typographic
-substitutions, and 11 structural tells. It is meant to be edited. If the user
-has a word they always use that the lexicon strips, remove it from the file.
+Both read `slop.json`, which is the lexicon: 100+ stock words and phrases in
+English and Spanish with plain replacements, 17 invisible character classes,
+11 typographic substitutions, and 24 structural tells (11 English, 13 Spanish).
+It is meant to be edited. If the user has a word they always use that the
+lexicon strips, remove it from the file.
 
 ## What gets fixed automatically
 
@@ -73,11 +74,13 @@ PASS, and it is the part a script cannot do.
 | SPECIFICITY | numbers, names, concrete markers per 100 words | abstract nouns, no figures |
 | SLOP DENSITY | lexicon hits per 100 words | stock vocabulary |
 | FINGERPRINT | invisible chars, em dashes, curly quotes per 1k chars | typographically perfect |
-| VOICE | contractions, person, structural tells | no contractions, staged reveals |
+| VOICE | personal pronouns, structural tells | no person, staged reveals |
 
 The verdict weights the mean at 60% and the **weakest single check** at 40%,
 because a detector only needs one signal to fire. PASS needs an overall of 70+
-with no check below 55.
+with no judged check below 55. A check that says `too short to judge` is left
+out of that floor, and at least three checks must be judgeable. The exit code is
+1 only for FLAGGED; add `--strict` to fail on REVIEW too.
 
 ## Say this honestly
 

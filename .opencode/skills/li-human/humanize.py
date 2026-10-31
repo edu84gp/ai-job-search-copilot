@@ -37,7 +37,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LEX = os.path.join(HERE, "slop.json")
 
 URL_RE = re.compile(r"https?://\S+|www\.\S+|\S+@\S+\.\S+")
-SENT_RE = re.compile(r"[^.!?\n]+[.!?]*")
+SENT_RE = re.compile(r"[^.!?\n]+(?:[.!?]+(?=\s|$)|$)")
 
 
 def load_lexicon(path=LEX):
