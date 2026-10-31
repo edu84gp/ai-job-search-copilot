@@ -2,6 +2,31 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-10-31 - Detector li-human bilingüe y calibrado con la voz propia
+
+- Decisión: adaptar `detect.py` y `slop.json` al castellano. Regex Unicode para palabras y nombres propios, pronombres españoles en lugar de contracciones inglesas, umbrales calibrados con las 36 publicaciones descargadas de la API de portabilidad, 57 palabras y 51 frases nuevas en el léxico, 13 estructuras españolas y una puerta de PASS que ignora los checks que no pueden juzgar textos cortos.
+- Motivo: el panel era monolingüe en las dos direcciones. VOICE valía siempre 30 porque buscaba contracciones con apóstrofo y pronombres ingleses, y con ese 30 el máximo aritmético del panel era 63,6: ningún texto español podía llegar a PASS. A la vez, SLOP devolvía 100 siempre porque el léxico era inglés, así que un texto de relleno pasaba sin un solo aviso.
+- Alternativas descartadas: dejar el detector en inglés y usarlo solo como lista de comprobación (el veredicto seguía mintiendo en ambos sentidos); bajar la puerta de 55 a 50 (maquilla el resultado sin arreglar la métrica); parchear solo las expresiones regulares (deja el léxico y las estructuras sin tocar); sacar un `profiles/es.json` con perfiles por idioma (más limpio a largo plazo, pero cuesta más código ahora y solo hay dos idiomas).
+- Consecuencia: PASS significa «se parece a cómo escribes tú», no «es indetectable». El código de salida solo falla con FLAGGED y `--strict` recupera el comportamiento antiguo para hooks. El léxico se edita a mano y puede marcar palabras técnicas legítimas como `robusto`, `roadmap` o `networking`.
+- Verificación: 36 publicaciones medidas; 10 son juzgables con el panel completo y 7 pasan, 2 quedan en REVIEW (una por SPECIFICITY baja y otra por cuatro emojis) y 1 en FLAGGED por 3 em dashes y 40 espacios duros pegados de un documento. Las cuatro muestras de referencia pasan (91,5 / 74,5 / 76,2 / 83,5); el post de Story #3 saca 81,8 con 0 avisos estructurales; los controles de relleno y de LLM típico quedan FLAGGED (15,9 y 32,7); un texto con cuatro estructuras españolas recibe los cuatro avisos; `humanize.py` devuelve el post idéntico carácter a carácter.
+
+## 2026-10-31 - Objetivo SMART de búsqueda: contrato antes del 2027-03-31, sin filtros de empresa
+
+- Decisión: fijar como objetivo el contrato como desarrollador full-stack junior antes del 2027-03-31, con tres candidaturas registradas por semana hasta el 2026-12-31, y descartar las otras dos formulaciones del ejercicio 3.3: la de esfuerzo puro y la que añadía filtros de empresa y el B2 previo a marzo.
+- Motivo: la versión de esfuerzo mide actividad y no resultado, así que se puede cumplir sin acercarse al puesto; la versión con filtros convierte el inglés en un requisito previo y deja de enviar candidaturas mientras se prepara, cuando el inglés se estudia en paralelo. El rango de 20 a 200 empleados procedía del perfil de empresa objetivo y no se entiende fuera del registro interno.
+- Alternativas descartadas: mantener el rango de 20 a 200 empleados en el enunciado, que no aporta nada al lector y no cambia la conducta semanal; exigir el B2 antes de marzo, que retrasa el objetivo sin mejorar la candidatura; y quedarse solo con la métrica de candidaturas, que no tiene fecha de resultado.
+- Consecuencia: el filtro de empresa sigue vigente como criterio de prospección en la decisión del 2026-10-29, pero no forma parte del objetivo; el objetivo se evalúa con el contrato y se corrige con indicadores tempranos (entrevistas, pruebas en el repositorio, explicar un proyecto sin IA).
+- Verificación: ejercicio enviado el 2026-10-31 y registrado en `docs/ejercicios/tema-3-3-objetivo-smart.md`.
+
+## 2026-10-30 - Agenda diaria sobre SQLite privada, sin app externa
+
+- Decisión: convertir el plan en una agenda operativa con `docs/privado/agenda/agenda.db` como fuente única, `scripts/agenda.py` como CLI sin dependencias, los comandos `/hoy` y `/hecho`, y un `.ics` importable en Google Calendar, Outlook o Apple Calendar. La interfaz React se pospone hasta cerrar D2 y D9.
+- Motivo: el «qué tocar hoy» estaba repartido entre `PLAN.md`, el plan de estudios, el plan de LinkedIn, el calendario de contenido, `estado-actual.md` y la base de candidaturas. Ninguna vista era diaria y marcar un checkbox en un markdown no cambiaba el estado en ningún sitio.
+- Alternativas descartadas: Obsidian con el plugin Tasks (añade una app y un plugin, y el móvil exige sincronización de pago); Todoist o Google Tasks (notificaciones nativas, pero dos fuentes de verdad y sincronización frágil); GitHub Projects en un repo privado (saca datos personales del repositorio y no avisa en el móvil); construir la app React ahora (contradice la regla D12 de no abrir proyectos hasta cerrar D2 y D9).
+- Consecuencia: la base y las vistas viven en `docs/privado/`, ignorado por git; `estado-actual.md` incorpora un bloque generado entre marcadores; el plan de estudios y el plan de LinkedIn siguen explicando el porqué y la agenda manda sobre el estado.
+- Excepción de nomenclatura: `/hoy` y `/hecho` van en español por ser de uso diario; el resto de comandos sigue en inglés kebab-case.
+- Verificación: `init` crea 36 tareas y 5 recurrencias; `hoy` muestra la carga del día; `done` persiste y retira la tarea de la vista; `ics` genera 33 eventos con `UID` estable, horas flotantes y avisos solo en tareas con hora.
+
 ## 2026-10-29 - Los registros del curso no se publican en el repositorio
 
 - Decisión: excluir `docs/ejercicios/` del repositorio público salvo el índice vacío, con las reglas `docs/ejercicios/*` y `!docs/ejercicios/indice-ejercicios.md` en `.gitignore`.
