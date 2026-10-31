@@ -51,11 +51,21 @@
       "type": "local",
       "command": ["uvx", "--with", "mcp<2", "mcp-server-sqlite", "--db-path", "docs/candidaturas/candidaturas.db"],
       "enabled": true
+    },
+    "google-calendar": {
+      "type": "local",
+      "command": ["uvx", "--python", "3.12", "workspace-mcp", "--tools", "calendar", "tasks"],
+      "enabled": true,
+      "environment": {
+        "GOOGLE_OAUTH_CLIENT_ID": "{env:GOOGLE_OAUTH_CLIENT_ID}",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "{env:GOOGLE_OAUTH_CLIENT_SECRET}"
+      }
     }
   },
   "permission": {
     "context7_*": "deny",
     "fetch_*": "deny",
+    "google-calendar_*": "deny",
     "microsoft-learn_*": "deny",
     "sequential-thinking_*": "deny",
     "playwright_*": "deny",
@@ -66,6 +76,7 @@
       "permission": {
         "context7_*": "allow",
         "fetch_*": "allow",
+        "google-calendar_*": "allow",
         "microsoft-learn_*": "allow",
         "sequential-thinking_*": "allow",
         "playwright_*": "allow",
@@ -76,6 +87,7 @@
       "permission": {
         "context7_*": "allow",
         "fetch_*": "allow",
+        "google-calendar_*": "allow",
         "microsoft-learn_*": "allow",
         "sequential-thinking_*": "allow",
         "playwright_*": "allow",

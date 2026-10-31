@@ -20,7 +20,7 @@ Centralizar la documentación técnica de los subagentes de opencode, de los ser
 
 ## Estado de resolución
 
-- Referencia creada con 15 agentes, 8 MCPs, 17 comandos y 14 skills. Ampliada el 2026-10-26 con el MCP remoto microsoft-learn, que eleva el total a 9 MCPs.
+- Estado actual: 15 agentes, 10 MCPs, 19 comandos y 14 skills. El MCP remoto microsoft-learn se añadió el 2026-10-26 y elevó los MCPs a 9; `/hoy` y `/hecho` se añadieron el 2026-10-30 y el MCP `google-calendar` el 2026-10-31, que deja el total en 10.
 - Referencia viva: se actualiza al crear o modificar agentes, MCPs, comandos y skills.
 
 ---
@@ -675,9 +675,9 @@ Configuración canónica en `opencode.json` con formato `type local`, `command` 
 
 Los tools de un MCP se registran en opencode con el nombre del servidor como prefijo. Por eso los permisos por agente usan el patrón `servidor_*`, por ejemplo `github_*`, `context7_*` o `fetch_*`.
 
-Protección aplicada: `.gitignore` con entradas `.env` y `node_modules/`. Plantilla `.env.example` con valores vacíos para `GITHUB_PERSONAL_ACCESS_TOKEN` y `CONTEXT7_API_KEY`. `MEMORY_FILE_PATH` no vive en `.env`: lo calcula `scripts/memory-mcp.mjs`. OpenCode no carga `.env`, así que las claves deben existir en el entorno del sistema para llegar a los MCPs.
+Protección aplicada: `.gitignore` con entradas `.env` y `node_modules/`. Plantilla `.env.example` con valores vacíos para `GITHUB_PERSONAL_ACCESS_TOKEN`, `CONTEXT7_API_KEY`, `LINKEDIN_DMA_TOKEN`, `GOOGLE_OAUTH_CLIENT_ID` y `GOOGLE_OAUTH_CLIENT_SECRET`. `MEMORY_FILE_PATH` no vive en `.env`: lo calcula `scripts/memory-mcp.mjs`. OpenCode no carga `.env`, así que las claves deben existir en el entorno del sistema para llegar a los MCPs.
 
-Política de acceso MCP: `context7_*`, `fetch_*`, `microsoft-learn_*`, `sequential-thinking_*`, `playwright_*` y `sqlite_*` están denegados a nivel global en `opencode.json` y habilitados solo en los agentes que los usan, mediante el bloque `permission` de cada agente. Al poner el permiso en `deny`, la herramienta queda deshabilitada y no consume contexto en el resto de agentes. Los agentes primarios `build` y `plan` también los tienen habilitados en `opencode.json` para poder invocarlos directamente sin delegar. El MCP sqlite además queda acotado a `application-tracker` y `job-search-strategist` por contener datos de candidaturas.
+Política de acceso MCP: `context7_*`, `fetch_*`, `google-calendar_*`, `microsoft-learn_*`, `sequential-thinking_*`, `playwright_*` y `sqlite_*` están denegados a nivel global en `opencode.json` y habilitados solo en los agentes que los usan, mediante el bloque `permission` de cada agente. Al poner el permiso en `deny`, la herramienta queda deshabilitada y no consume contexto en el resto de agentes. Los agentes primarios `build` y `plan` también los tienen habilitados en `opencode.json` para poder invocarlos directamente sin delegar. El MCP sqlite además queda acotado a `application-tracker` y `job-search-strategist` por contener datos de candidaturas.
 
 ### 1. github
 
@@ -811,6 +811,38 @@ Flujo de uso recomendado por el propio servidor: primero `microsoft_docs_search`
 
 Límite: solo cubre lo publicado en Microsoft Learn. La documentación de terceros, los foros y los blogs no entran, y una búsqueda vacía no significa que el dato no exista, sino que no está en ese dominio.
 
+### 10. google-calendar
+
+**Qué hace:**
+
+Opera con `workspace-mcp` (paquete de PyPI del servidor `taylorwilsdon/google_workspace_mcp`) en modo local y transporte `stdio`, filtrado a dos servicios: `calendar` y `tasks`. Ese filtro no es cosmético: determina los scopes que se solicitan a Google, así que el token resultante no da acceso a Gmail, Drive, Docs ni al resto de Workspace. Verificado en local el 2026-10-31 con la versión 2.3.0: el handshake responde y `tools/list` devuelve 14 herramientas, siete de calendario (`list_calendars`, `get_events`, `manage_event`, `create_calendar`, `query_freebusy`, `manage_out_of_office`, `manage_focus_time`) y seis de tareas (`list_task_lists`, `get_task_list`, `manage_task_list`, `list_tasks`, `get_task`, `manage_task`), más `start_google_auth`.
+
+**Para qué sirve:**
+
+Leer y escribir en Google Calendar y Google Tasks sin salir de opencode. Permite reflejar la agenda de `scripts/agenda.py` en el calendario que se consulta en el móvil, crear bloques de tiempo para las sesiones de curso y marcar tareas. Google Tasks es la pieza que mejor encaja con la agenda: cada tarea de SQLite tiene un equivalente directo en una lista de tareas, con título, notas, fecha de vencimiento y estado.
+
+**Cómo usar:**
+
+Requiere Python 3.10 o superior y `uv`. El comando fija `--python 3.12` porque `uvx` sin esa opción elige la última versión disponible y, con Python 3.15, `pyyaml` no tiene rueda precompilada y la instalación falla al no haber compilador de C++.
+
+Configuración en `opencode.json`:
+
+| Campo | Valor |
+| --- | --- |
+| `type` | `local` |
+| `command` | `uvx --python 3.12 workspace-mcp --tools calendar tasks` |
+| `enabled` | `true` desde el 2026-10-31, con las credenciales en el entorno |
+| `GOOGLE_OAUTH_CLIENT_ID` | `{env:GOOGLE_OAUTH_CLIENT_ID}` |
+| `GOOGLE_OAUTH_CLIENT_SECRET` | `{env:GOOGLE_OAUTH_CLIENT_SECRET}` |
+
+Las dos variables son el identificador y el secreto de un cliente OAuth de tipo aplicación de escritorio, creado en Google Cloud Console. Deben existir en el entorno del sistema, no en `.env`, porque OpenCode no carga ese archivo. Los tokens de sesión se guardan en `~/.google_workspace_mcp/credentials`, fuera del repositorio.
+
+Pasos de alta: crear un proyecto en Google Cloud Console, habilitar solo las APIs de Calendar y Tasks, configurar la pantalla de consentimiento como externa con el correo propio como usuario de prueba, crear el cliente OAuth de escritorio, exportar las dos variables con `setx` y reiniciar opencode. La primera llamada a una herramienta abre el navegador para autorizar.
+
+Estado: operativo desde el 2026-10-31 sobre la cuenta `djorion1984@gmail.com`. El primer volcado creó una lista de tareas `Employment Workshop` con las 37 tareas pendientes de la agenda, 31 con fecha y 6 sin ella. Las cinco recurrencias no se copian porque Google Tasks no soporta repetición. La sincronización posterior se hace con `python scripts/agenda.py google`, que empuja cambios sin dependencias nuevas y guarda el `google_id` de cada tarea en SQLite.
+
+Límites conocidos: con la pantalla de consentimiento en estado de prueba, Google caduca el token de refresco a los siete días y hay que volver a autorizar. Publicar la aplicación lo evita, pero exige página de inicio, política de privacidad y términos en un dominio autorizado. El permiso `google-calendar_*` se deniega globalmente y solo se habilita en `build` y `plan`, siguiendo la política del resto de MCPs.
+
 ### Respaldo externo pendiente de evaluación: Notion y Google Drive
 
 **Qué hace:**
@@ -829,7 +861,7 @@ No implementado en la Fase 18. Evaluación pendiente: Notion es la vía de menor
 
 ## Comandos
 
-Los comandos viven en `.opencode/commands/` con nombres en inglés kebab-case, coherentes con los nombres de los agentes, y se invocan en la TUI con `/nombre`. El campo `agent` decide quién los ejecuta y `subtask: false` evita que se conviertan en subtareas de un solo turno, permitiendo conversación interactiva.
+Los comandos viven en `.opencode/commands/` y se invocan en la TUI con `/nombre`. Salvo `/hoy` y `/hecho`, que van en español por ser de uso diario, los nombres siguen el inglés kebab-case de los agentes. El campo `agent` decide quién los ejecuta y `subtask: false` evita que se conviertan en subtareas de un solo turno, permitiendo conversación interactiva.
 
 ### 1. cv-review
 
@@ -869,7 +901,19 @@ Uso: `/log-progress hoy terminé el módulo de hooks de React`
 
 Si un comando con `agent` apuntando a un subagente no mantiene la conversación interactiva en la sesión, la alternativa es convertir ese agente a `mode: all` y cambiar de agente con Tab antes de conversar.
 
-### 7. Comandos del pack LinkedIn
+### 7. hoy
+
+Muestra la agenda del día desde `docs/privado/agenda/agenda.db` y actualiza el bloque de agenda de `docs/memoria/estado-actual.md`. Con `semana` como argumento muestra los próximos siete días. Ejecutado por `build`.
+
+Uso: `/hoy` o `/hoy semana`
+
+### 8. hecho
+
+Marca como hecha una tarea (`12`) o una recurrencia (`r1`) y muestra lo que queda del día. Si la tarea cierra un hito D o A, propone `/log-progress` sin lanzarlo. Ejecutado por `build`.
+
+Uso: `/hecho 12` o `/hecho r1`
+
+### 9. Comandos del pack LinkedIn
 
 Once comandos `li-*` que cargan el skill correspondiente y se ejecutan con el agente `build` en la sesión actual. No publican en LinkedIn: entregan texto listo para copiar. El detalle está en `docs/marca-personal/linkedin-agent-skill.md`.
 

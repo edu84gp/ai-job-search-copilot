@@ -33,11 +33,11 @@ El sistema se lee de arriba abajo: las directrices fijan el comportamiento, los 
 
 **Agentes.** Los 15 subagentes de `.opencode/agents/` son especialistas. Cada archivo combina frontmatter con `description`, `mode`, `temperature` y `permission`, y un cuerpo que actúa como system prompt. Los de solo lectura auditan; los de escritura guardan en una carpeta acotada. Se ejecutan en sesiones hijas y devuelven un informe con contrato de salida.
 
-**Comandos.** Los 17 comandos de `.opencode/commands/` son plantillas con frontmatter. `description` los hace visibles, `agent` decide quién los ejecuta y `subtask: false` o `subagent: false` mantiene la conversación en la sesión actual para permitir preguntas por turno. Se invocan con `/nombre` y reciben argumentos con `$ARGUMENTS`.
+**Comandos.** Los 19 comandos de `.opencode/commands/` son plantillas con frontmatter. `description` los hace visibles, `agent` decide quién los ejecuta y `subtask: false` o `subagent: false` mantiene la conversación en la sesión actual para permitir preguntas por turno. Se invocan con `/nombre` y reciben argumentos con `$ARGUMENTS`.
 
 **Skills.** Los 14 skills de `.opencode/skills/<id>/SKILL.md` aportan procedimiento, convenciones y, en algunos casos, scripts auxiliares. Se cargan solos cuando la descripción encaja con la tarea; también se pueden forzar mencionando su id con `@`. No conceden permisos: solo dicen cómo hacer algo.
 
-**MCPs.** Los 9 servidores de `opencode.json` exponen herramientas con el nombre del servidor como prefijo (`github_*`, `sqlite_*`, `fetch_*`). La política del proyecto deniega globalmente los MCPs sensibles (`context7`, `fetch`, `microsoft-learn`, `sequential-thinking`, `playwright` y `sqlite`) y los habilita solo en los agentes que los necesitan. Los secretos llegan por variables de entorno, nunca escritos en el repositorio.
+**MCPs.** Los 10 servidores de `opencode.json` exponen herramientas con el nombre del servidor como prefijo (`github_*`, `sqlite_*`, `fetch_*`). La política del proyecto deniega globalmente los MCPs sensibles (`context7`, `fetch`, `google-calendar`, `microsoft-learn`, `sequential-thinking`, `playwright` y `sqlite`) y los habilita solo en los agentes que los necesitan. Los secretos llegan por variables de entorno, nunca escritos en el repositorio.
 
 ### Agente, comando y skill
 
@@ -64,6 +64,7 @@ Un skill es una instrucción reutilizable, con sus scripts y referencias, que el
 | `sequential-thinking` | Razonamiento paso a paso en decisiones con varios factores | Ninguno |
 | `playwright` | Navegación headless y capturas para verificar demos | Ninguno |
 | `sqlite` | Consulta y escritura de la base de candidaturas | `uv` con `uvx` y el pin `mcp<2` |
+| `google-calendar` | Calendario y tareas de Google; refleja la agenda en el móvil | Credenciales OAuth y `uvx --python 3.12` |
 
 El detalle de permisos por agente y de cada herramienta está en `docs/referencia-agentes-mcps.md`. En la práctica, un agente solo ve las herramientas que tiene habilitadas: si una tarea requiere `sqlite` y el agente no lo tiene, la petición debe pasar por `application-tracker` o `job-search-strategist`.
 
@@ -118,8 +119,8 @@ Cada línea comprueba una dependencia. Las comprobaciones propias de OpenCode se
 | Recurso | Cantidad | Dónde se verifica |
 | --- | --- | --- |
 | Agentes | 15 | `.opencode/agents/` |
-| MCPs | 9 | `opencode.json` y `/mcps` |
-| Comandos | 17 | `.opencode/commands/` |
+| MCPs | 10 | `opencode.json` y `/mcps` |
+| Comandos | 19 | `.opencode/commands/` |
 | Skills | 14 | `.opencode/skills/` |
 
 `Ctrl+X A` abre la lista de agentes y `Shift+Tab` rota al siguiente; los subagentes no se seleccionan ahí, se lanzan por delegación. La disponibilidad se contrasta con el contenido de `.opencode/agents/` y con una prueba de delegación real sobre un agente de solo lectura.
@@ -157,6 +158,8 @@ El texto anterior es un comando completo: `/cv-review` es el nombre y el resto l
 ### Rutina diaria
 
 La sesión empieza leyendo `docs/memoria/estado-actual.md` y consultando `docs/memoria/decisiones.md`. Es una regla de `AGENTS.md`, no una sugerencia: evita repetir trabajo y contradecir decisiones previas.
+
+Para saber qué toca hoy sin recorrer los planes, `/hoy` muestra la agenda del día desde la base SQLite privada y `/hecho <id>` marca lo terminado. La mecánica completa está en `docs/agenda-diaria.md`.
 
 | Bloque | Qué se hace | Pieza | Evidencia |
 | --- | --- | --- | --- |
@@ -254,7 +257,7 @@ El pack aporta 11 comandos y 11 skills. Escriben, puntúan y planifican, pero no
 Reglas del pack:
 
 - `/li-post` necesita el perfil de voz en `docs/privado/linkedin/voice.md`. Si no existe, pide tres publicaciones propias antes de escribir.
-- El panel de `li-human` está calibrado para inglés. En español se usa como lista de comprobación, no como veredicto.
+- El panel de `li-human` está calibrado con las muestras de `voice.md`: léxico y estructuras en castellano, umbrales propios y `--strict` para exigir PASS. Sigue siendo una heurística local, no el veredicto de GPTZero ni Copyleaks.
 - El perfil se revisa con `/linkedin-review` y `linkedin-optimizer`, que no navega LinkedIn: trabaja con el texto pegado.
 - La estrategia y el calendario de contenido son de `personal-brand-builder`, con borradores en `docs/marca-personal/borradores/`.
 - Los contactos y seguimientos son de `networking-outreach`, con registro en `docs/networking/contactos-networking.md`.
@@ -382,7 +385,7 @@ El diagnóstico general empieza por `/mcps`; si el CLI funciona, `opencode mcp l
 ## Estado de resolución
 
 - Fecha de creación: 2026-10-26.
-- Recuento verificado contra el repositorio: 15 agentes, 9 MCPs, 17 comandos y 14 skills.
+- Recuento verificado contra el repositorio: 15 agentes, 10 MCPs, 19 comandos y 14 skills.
 - Fuentes del recuento: `.opencode/agents/`, `opencode.json`, `.opencode/commands/` y `.opencode/skills/`.
 - Verificación de formato: `npx markdownlint-cli2 "docs/guia-uso-ai-job-search-copilot.md"` ejecutado el 2026-10-26 sin incidencias.
 - Mantenimiento: actualizar esta guía cuando cambie el número de agentes, MCPs, comandos o skills; el detalle técnico se mantiene en `docs/referencia-agentes-mcps.md`.
