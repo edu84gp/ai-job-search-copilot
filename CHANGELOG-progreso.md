@@ -10,7 +10,7 @@ Historial de fases del plan definido en `PLAN.md`.
 - Añadida a `docs/privado/linkedin/log.md` la ficha del post Teach #5 The List Promise del 2026-10-30, con el texto íntegro y el enlace `urn:li:share:7521955995582021632`. La semana cerró con tres publicaciones: 27, 30 y 31 de octubre.
 - La tarea 2 de la agenda, correspondiente a la Story #3, se cerró con fecha 2026-10-31 y ya no aparece en la vista del día.
 - Cerrada la revisión mensual de octubre el 2026-11-02 en `docs/privado/revisiones/2026-10-revision-mensual.md`. El mes cierra con 22 de 22 fases del plan, 1 candidatura, 1 entrevista real, 3 publicaciones de LinkedIn y 1 contacto de networking; noviembre mantiene tres candidaturas semanales, 12-15 horas de curso, tres publicaciones y una práctica de entrevista por semana. La tarea 4 de la agenda queda marcada como hecha.
-- Pendiente inmediato: continuar el Employment Workshop por la lección 3.9, actividades prácticas, y preparar la segunda candidatura para el 2026-11-03.
+- Pendiente inmediato: continuar el Employment Workshop por la lección 3.8, errores comunes al fijar objetivos, y después la 3.9, actividades prácticas. Preparar la segunda candidatura para el 2026-11-03.
 
 ## 2026-10-30 - Agenda diaria con SQLite, ICS y comandos `/hoy` y `/hecho`
 
