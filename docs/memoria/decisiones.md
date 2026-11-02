@@ -25,6 +25,20 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Consecuencia: el panel da 14 PASS, 19 REVIEW y 3 FLAGGED sobre 36 publicaciones. Trece de los 19 REVIEW tienen menos de 25 palabras y el panel no puede juzgarlos; los otros seis son textos de una a tres frases. Los tres FLAGGED son el post del 2026-10-14, por 40 espacios duros y 3 rayas largas del pegado; el del 2026-09-20, un enlace a un curso con «Microsoft» al inicio y sin cifras; y el del 2026-08-04, una actualización de una frase con nombres técnicos que la regex de nombres propios no reconoce. Los dos últimos son falsos positivos conocidos de textos cortos.
 - Verificación: `py_compile` sin errores; 36 posts puntuados; controles de relleno y LLM típico FLAGGED (19,2 y 35,2); `markdownlint-cli2` sin incidencias.
 
+## 2026-11-02 - Cierre de octubre: el sistema está montado, falta volumen
+
+- Decisión: cerrar octubre con una candidatura, una entrevista real y tres publicaciones; mantener en noviembre tres candidaturas por semana, 12-15 horas de curso, tres publicaciones de LinkedIn, tres sesiones de inglés, tres contactos de networking y una práctica de entrevista semanal.
+- Motivo: la revisión mensual confirma que la infraestructura (plan de 22 fases, CV ATS, LinkedIn, caso de estudio, agenda y registro de candidaturas) está terminada, pero el volumen de candidaturas y las horas de curso quedaron por debajo del plan. El registro diario de la agenda no se usó.
+- Alternativas descartadas: subir el número de candidaturas antes de tener respuesta de IGNIS; compensar las horas de curso en un solo día; y abrir un frente nuevo (Aplika Copilot o DevOps) antes de estabilizar el ritmo de noviembre.
+- Consecuencia: la revisión mensual vive en `docs/privado/revisiones/2026-10-revision-mensual.md` y la tarea 4 de la agenda queda cerrada. La siguiente revisión mensual se fija el 2026-11-30; el objetivo SMART no cambia.
+
+## 2026-11-02 - Ajustes de la revisión semanal 3.7: registro diario, tres publicaciones y tres candidaturas
+
+- Decisión: mantener tres candidaturas por semana; bajar LinkedIn a tres publicaciones semanales (martes, jueves y viernes); registrar los bloques diarios de la agenda al final de cada día; no recuperar la publicación del miércoles 28 de octubre; y cerrar la revisión mensual de octubre el 2 o 3 de noviembre.
+- Motivo: la semana del 26 de octubre al 1 de noviembre cerró con 1 de 3 candidaturas, 3 de 4 publicaciones, 4 horas de curso frente a las 12-15 previstas, 4 sesiones de inglés frente a 3 y 1 contacto de networking. El registro diario no se usó, así que las horas y las sesiones se reconstruyeron de memoria. La entrevista de Neoland se hizo y la primera candidatura está en seguimiento.
+- Alternativas descartadas: mantener cuatro publicaciones semanales, que no se cumplieron; subir a cuatro candidaturas, que no cabe en la capacidad actual; compensar las horas de curso en un solo día, que rompe el día mínimo; y contar la entrevista de Neoland como práctica de entrevista, porque no cubre el circuito de una entrevista de oferta.
+- Consecuencia: la revisión del viernes 6 de noviembre comprobará el registro diario. Si falla, se baja LinkedIn a dos publicaciones y se mantiene el resto. La revisión mensual de octubre se traslada al 2 o 3 de noviembre y el objetivo SMART no cambia.
+
 ## 2026-11-01 - El trabajo diario pasa a la rama `dev`
 
 - Decisión: `main` queda como rama estable y el trabajo diario se hace en `dev`, que se creó ese día desde `main` y ya tiene upstream en `origin`. Los cambios llegan a `main` por fusión o pull request, no por commit directo.
