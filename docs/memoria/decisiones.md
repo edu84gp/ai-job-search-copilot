@@ -2,6 +2,14 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-02 - Jobscan orienta, pero solo se añaden palabras clave con evidencia
+
+- Decisión: usar la puntuación de Jobscan como diagnóstico y no como objetivo. Solo se incorpora un término de la oferta si se puede defender con un proyecto, una formación o una experiencia; los huecos reales se anotan como formación pendiente.
+- Motivo: la 4.7 pedía ajustar el CV con las palabras clave que faltan y la tentación es copiar la lista de la oferta. Añadir ERP, PHP, Vue, Docker, Kubernetes, Linux, MySQL o Java habría subido el match y habría dejado el CV indefendible en una entrevista. La lección 4.5 ya marca el relleno de palabras clave como error bloqueante.
+- Alternativas descartadas: copiar todas las keywords de la oferta para maximizar la puntuación (inventa experiencia y rompe la coherencia con GitHub y LinkedIn); no tocar el CV y aceptar el 78 % (dejaba fuera WordPress y el título exacto, que sí están respaldados); rehacer el CV por oferta desde cero (la unidad 4 se planteó como revisión del CV base).
+- Consecuencia: el CV base sube del 78 % al 87 % contra Miravila Projects con tres cambios reales (titular «Desarrollador Full Stack Junior», perfil de tres frases y WordPress con Divi). Contra Verdnatura Levante se queda en 73 % porque la oferta pide Vue, Docker, Kubernetes, Linux, MySQL y Java; el resultado se acepta como señal de que esas ofertas quedan fuera del perfil actual.
+- Verificación: dos informes de Jobscan (`13479121` y `13479295`), CV regenerado en DOCX y PDF, una página y veredicto APTO con `scripts/verify-cv-pdf.py`. Registro en `docs/ejercicios/tema-4-7-actividades-practicas.md`.
+
 ## 2026-11-02 - Tres hashtags, emojis con tope y VOICE para el sujeto implícito
 
 - Decisión: fijar tres hashtags como máximo; permitir de dos a cuatro emojis en un post normal y hasta seis en uno narrativo con estados o listas; y añadir a `detect.py` un suelo de 1,0 marcadores cuando no hay pronombres pero sí verbos en primera persona.

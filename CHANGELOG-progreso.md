@@ -2,6 +2,15 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Lección 4.7: perfil reescrito y CV validado con Jobscan
+
+- La 4.7 pedía dos cosas: un perfil profesional de 3–4 líneas y dos escaneos del CV con Jobscan. El texto entregado responde quién soy, herramientas, problema que resuelvo y empleo buscado, y coincide con el apartado «Perfil» del CV.
+- Primer escaneo contra Miravila Projects (Alcúdia): 78 %. Faltaba el título exacto «Full Stack» y WordPress en habilidades. Se cambió el titular a «Desarrollador Full Stack Junior», se reescribió el perfil y se añadió WordPress (Divi), los tres respaldados por la experiencia en Gráfica Impresiones. Segundo escaneo: 87 % y un aviso menos de hard skills.
+- Segundo escaneo contra Verdnatura Levante (Algemesí): 73 %. Los huecos son Vue, Docker, Kubernetes, Linux, MySQL y Java; ninguno tiene evidencia, así que no se añaden y quedan anotados como formación pendiente.
+- Descartados los avisos de Jobscan que no aplican a un CV español: encabezados «Education» y «Work History» y fechas MM/AAAA. El CV usa «Formación» y «Experiencia profesional» y rangos de año porque no se conocen los meses exactos.
+- CV regenerado en DOCX y PDF, una página y veredicto APTO con `scripts/verify-cv-pdf.py`. Examen entregado y lección completada; el registro está en `docs/ejercicios/tema-4-7-actividades-practicas.md`.
+- Leída la 4.8, conclusión de la unidad: el CV debe ser legible por ATS, relevante y medible, y debe demostrar adecuación al puesto con evidencia. Cierra la unidad 4.
+
 ## 2026-11-02 - Perfil cerrado y `main` sincronizado con `dev`
 
 - El Juego de la Vida queda fijado como quinto repositorio del perfil, junto a AI Job Search Copilot, el caso de estudio de Aplika, Pokédex Web y WhatsChatGPT. Los fijados ya cubren el trabajo seleccionado del README.
