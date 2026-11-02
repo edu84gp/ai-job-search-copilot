@@ -2,6 +2,13 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - IGNIS descarta el proceso y se cierra la candidatura
+
+- Correo de IGNIS el 2026-11-02: no continúan con el proceso de Junior Fullstack Developer (O&M). La candidatura pasa a `descartada` en `docs/candidaturas/candidaturas.db` con el próximo paso «Descartada por IGNIS. Proceso cerrado.», y `docs/candidaturas/tabla-candidaturas.md` se regeneró desde la base.
+- Eliminado el CV adaptado `cv/cv-ignis-junior-fullstack-2026-10.md`, `.docx` y `.pdf`. Se conserva la carta en `cv/cartas/` como archivo de lo enviado.
+- Eliminada la tarea de seguimiento del 2026-11-04 en la agenda y cerrada la tarea 33 del backlog, que pedía regenerar el CV con los recuentos antiguos. El hueco del 4 de noviembre queda libre para adelantar una candidatura.
+- Corregido el dominio de la web de Los Robles: es `carnicerialosrobles.es`. El CV base incorpora que los dos sitios usan WordPress con el tema Divi.
+
 ## 2026-11-02 - Experiencia del CV reescrita con datos reales y una página conservada
 
 - Reescrita la sección de experiencia de `cv/cv-base-2026-10.md` y de `cv/cv-ignis-junior-fullstack-2026-10.md` con los datos aportados por el usuario: equipo de 5 personas y catálogo de más de 300 referencias en CopaBoca; 6 a 10 rutas semanales como conductor de tráiler en Buj y Raptor; operación de extrusoras en Siro; prácticas de almacén en Paher con uso puntual de carretilla; dos webs corporativas sobre WordPress en Gráfica Impresiones; y unos 120 alumnos habituales con 4 personas de equipo, 5 en campamentos, en Hípica Paraíso.
