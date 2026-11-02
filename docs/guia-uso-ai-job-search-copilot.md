@@ -33,7 +33,7 @@ El sistema se lee de arriba abajo: las directrices fijan el comportamiento, los 
 
 **Agentes.** Los 15 subagentes de `.opencode/agents/` son especialistas. Cada archivo combina frontmatter con `description`, `mode`, `temperature` y `permission`, y un cuerpo que actúa como system prompt. Los de solo lectura auditan; los de escritura guardan en una carpeta acotada. Se ejecutan en sesiones hijas y devuelven un informe con contrato de salida.
 
-**Comandos.** Los 19 comandos de `.opencode/commands/` son plantillas con frontmatter. `description` los hace visibles, `agent` decide quién los ejecuta y `subtask: false` o `subagent: false` mantiene la conversación en la sesión actual para permitir preguntas por turno. Se invocan con `/nombre` y reciben argumentos con `$ARGUMENTS`.
+**Comandos.** Los 20 comandos de `.opencode/commands/` son plantillas con frontmatter. `description` los hace visibles, `agent` decide quién los ejecuta y `subtask: false` o `subagent: false` mantiene la conversación en la sesión actual para permitir preguntas por turno. Se invocan con `/nombre` y reciben argumentos con `$ARGUMENTS`.
 
 **Skills.** Los 14 skills de `.opencode/skills/<id>/SKILL.md` aportan procedimiento, convenciones y, en algunos casos, scripts auxiliares. Se cargan solos cuando la descripción encaja con la tarea; también se pueden forzar mencionando su id con `@`. No conceden permisos: solo dicen cómo hacer algo.
 
@@ -385,7 +385,7 @@ El diagnóstico general empieza por `/mcps`; si el CLI funciona, `opencode mcp l
 ## Estado de resolución
 
 - Fecha de creación: 2026-10-26.
-- Recuento verificado contra el repositorio: 15 agentes, 10 MCPs, 19 comandos y 14 skills.
+- Recuento verificado contra el repositorio: 15 agentes, 10 MCPs, 20 comandos y 14 skills.
 - Fuentes del recuento: `.opencode/agents/`, `opencode.json`, `.opencode/commands/` y `.opencode/skills/`.
 - Verificación de formato: `npx markdownlint-cli2 "docs/guia-uso-ai-job-search-copilot.md"` ejecutado el 2026-10-26 sin incidencias.
 - Mantenimiento: actualizar esta guía cuando cambie el número de agentes, MCPs, comandos o skills; el detalle técnico se mantiene en `docs/referencia-agentes-mcps.md`.

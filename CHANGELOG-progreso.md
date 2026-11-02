@@ -2,6 +2,14 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Agentes alineados con la unidad 4 y comando `/leccion`
+
+- `cv-optimizer` incorpora el vocabulario de referencia del sector de la lección 4.4 (Desarrollo Web e IA) como lista para detectar huecos, no para copiar, y tres reglas nuevas: extracción literal de las palabras clave de la oferta, colocación en experiencia o proyectos con un máximo de tres menciones, y prohibición de añadir tecnologías sin respaldo. Añade el bloque «Mapa de palabras clave» a la salida.
+- `cv-optimizer` y `ats-checker` dejan de penalizar el orden de secciones: el ATS lee encabezados, no posiciones, y en perfiles junior con experiencia en otros sectores los proyectos antes de la experiencia se mantienen.
+- `ats-checker` separa coincidencia exacta y variante, y penaliza el relleno: más de tres menciones, listas sin uso declarado y términos que solo viven en habilidades.
+- Corregido el frontmatter de `ats-checker`: usaba la clave `permissions` con una estructura de `action`, `resource` y `effect` que no existe en el esquema actual. Pasa a `permission` con mapa de patrones, restringiendo `bash` al script de verificación y denegando PDF, edición y MCP. Hasta ahora el agente podía haberse ejecutado sin esas restricciones.
+- Nuevo comando `/leccion <número>`: abre la lección, la resume y no la marca como completada. El ecosistema pasa a 15 agentes, 10 MCPs, 20 comandos y 14 skills; los recuentos se actualizaron en README, guía, referencia y CV base.
+
 ## 2026-11-02 - IGNIS descarta el proceso y se cierra la candidatura
 
 - Correo de IGNIS el 2026-11-02: no continúan con el proceso de Junior Fullstack Developer (O&M). La candidatura pasa a `descartada` en `docs/candidaturas/candidaturas.db` con el próximo paso «Descartada por IGNIS. Proceso cerrado.», y `docs/candidaturas/tabla-candidaturas.md` se regeneró desde la base.

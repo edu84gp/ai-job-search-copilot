@@ -20,7 +20,7 @@ Centralizar la documentación técnica de los subagentes de opencode, de los ser
 
 ## Estado de resolución
 
-- Estado actual: 15 agentes, 10 MCPs, 19 comandos y 14 skills. El MCP remoto microsoft-learn se añadió el 2026-10-26 y elevó los MCPs a 9; `/hoy` y `/hecho` se añadieron el 2026-10-30 y el MCP `google-calendar` el 2026-10-31, que deja el total en 10.
+- Estado actual: 15 agentes, 10 MCPs, 20 comandos y 14 skills. El MCP remoto microsoft-learn se añadió el 2026-10-26 y elevó los MCPs a 9; `/hoy` y `/hecho` se añadieron el 2026-10-30 y el MCP `google-calendar` el 2026-10-31, que deja el total en 10.
 - Referencia viva: se actualiza al crear o modificar agentes, MCPs, comandos y skills.
 
 ---
@@ -913,7 +913,13 @@ Marca como hecha una tarea (`12`) o una recurrencia (`r1`) y muestra lo que qued
 
 Uso: `/hecho 12` o `/hecho r1`
 
-### 9. Comandos del pack LinkedIn
+### 9. leccion
+
+Abre una lección del Employment Workshop 2026 por su número, navega hasta ella con Playwright y resume el contenido. No la marca como completada. Ejecutado por `build`.
+
+Uso: `/leccion 4.4`
+
+### 10. Comandos del pack LinkedIn
 
 Once comandos `li-*` que cargan el skill correspondiente y se ejecutan con el agente `build` en la sesión actual. No publican en LinkedIn: entregan texto listo para copiar. El detalle está en `docs/marca-personal/linkedin-agent-skill.md`.
 

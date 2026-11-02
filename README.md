@@ -12,7 +12,7 @@
 
 ## Perfil
 
-Desarrollador Junior Full-Stack con enfoque en IA aplicada, recién graduado del bootcamp de desarrollo web y participante del programa Employment Workshop 2026. Como parte del programa construí un sistema completo de búsqueda de empleo asistido por IA sobre opencode: 15 subagentes especializados, 10 servidores MCP, 19 comandos y 14 skills con permisos acotados por agente. Este repositorio documenta ese sistema y todo el proceso con trazabilidad total.
+Desarrollador Junior Full-Stack con enfoque en IA aplicada, recién graduado del bootcamp de desarrollo web y participante del programa Employment Workshop 2026. Como parte del programa construí un sistema completo de búsqueda de empleo asistido por IA sobre opencode: 15 subagentes especializados, 10 servidores MCP, 20 comandos y 14 skills con permisos acotados por agente. Este repositorio documenta ese sistema y todo el proceso con trazabilidad total.
 
 Busco mi primera oportunidad como desarrollador Junior Full-Stack, con especial interés en equipos que apliquen IA al desarrollo de producto.
 
