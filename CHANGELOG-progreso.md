@@ -2,6 +2,11 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Lección 4.5: los cinco errores que bloquean un CV en ATS
+
+- `ats-checker` añade dos comprobaciones que la lección 4.5 marca como bloqueantes y que solo estaban implícitas: el formato de entrega debe ser PDF textual o DOCX, nunca imagen o captura, y los encabezados deben ser estándar, sin títulos creativos. El orden de las reglas queda renumerado de 1 a 12.
+- Revisado el CV base contra los cinco errores: una columna sin tablas, PDF textual verificado, encabezados tradicionales y versiones adaptadas por oferta. El único punto abierto sigue siendo la cobertura de palabras clave de cada anuncio.
+
 ## 2026-11-02 - Agentes alineados con la unidad 4 y comando `/leccion`
 
 - `cv-optimizer` incorpora el vocabulario de referencia del sector de la lección 4.4 (Desarrollo Web e IA) como lista para detectar huecos, no para copiar, y tres reglas nuevas: extracción literal de las palabras clave de la oferta, colocación en experiencia o proyectos con un máximo de tres menciones, y prohibición de añadir tecnologías sin respaldo. Añade el bloque «Mapa de palabras clave» a la salida.
