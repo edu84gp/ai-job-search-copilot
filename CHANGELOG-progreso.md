@@ -2,6 +2,12 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Perfil cerrado y `main` sincronizado con `dev`
+
+- El Juego de la Vida queda fijado como quinto repositorio del perfil, junto a AI Job Search Copilot, el caso de estudio de Aplika, Pokédex Web y WhatsChatGPT. Los fijados ya cubren el trabajo seleccionado del README.
+- `main` recibe el fast-forward de `dev` hasta `3138553` con los diez commits acumulados: reescritura del CV, cierre de la unidad 3, unidad 4, agentes alineados, comando `/leccion` y memoria. La CI de calidad pasa en verde (run `41489110331`).
+- `dev` se publica en `origin` para que la rama de trabajo y la estable queden alineadas. El README del repositorio insignia ya muestra 20 comandos, igual que el perfil y el CV.
+
 ## 2026-11-02 - Lección 4.6: CV, portfolio y LinkedIn alineados sin duplicarse
 
 - La lección separa tres funciones: el CV supera el primer filtro, el portfolio demuestra cómo trabajas y LinkedIn construye reputación y exposición continua. Todos deben estar alineados, pero no duplicarse.
