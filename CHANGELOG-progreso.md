@@ -2,6 +2,13 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Lección 4.6: CV, portfolio y LinkedIn alineados sin duplicarse
+
+- La lección separa tres funciones: el CV supera el primer filtro, el portfolio demuestra cómo trabajas y LinkedIn construye reputación y exposición continua. Todos deben estar alineados, pero no duplicarse.
+- Añadida esa distinción a `github-portfolio-reviewer` y `linkedin-optimizer`: si el README del perfil o el extracto replican el CV sección por sección, deben señalarlo y proponer un enfoque complementario.
+- Corregida una incoherencia detectada por la propia lección: el README público de `edu84gp/edu84gp` seguía diciendo «15 agentes, 8 servidores MCP, 6 comandos y 3 skills» y fechaba la última actualización en octubre. Actualizado a 15 agentes, 10 MCPs, 20 comandos y 14 skills en el repositorio público (commit `6fa8c55`) y en el borrador `docs/privado/readme-perfil-github.md`.
+- Observación pendiente: el README del perfil sigue el mismo orden y contenido que el CV. Con la distinción de la 4.6, parte de ese texto debería convertirse en evidencia de código y demo, no en una segunda copia del currículum.
+
 ## 2026-11-02 - Lección 4.5: los cinco errores que bloquean un CV en ATS
 
 - `ats-checker` añade dos comprobaciones que la lección 4.5 marca como bloqueantes y que solo estaban implícitas: el formato de entrega debe ser PDF textual o DOCX, nunca imagen o captura, y los encabezados deben ser estándar, sin títulos creativos. El orden de las reglas queda renumerado de 1 a 12.
