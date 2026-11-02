@@ -2,6 +2,15 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Portfolio: fase 0 cerrada y repositorio publicado
+
+- Fase 0 del portfolio ejecutada con el material de origen: cuatro fichas de proyecto, enlaces comprobados, sistema visual y capturas. La carpeta de trabajo es `C:\Users\edu_g\portfolio`, fuera del repositorio del copilot.
+- Repositorio público creado en https://github.com/edu84gp/edu84gp.github.io con `main` como rama por defecto y tres commits. GitHub Pages se activó solo desde `main` y la raíz, con HTTPS forzado.
+- Decisiones: cuatro proyectos (Aplika, Copilot, Pokédex y El Juego de la Vida), tema automático claro y oscuro sin selector, acento azul `#2563eb` y `#60a5fa`, sin PDF del CV y foto de LinkedIn recortada a 120 px.
+- Aplika se representa con el panel del caso de estudio y datos ficticios, no con la landing. Copilot se representa con un diagrama SVG, no con una captura de terminal.
+- GitHub no permite despublicar un sitio de usuario. Hasta la fase 1, la raíz publica el `README.md` y `docs/` se sirve en crudo; se deja así por decisión de la persona.
+- Estructura del repositorio: `assets/img/` con las imágenes que se publicarán, `docs/` con la documentación interna y `_working/` excluida por `.gitignore`.
+
 ## 2026-11-02 - Lección 4.7: perfil reescrito y CV validado con Jobscan
 
 - La 4.7 pedía dos cosas: un perfil profesional de 3–4 líneas y dos escaneos del CV con Jobscan. El texto entregado responde quién soy, herramientas, problema que resuelvo y empleo buscado, y coincide con el apartado «Perfil» del CV.

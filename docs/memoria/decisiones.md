@@ -2,6 +2,14 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-02 - Portfolio en `edu84gp.github.io`, una página y cuatro proyectos
+
+- Decisión: publicar el portfolio en el repositorio público `edu84gp.github.io`, con una página estática en HTML, CSS y JavaScript sin build, tema automático claro y oscuro, acento azul `#2563eb` y `#60a5fa`, y cuatro proyectos: Aplika Jobs, AI Job Search Copilot, Pokédex Web y El Juego de la Vida.
+- Motivo: la pregunta 2 del examen 5.7 exige una URL pública y el repositorio de usuario da la raíz limpia sin ocupar ramas del copilot. El tema automático evita un selector y un script que provoquen parpadeo. El cuarto proyecto añade profundidad técnica y sigue dentro del límite de 2 a 5 de la lección.
+- Alternativas descartadas: repo `portfolio` con la URL en `/portfolio/`; Notion; React o un generador estático; selector de tema con `localStorage`; publicar el CV en PDF (expone el teléfono y duplica versiones).
+- Consecuencia: el material de la fase 0 vive en `C:\Users\edu_g\portfolio`, separado del copilot. Aplika se representa con el panel del caso de estudio y datos ficticios, no con la landing; Copilot se representa con un diagrama SVG, no con una captura de terminal. La foto de LinkedIn se recorta sin el marco `#OPENTOWORK` y se limita a 120 px.
+- Verificación: repositorio creado y publicado en https://github.com/edu84gp/edu84gp.github.io; enlaces comprobados con peticiones HEAD; contrastes calculados; GitHub Pages activo desde `main` con HTTPS forzado.
+
 ## 2026-11-02 - Jobscan orienta, pero solo se añaden palabras clave con evidencia
 
 - Decisión: usar la puntuación de Jobscan como diagnóstico y no como objetivo. Solo se incorpora un término de la oferta si se puede defender con un proyecto, una formación o una experiencia; los huecos reales se anotan como formación pendiente.
