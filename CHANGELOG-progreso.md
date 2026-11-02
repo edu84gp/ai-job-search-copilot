@@ -2,6 +2,12 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Unidad 3 cerrada: objetivo, plan y examen práctico
+
+- Enviado el examen de la 3.9 con el objetivo SMART en el formato de la plataforma y una imagen del plan semanal del 2 al 8 de noviembre. El plan se generó desde la agenda real y se guardó en `docs/privado/agenda/plan-semanal-2026-11-02.png`; el registro está en `docs/ejercicios/tema-3-9-actividades-practicas.md`.
+- Leída y marcada la 3.10, conclusión de la unidad. La unidad 3 queda cerrada con el 24 % del curso y las lecciones 3.1 a 3.10 completadas.
+- La unidad 4 ya está accesible. La 4.1 es una introducción al CV como herramienta de marketing y filtro ATS; se trabajará sobre el CV ATS existente, no desde cero.
+
 ## 2026-11-02 - Revisión semanal 3.7 y cierre de la entrevista de Neoland
 
 - La entrevista con Patricia (redes de Neoland) quedó marcada como realizada el 2026-10-31. Se actualizó la nota de la tarea 3, se regeneraron `hoy.md`, `semana.md`, `agenda.ics` y el bloque de agenda de `estado-actual.md`, y el calendario quedó con 33 eventos.

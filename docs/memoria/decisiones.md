@@ -25,6 +25,13 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Consecuencia: el panel da 14 PASS, 19 REVIEW y 3 FLAGGED sobre 36 publicaciones. Trece de los 19 REVIEW tienen menos de 25 palabras y el panel no puede juzgarlos; los otros seis son textos de una a tres frases. Los tres FLAGGED son el post del 2026-10-14, por 40 espacios duros y 3 rayas largas del pegado; el del 2026-09-20, un enlace a un curso con «Microsoft» al inicio y sin cifras; y el del 2026-08-04, una actualización de una frase con nombres técnicos que la regex de nombres propios no reconoce. Los dos últimos son falsos positivos conocidos de textos cortos.
 - Verificación: `py_compile` sin errores; 36 posts puntuados; controles de relleno y LLM típico FLAGGED (19,2 y 35,2); `markdownlint-cli2` sin incidencias.
 
+## 2026-11-02 - La unidad 4 se trabaja sobre el CV ATS existente
+
+- Decisión: usar `cv/cv-base-2026-10.md`, el `.docx`, el `.pdf` y `ats-checker` como base para la unidad 4; las actividades se resuelven como revisión y adaptación por oferta.
+- Motivo: el CV ya está en una página, una columna, sin tablas, con PDF textual verificado y revisión ATS; además hay una versión adaptada a IGNIS. Rehacerlo duplicaría trabajo y rompería la trazabilidad.
+- Alternativas descartadas: crear un CV nuevo para el curso; usar una plantilla de Canva con columnas o iconos; y mantener dos CV distintos, uno para el curso y otro para las candidaturas.
+- Consecuencia: la unidad 4 se usa como checklist y no como reconstrucción. Si alguna lección pide un formato distinto, se compara con el CV actual antes de cambiar nada.
+
 ## 2026-11-02 - Cierre de octubre: el sistema está montado, falta volumen
 
 - Decisión: cerrar octubre con una candidatura, una entrevista real y tres publicaciones; mantener en noviembre tres candidaturas por semana, 12-15 horas de curso, tres publicaciones de LinkedIn, tres sesiones de inglés, tres contactos de networking y una práctica de entrevista semanal.
