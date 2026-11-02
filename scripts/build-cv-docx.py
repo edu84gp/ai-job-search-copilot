@@ -86,8 +86,8 @@ def build(source, target):
     doc = Document()
     normal = doc.styles["Normal"]
     normal.font.name = FONT
-    normal.font.size = Pt(11)
-    normal.paragraph_format.space_after = Pt(1.5)
+    normal.font.size = Pt(10.5)
+    normal.paragraph_format.space_after = Pt(1.2)
     normal.paragraph_format.line_spacing = 1.0
     rpr = normal.element.get_or_add_rPr()
     rfonts = rpr.find(qn("w:rFonts"))
@@ -141,21 +141,21 @@ def build(source, target):
 
         if stripped.startswith("## "):
             paragraph = doc.add_paragraph()
-            spacing(paragraph, 5, 1.5)
+            spacing(paragraph, 3, 1.2)
             run = paragraph.add_run(stripped[3:].upper())
-            style_run(run, 12, True, NAVY)
+            style_run(run, 11.5, True, NAVY)
         elif stripped.startswith("- "):
             paragraph = doc.add_paragraph()
             spacing(paragraph, 0, 0.5)
-            add_inline(paragraph, "\u2022 " + stripped[2:], 11)
+            add_inline(paragraph, "\u2022 " + stripped[2:], 10.5)
         elif stripped.startswith("**") and "**" in stripped[2:]:
             paragraph = doc.add_paragraph()
-            spacing(paragraph, 2.5, 1.5)
-            add_inline(paragraph, stripped, 11)
+            spacing(paragraph, 2, 1.2)
+            add_inline(paragraph, stripped, 10.5)
         else:
             paragraph = doc.add_paragraph()
-            spacing(paragraph, 0, 1.5)
-            add_inline(paragraph, stripped, 11)
+            spacing(paragraph, 0, 1.2)
+            add_inline(paragraph, stripped, 10.5)
 
     doc.save(target)
 

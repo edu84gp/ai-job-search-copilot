@@ -2,6 +2,13 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-02 - Experiencia del CV reescrita con datos reales y una página conservada
+
+- Reescrita la sección de experiencia de `cv/cv-base-2026-10.md` y de `cv/cv-ignis-junior-fullstack-2026-10.md` con los datos aportados por el usuario: equipo de 5 personas y catálogo de más de 300 referencias en CopaBoca; 6 a 10 rutas semanales como conductor de tráiler en Buj y Raptor; operación de extrusoras en Siro; prácticas de almacén en Paher con uso puntual de carretilla; dos webs corporativas sobre WordPress en Gráfica Impresiones; y unos 120 alumnos habituales con 4 personas de equipo, 5 en campamentos, en Hípica Paraíso.
+- Eliminada la viñeta de habilidades blandas, que no aportaba evidencia, y añadida la viñeta que faltaba a la colaboración web, que era la única experiencia digital fuera de los proyectos.
+- Unificados los recuentos del ecosistema en las dos versiones: 15 agentes, 10 MCPs, 19 comandos y 14 skills. El CV base decía 8 MCPs, 6 comandos y 3 skills; el de IGNIS, 9, 17 y 14.
+- `scripts/build-cv-docx.py` pasa a 10,5 pt de cuerpo, encabezados de sección a 11,5 pt y espaciados más ajustados. DOCX y PDF regenerados con Word COM en una página y verificados con `scripts/verify-cv-pdf.py`: APTO en ambos, sin imágenes y con texto extraíble.
+
 ## 2026-11-02 - Unidad 3 cerrada: objetivo, plan y examen práctico
 
 - Enviado el examen de la 3.9 con el objetivo SMART en el formato de la plataforma y una imagen del plan semanal del 2 al 8 de noviembre. El plan se generó desde la agenda real y se guardó en `docs/privado/agenda/plan-semanal-2026-11-02.png`; el registro está en `docs/ejercicios/tema-3-9-actividades-practicas.md`.

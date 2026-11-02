@@ -25,6 +25,13 @@ Cada decisión se anota con fecha, decisión tomada, motivo y alternativas desca
 - Consecuencia: el panel da 14 PASS, 19 REVIEW y 3 FLAGGED sobre 36 publicaciones. Trece de los 19 REVIEW tienen menos de 25 palabras y el panel no puede juzgarlos; los otros seis son textos de una a tres frases. Los tres FLAGGED son el post del 2026-10-14, por 40 espacios duros y 3 rayas largas del pegado; el del 2026-09-20, un enlace a un curso con «Microsoft» al inicio y sin cifras; y el del 2026-08-04, una actualización de una frase con nombres técnicos que la regex de nombres propios no reconoce. Los dos últimos son falsos positivos conocidos de textos cortos.
 - Verificación: `py_compile` sin errores; 36 posts puntuados; controles de relleno y LLM típico FLAGGED (19,2 y 35,2); `markdownlint-cli2` sin incidencias.
 
+## 2026-11-02 - El CV baja a 10,5 pt para mantener una página
+
+- Decisión: `scripts/build-cv-docx.py` reduce el cuerpo a 10,5 pt, los encabezados de sección a 11,5 pt y los espaciados antes y después de párrafo. El contenido no se recorta para ganar espacio; solo se ajusta la tipografía.
+- Motivo: al añadir una viñeta por puesto en la experiencia, las dos versiones se iban a dos páginas. Un CV junior de referencia sigue siendo de una página.
+- Alternativas descartadas: eliminar viñetas de experiencia recién añadidas; quitar proyectos; y bajar a 10 pt, que resta legibilidad en pantalla y en impresión.
+- Consecuencia: las dos versiones, base e IGNIS, caben en una página y el PDF sigue siendo textual. Si en el futuro entra más contenido, primero se recorta redacción y solo después se toca la tipografía.
+
 ## 2026-11-02 - La unidad 4 se trabaja sobre el CV ATS existente
 
 - Decisión: usar `cv/cv-base-2026-10.md`, el `.docx`, el `.pdf` y `ats-checker` como base para la unidad 4; las actividades se resuelven como revisión y adaptación por oferta.
