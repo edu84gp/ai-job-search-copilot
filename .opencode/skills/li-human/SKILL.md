@@ -24,7 +24,7 @@ En este equipo no existe `python3` en el PATH. `uv` aporta Python 3.15 y ejecuta
 
 Both read `slop.json`, which is the lexicon: 100+ stock words and phrases in
 English and Spanish with plain replacements, 17 invisible character classes,
-11 typographic substitutions, and 24 structural tells (11 English, 13 Spanish).
+11 typographic substitutions, and 23 structural tells (11 English, 12 Spanish).
 It is meant to be edited. If the user has a word they always use that the
 lexicon strips, remove it from the file.
 
@@ -74,13 +74,18 @@ PASS, and it is the part a script cannot do.
 | SPECIFICITY | numbers, names, concrete markers per 100 words | abstract nouns, no figures |
 | SLOP DENSITY | lexicon hits per 100 words | stock vocabulary |
 | FINGERPRINT | invisible chars, em dashes, curly quotes per 1k chars | typographically perfect |
-| VOICE | personal pronouns, structural tells | no person, staged reveals |
+| VOICE | first-person markers (pronouns plus a verb fallback for Spanish pro-drop), structural tells | no person, staged reveals |
 
 The verdict weights the mean at 60% and the **weakest single check** at 40%,
 because a detector only needs one signal to fire. PASS needs an overall of 70+
 with no judged check below 55. A check that says `too short to judge` is left
 out of that floor, and at least three checks must be judgeable. The exit code is
 1 only for FLAGGED; add `--strict` to fail on REVIEW too.
+
+En castellano el sujeto suele ir implícito. Si el texto no tiene pronombres
+pero sí verbos en primera persona, `VOICE` aplica un suelo neutro de 1,0
+marcadores por 100 palabras. No premia el texto, solo evita penalizarlo por no
+repetir «yo».
 
 ## Say this honestly
 

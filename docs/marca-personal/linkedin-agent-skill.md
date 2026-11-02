@@ -56,6 +56,7 @@ Riesgo residual: los skills son instrucciones que el agente sigue. La revisión 
 | `li-post/hooks.json` pasa a `../li-post/hooks.json` en los skills hermanos | La ruta relativa correcta desde `.opencode/skills/li-plan` o `li-repurpose` es la del directorio hermano. |
 | Se añaden 11 comandos `li-*.md` | OpenCode no convierte skills en comandos; el pack se diseñó para Claude, donde cada skill se invoca como `/li-*`. |
 | La plantilla de voz se traduce y se guarda en `docs/marca-personal/linkedin/voice-template.md` | Deja una plantilla pública sin datos personales; el archivo de trabajo se copia a la carpeta privada. |
+| `li-post` registra el texto publicado, no el borrador, con imagen, enlace y panel | Los posts del 31 de octubre y del 2 de noviembre se editaron antes de publicar; el historial debe coincidir con lo que ve la audiencia. |
 
 ### 4. Instalación
 
@@ -66,10 +67,10 @@ Riesgo residual: los skills son instrucciones que el agente sigue. La revisión 
 
 ### 5. Verificación
 
-- Los tres JSON auxiliares parsean: 21 ganchos, 81 palabras y 32 frases del léxico, 17 clases de caracteres invisibles, 11 sustituciones tipográficas, 11 señales estructurales y una rúbrica de 12 apartados.
+- En la instalación del 2026-10-25, los tres JSON auxiliares parseaban: 21 ganchos, 81 palabras y 32 frases del léxico, 17 clases de caracteres invisibles, 11 sustituciones tipográficas, 11 señales estructurales y una rúbrica de 12 apartados.
 - `humanize.py` y `detect.py` se ejecutan con `uv` y sin dependencias.
 - Un texto de control en inglés pasó de 78,0 a 95,6 con veredicto PASS tras eliminar el BOM.
-- El borrador en español de la prueba quedó en 1.102 caracteres, con 0 términos del léxico, 0 señales estructurales y 1 artefacto eliminado (BOM). El panel devolvió 57,2 REVIEW: SLOP y FINGERPRINT al 100, BURSTINESS en 89,3, SPECIFICITY en 57,2 y VOICE en 30,0, porque los pronombres y las contracciones que mide VOICE están calibrados para inglés.
+- En esa misma prueba, el borrador en español quedó en 1.102 caracteres, con 0 términos del léxico, 0 señales estructurales y 1 artefacto eliminado (BOM). El panel devolvió 57,2 REVIEW: SLOP y FINGERPRINT al 100, BURSTINESS en 89,3, SPECIFICITY en 57,2 y VOICE en 30,0, porque los pronombres y las contracciones que medía VOICE aún estaban calibrados para inglés.
 - `humanize.py` reescribe los saltos de línea como CRLF, así que el fichero limpio mide 1.118 caracteres. El texto no cambia: solo el BOM desaparece y los finales de línea se normalizan.
 - El skill `li-post` se cargó con la herramienta `skill`, leyó el perfil de voz, eligió tres ganchos y generó el borrador completo.
 
@@ -78,8 +79,8 @@ Riesgo residual: los skills son instrucciones que el agente sigue. La revisión 
 - Instalado y verificado el 2026-10-25.
 - `/li-post` operativo y con prueba de extremo a extremo.
 - Perfil de voz definitivo desde el 2026-10-25: dos registros, aperturas, giro, cierres, posiciones, límites, pruebas y las tres muestras originales. La sección `Ruido de las muestras que no replico` separa la voz de las erratas.
-- Pendiente: validar el primer post generado con `/li-post` contra el perfil nuevo.
-- Limitación conocida: el panel de cinco comprobaciones está calibrado para inglés. En español se usa como lista de comprobación, no como veredicto de publicación.
+- Los tres posts generados con `/li-post` se publicaron el 2026-10-27, el 2026-10-31 y el 2026-11-02, y quedaron registrados en `docs/privado/linkedin/log.md`; falta medir su rendimiento.
+- Limitación conocida: el panel de cinco comprobaciones se calibró en castellano el 2026-10-31 y se recalibró el 2026-11-02 con las 36 publicaciones exportadas (16 PASS, 17 REVIEW y 3 FLAGGED). Ese día se añadió un suelo para los textos sin pronombres pero con verbos en primera persona, porque el castellano omite el sujeto. Sigue siendo una heurística local: PASS significa «parece tu voz», no «es indetectable».
 - Mantenimiento: si se actualiza el repositorio, revisar el diff, repetir la auditoría y actualizar el commit pin de esta ficha.
 
 ## Uso

@@ -71,8 +71,10 @@ Reply "yes" to log it, or tell me what to change.
 ```
 
 **5. Never publish.** This skill produces text. The user posts it. On "yes",
-append the post to `docs/privado/linkedin/log.md` with the date, the hook used
-and the first line, so the `li-audit` skill has a history to work from later.
+append the published text to `docs/privado/linkedin/log.md` with the date, the
+hook used, the first line, the character count, the image, the link and the
+humanizer score. If the user edited the draft before publishing, log the
+published version, not the draft. That is the history `li-audit` reads later.
 
 ## Rules that make the difference
 
@@ -83,6 +85,10 @@ and the first line, so the `li-audit` skill has a history to work from later.
   question has to be one only this post could ask.
 - **Three hashtags maximum**, at the bottom, and only if they are real
   categories someone follows.
+- **Emojis are part of the voice.** Include two to four in a normal draft and up
+  to six in a narrative post with states or lists. Use them to close an idea or
+  mark a state, never two identical in a row or three on the same line. If the
+  post is strictly formal, one is enough. Do not decorate every paragraph.
 - **No links in the post body.** LinkedIn suppresses posts with outbound
   links. Put the link in the first comment and say so in the receipt.
 - **Never fabricate.** No invented metrics, clients, revenue figures or

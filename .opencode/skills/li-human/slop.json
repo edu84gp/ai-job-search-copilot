@@ -1288,15 +1288,15 @@
     },
     {
       "id": "rocket",
-      "regex": "[\\U0001F680\\U0001F525\\U0001F4A1\\u2728\\U0001F3AF]",
-      "name": "Rocket / fire / bulb / sparkle / dart emoji",
-      "fix": "One emoji max, and not one of these five."
+      "regex": "(?=([\\U0001F680\\U0001F525\\U0001F4A1\\u2728\\U0001F3AF])\\s*\\1)",
+      "name": "Two identical emoji in a row",
+      "fix": "One of each, and only as the close of an idea."
     },
     {
       "id": "hashtag-wall",
-      "regex": "(?:#\\w+[ \\t]*){5,}",
-      "name": "Hashtag wall (5+)",
-      "fix": "Three hashtags. LinkedIn stopped rewarding the wall."
+      "regex": "(?:#\\w+[ \\t]*){6,}",
+      "name": "Hashtag wall (6+)",
+      "fix": "Three hashtags maximum, on their own line."
     },
     {
       "id": "as-an-ai",
@@ -1345,12 +1345,6 @@
       "regex": "(?i)\\baquí (?:está|están|va|van) (?:lo|la|el|los|las) que (?:aprendí|aprendimos|saqué|sacamos)\\b",
       "name": "\"Aquí está lo que aprendí\"",
       "fix": "Escribe el aprendizaje. Sobra el anuncio."
-    },
-    {
-      "id": "triada",
-      "regex": "(?i)\\b\\w+, \\w+ y \\w+[.!]",
-      "name": "Tríada de tres elementos",
-      "fix": "Dos elementos o cuatro. Tres es el ritmo por defecto del modelo."
     },
     {
       "id": "como-ia",

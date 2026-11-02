@@ -2,6 +2,29 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-02 - Tres hashtags, emojis con tope y VOICE para el sujeto implícito
+
+- Decisión: fijar tres hashtags como máximo; permitir de dos a cuatro emojis en un post normal y hasta seis en uno narrativo con estados o listas; y añadir a `detect.py` un suelo de 1,0 marcadores cuando no hay pronombres pero sí verbos en primera persona.
+- Motivo: `voice.md` permitía de tres a cinco hashtags mientras `li-post` y `plan.md` ya fijaban tres. El post del sábado usó seis emojis y el perfil solo permitía dos en un post personal. Además, `VOICE` bajaba a 65 en textos castellanos sin «yo» aunque tuvieran verbos en primera persona: el post del sábado tenía 2,5 verbos por 100 palabras y ningún pronombre.
+- Alternativas descartadas: mantener tres a cinco hashtags y relajar `li-post` (más ruido y tres reglas distintas); prohibir los emojis o dejarlos a criterio (el perfil real los usa); contar solo pronombres (penaliza el sujeto implícito); añadir clíticos como `me` y `nos` (insuficiente: el post del sábado seguía por debajo del umbral); bajar el umbral de 1,6 a 0,4 (maquilla el cero y penaliza menos los textos impersonales).
+- Consecuencia: `voice.md` queda con tres hashtags y los topes nuevos; `li-post` genera emojis en cada borrador. El panel pasa de 14 PASS, 19 REVIEW y 3 FLAGGED a 16 PASS, 17 REVIEW y 3 FLAGGED. El post del sábado sube de 80,3 a 89,4 PASS y el del lunes se mantiene en 100 PASS. Los controles de relleno y LLM típico siguen FLAGGED (35,2 y 22,7).
+- Verificación: `py_compile` sin errores; 36 publicaciones puntuadas; los dos posts nuevos medidos; `markdownlint-cli2` sin incidencias.
+
+## 2026-11-02 - El log guarda la versión publicada, no el borrador
+
+- Decisión: `li-post` registra en `log.md` el texto publicado, con fecha, gancho, primera línea, longitud, imagen, enlace y panel del humanizador. Si la persona edita el borrador antes de publicar, se guarda la versión final.
+- Motivo: los posts del 2026-10-31 y del 2026-11-02 se editaron antes de publicar. Guardar el borrador habría dejado un historial que no coincide con lo que ve la audiencia y habría roto la comparación de `li-audit`.
+- Alternativas descartadas: guardar solo fecha, gancho y primera línea (no permite auditar voz, longitud ni cierre); guardar el borrador y un diff (más mantenimiento para una sola persona); no registrar los posts ya publicados (pierde la serie y la hipótesis).
+- Consecuencia: `log.md` tiene tres fichas completas. La imagen queda como «adjunta» mientras no se registre el nombre del archivo.
+
+## 2026-11-02 - Calibración de `li-human` con las 36 publicaciones reales
+
+- Decisión: recalibrar `detect.py` y `slop.json` con el corpus completo de LinkedIn, 36 publicaciones exportadas el 2026-10-31, en lugar de las cuatro muestras iniciales. Umbrales nuevos: BURSTINESS 0,45/0,11, SPECIFICITY 5,4/1,35 y pronombres 1,6/0,4. Se retira la estructura `triada` y se ajustan las dos reglas que chocaban con el perfil de voz: un emoji suelto deja de puntuar y solo se marca el que se repite dos veces seguidas; la pared de hashtags empieza en 6 como red de seguridad, por encima del límite de tres.
+- Motivo: los umbrales anteriores se habían fijado con tres muestras y un borrador, y dejaban en REVIEW textos que el perfil considera normales. `triada` marcaba listas técnicas legítimas («subprocess, eval y exec.», «Angular, React y Redux.»), la regla del emoji castigaba un único 🚀 y la de hashtags marcaba el límite que el perfil permite. La distribución real del corpus (mediana de BURSTINESS 0,45; p25 de SPECIFICITY 5,4; mediana de pronombres 1,6) sitúa los umbrales en la voz publicada.
+- Alternativas descartadas: mantener los umbrales de cuatro muestras, que dejaban en REVIEW textos que el perfil considera normales y seguían marcando `triada`, emojis sueltos y cinco hashtags; bajarlos más para que todo pase, que dejaría el control de relleno en FLAGGED pero perdería la señal; crear perfiles por idioma o por registro, más código y mantenimiento para una sola persona; excluir los posts cortos del corpus, que son 13 de 36 y sesgarían la mediana hacia los textos largos.
+- Consecuencia: el panel da 14 PASS, 19 REVIEW y 3 FLAGGED sobre 36 publicaciones. Trece de los 19 REVIEW tienen menos de 25 palabras y el panel no puede juzgarlos; los otros seis son textos de una a tres frases. Los tres FLAGGED son el post del 2026-10-14, por 40 espacios duros y 3 rayas largas del pegado; el del 2026-09-20, un enlace a un curso con «Microsoft» al inicio y sin cifras; y el del 2026-08-04, una actualización de una frase con nombres técnicos que la regex de nombres propios no reconoce. Los dos últimos son falsos positivos conocidos de textos cortos.
+- Verificación: `py_compile` sin errores; 36 posts puntuados; controles de relleno y LLM típico FLAGGED (19,2 y 35,2); `markdownlint-cli2` sin incidencias.
+
 ## 2026-11-01 - El trabajo diario pasa a la rama `dev`
 
 - Decisión: `main` queda como rama estable y el trabajo diario se hace en `dev`, que se creó ese día desde `main` y ya tiene upstream en `origin`. Los cambios llegan a `main` por fusión o pull request, no por commit directo.

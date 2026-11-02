@@ -257,7 +257,7 @@ El pack aporta 11 comandos y 11 skills. Escriben, puntúan y planifican, pero no
 Reglas del pack:
 
 - `/li-post` necesita el perfil de voz en `docs/privado/linkedin/voice.md`. Si no existe, pide tres publicaciones propias antes de escribir.
-- El panel de `li-human` está calibrado con las muestras de `voice.md`: léxico y estructuras en castellano, umbrales propios y `--strict` para exigir PASS. Sigue siendo una heurística local, no el veredicto de GPTZero ni Copyleaks.
+- El panel de `li-human` está calibrado con las 36 publicaciones exportadas desde la API de LinkedIn. Léxico y estructuras en castellano, umbrales propios y `--strict` para exigir PASS. Sigue siendo una heurística local, no el veredicto de GPTZero ni Copyleaks.
 - El perfil se revisa con `/linkedin-review` y `linkedin-optimizer`, que no navega LinkedIn: trabaja con el texto pegado.
 - La estrategia y el calendario de contenido son de `personal-brand-builder`, con borradores en `docs/marca-personal/borradores/`.
 - Los contactos y seguimientos son de `networking-outreach`, con registro en `docs/networking/contactos-networking.md`.

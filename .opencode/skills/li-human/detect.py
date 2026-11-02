@@ -37,6 +37,24 @@ SHORT = "too short to judge"
 SENT_RE = re.compile(r"[^.!?\n]+(?:[.!?]+(?=\s|$)|$)")
 WORD_RE = re.compile(r"[^\W\d_]+(?:['’\-][^\W\d_]+)*")
 PRONOUNS = re.compile(r"\b(?:yo|mí|mi|mis|mío|mía|míos|mías|nosotros|nosotras|nuestro|nuestra|nuestros|nuestras|tú|ti|tu|tus|tuyo|tuya|tuyos|tuyas|vosotros|vosotras|vuestro|vuestra|vuestros|vuestras|usted|ustedes|él|ella|ellos|ellas)\b", re.IGNORECASE)
+FIRST_PERSON_VERBS = re.compile(
+    r"\b(?:"
+    r"[a-záéíóúüñ]+(?:é|í|aré|eré|iré)|"
+    r"he|hemos|soy|somos|estoy|estamos|tengo|tenemos|hago|hacemos|"
+    r"uso|usamos|creo|creemos|quiero|queremos|puedo|podemos|sé|sabemos|"
+    r"voy|vamos|vengo|venimos|pongo|ponemos|dejo|dejamos|borro|borramos|"
+    r"quito|quitamos|subo|subimos|abro|abrimos|cierro|cerramos|escribo|escribimos|"
+    r"monto|montamos|lanzo|lanzamos|pruebo|probamos|mido|medimos|reviso|revisamos|"
+    r"encuentro|encontramos|aprendo|aprendemos|decido|decidimos|empiezo|empezamos|"
+    r"termino|terminamos|publico|publicamos|comparto|compartimos|hablo|hablamos|"
+    r"cuento|contamos|pienso|pensamos|digo|decimos|veo|vemos|doy|damos|"
+    r"traigo|traemos|salgo|salimos|sigo|seguimos|conozco|conocemos|"
+    r"parezco|parecemos|ofrezco|ofrecemos|agradezco|agradecemos"
+    r")\b",
+    re.IGNORECASE,
+)
+FIRST_PERSON_STOP = {"qué", "mí", "aquí", "así", "café", "pie", "bebé", "él", "sí"}
+PERSON_FLOOR = 1.0
 NUMBERS = re.compile(r"\b\d[\d,.]*%?\b|\$\d")
 PROPER = re.compile(r"(?<![.!?]\s)(?<!^)\b[^\W\d_a-z][^\W\d_A-Z]{2,}\b", re.MULTILINE)
 
@@ -67,8 +85,8 @@ def check_burstiness(text):
         return 50.0, SHORT
     mean = statistics.mean(lens)
     cv = statistics.pstdev(lens) / mean if mean else 0
-    score = scale(cv, human=0.50, machine=0.125)
-    return score, f"variation {cv:.2f} across {len(lens)} sentences (want 0.50+)"
+    score = scale(cv, human=0.45, machine=0.11)
+    return score, f"variation {cv:.2f} across {len(lens)} sentences (want 0.45+)"
 
 
 def check_specificity(text):
@@ -79,8 +97,8 @@ def check_specificity(text):
     per100 = 100 / len(w)
     hits = len(NUMBERS.findall(text)) + len(set(PROPER.findall(text)))
     density = hits * per100
-    score = scale(density, human=2.5, machine=0.6)
-    return score, f"{hits} concrete markers, {density:.1f} per 100 words (want 2.5+)"
+    score = scale(density, human=5.4, machine=1.35)
+    return score, f"{hits} concrete markers, {density:.1f} per 100 words (want 5.4+)"
 
 
 def check_slop(text, lex):
@@ -120,12 +138,20 @@ def check_fingerprint(text):
 
 
 def check_voice(text, lex):
-    """Contractions, person, and the shapes models default to."""
+    """Person, and the shapes models default to."""
     w = words(text)
     if len(w) < 25:
         return 50.0, SHORT
     per100 = 100 / len(w)
-    person = len(PRONOUNS.findall(text)) * per100
+    pronoun_person = len(PRONOUNS.findall(text)) * per100
+    verbs = [v.lower() for v in FIRST_PERSON_VERBS.findall(text)
+             if v.lower() not in FIRST_PERSON_STOP]
+    verb_person = len(verbs) * per100
+    person = pronoun_person
+    fallback = 0.0
+    if person < PERSON_FLOOR and verb_person:
+        fallback = min(PERSON_FLOOR, verb_person)
+        person = max(person, fallback)
     tells = 0
     names = []
     for s in lex["structures"]:
@@ -138,13 +164,15 @@ def check_voice(text, lex):
             names.append(s["id"])
     bullets = [len(b.split()) for b in re.findall(r"(?m)^\s*[-*•]\s+(.+)$", text)]
     uniform = (len(bullets) >= 3 and statistics.pstdev(bullets) < 1.6)
-    score = (scale(person, human=1.4, machine=0.35) * 0.35
+    score = (scale(person, human=1.6, machine=0.4) * 0.35
              + clamp(100 - tells * 25) * 0.65)
     if uniform:
         score -= 12
         names.append("uniform-bullets")
-    detail = (f"{person:.1f} personal pronouns per 100 words, "
+    detail = (f"{person:.1f} personal markers per 100 words, "
               f"{tells} structural tell(s)")
+    if fallback:
+        detail += f" [verb fallback {verb_person:.1f}, pronouns {pronoun_person:.1f}]"
     if names:
         detail += " [" + ", ".join(names[:4]) + "]"
     return clamp(score), detail
