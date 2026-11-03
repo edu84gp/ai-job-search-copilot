@@ -2,6 +2,14 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-03 - Fase 1 del portfolio: cabecera de ficha y retrato completo
+
+- Decisión: montar la fase 1 completa en `C:\Users\edu_g\portfolio` con `index.html`, `style.css` y un `main.js` mínimo. Cada ficha lleva el índice arriba a la izquierda y el título arriba a la derecha; en anchos de 900 px o menos, ambos se apilan encima de la imagen. Sustituir el retrato por el nuevo `Eduardo_Garcia_Prieto.png`, recortado a 480 px y guardado en WebP de 23 KB.
+- Motivo: la pregunta 2 del 5.7 exige una URL pública y la página ya puede revisarse. La cabecera separa la identificación del proyecto del cuerpo y deja la imagen fija al hacer scroll. El retrato anterior cortaba la cabeza y el nuevo incluye el encuadre completo.
+- Alternativas descartadas: dejar el título dentro del cuerpo (menos jerarquía visual); alternar la imagen en las fichas pares (rompe la alineación de la columna de lectura); usar el PNG original de 1,3 MB (peso innecesario); favicon de monograma EG (ilegible a 16 px).
+- Consecuencia: la página queda completa y sin publicar. El texto se pasó por `li-human` con 79,9 sobre 100, PASS, y se corrigieron «envias», «Pokémons», la grafía de PokéAPI y el término «potenciada»; «opencode» se unifica en minúsculas. Los enlaces externos conservan el aviso oculto de pestaña nueva.
+- Verificación: Lighthouse 100/100/100/100 en móvil y escritorio; LCP 1,2 s y 0,3 s; CLS 0; HTML válido en W3C; sin scroll horizontal en 360, 390, 768 y 1440; el enlace de salto enfoca `main`; los enlaces externos nuevos devuelven 200. Commit local `4981b81`.
+
 ## 2026-11-02 - Portfolio en `edu84gp.github.io`, una página y cuatro proyectos
 
 - Decisión: publicar el portfolio en el repositorio público `edu84gp.github.io`, con una página estática en HTML, CSS y JavaScript sin build, tema automático claro y oscuro, acento azul `#2563eb` y `#60a5fa`, y cuatro proyectos: Aplika Jobs, AI Job Search Copilot, Pokédex Web y El Juego de la Vida.
