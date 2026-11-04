@@ -2,6 +2,15 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-04 - Portfolio: fase 1 publicada y tarjeta social validada
+
+- La fase 1 se publicó en https://edu84gp.github.io/ con HTML, CSS y JavaScript sin build: cabecera fija, tema de tres estados, ajustes responsive y cuatro fichas de proyecto.
+- Lighthouse en vivo: 100 en rendimiento, accesibilidad, buenas prácticas, SEO y navegación agéntica, en móvil y escritorio; LCP 1,1 s y 0,4 s; CLS 0; TBT 0 ms. HTML, CSS, JavaScript, tarjeta, robots y sitemap responden 200; `README.md`, `docs/` y `_working/` responden 404 por `_config.yml`.
+- Post Inspector de LinkedIn: título, descripción, imagen y URL canónica correctos. Author y Publish date quedan vacíos por ser un sitio y no un artículo.
+- La tarjeta social se simplificó a `og-image-2026-11.png` (33 KB) para que el rol y el stack se lean a tamaño de feed. El nombre versionado invalida la caché de LinkedIn, que seguía sirviendo la imagen anterior, y el re-scrape ya muestra la tarjeta nueva.
+- Se añadieron `og:image:type` y `twitter:image:alt`. Los validadores de X y Facebook exigen sesión; se comprobó que `Twitterbot`, `facebookexternalhit` y `LinkedInBot` reciben las nueve etiquetas sociales y la imagen como `image/png`.
+- El trabajo técnico del 5.7 queda cerrado; la entrega del examen en la plataforma corresponde a la persona.
+
 ## 2026-11-02 - Portfolio: fase 0 cerrada y repositorio publicado
 
 - Fase 0 del portfolio ejecutada con el material de origen: cuatro fichas de proyecto, enlaces comprobados, sistema visual y capturas. La carpeta de trabajo es `C:\Users\edu_g\portfolio`, fuera del repositorio del copilot.

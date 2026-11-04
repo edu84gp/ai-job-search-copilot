@@ -2,6 +2,14 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-04 - Portfolio: tarjeta social versionada y metadatos completos
+
+- Decisión: reconstruir la tarjeta social a 1200×630 con la tipografía del sitio (nombre a 76 px, rol a 44 px y stack a 34 px), eliminar la línea `edu84gp.github.io` y publicarla como `og-image-2026-11.png`. Añadir `og:image:type` como `image/png` y `twitter:image:alt`, y mantener `twitter:card` como `summary_large_image`.
+- Motivo: en la vista previa de LinkedIn el rol y el stack se leían pequeños y el dominio inferior era casi ilegible. LinkedIn ya muestra el dominio bajo el título, así que repetirlo gastaba espacio útil. El CDN de LinkedIn conserva la imagen anterior por URL: tras reemplazar el archivo y pedir re-scrape, la vista previa seguía mostrando la tarjeta vieja. Un nombre nuevo invalida esa caché.
+- Alternativas descartadas: mantener el nombre `og-image.png` con un parámetro `?v=2`, menos compatible con algunos rastreadores; dejar la tarjeta anterior; conservar el dominio en la imagen a mayor tamaño, que duplica un dato ya visible; usar una captura del sitio en lugar de una composición tipográfica, que pierde legibilidad al reducir.
+- Consecuencia: la URL anterior devuelve 404 y las tarjetas ya compartidas conservan su copia cacheada. Cada cambio futuro de imagen usará un nombre nuevo y un re-scrape. La imagen pesa 33 KB y mantiene 1200×630.
+- Verificación: Post Inspector con la tarjeta nueva en la vista previa (`articleshare-shrink_480`), título, descripción y URL canónica correctos. `Twitterbot`, `facebookexternalhit` y `LinkedInBot` reciben las nueve etiquetas sociales y la imagen responde 200 como `image/png`. Los validadores oficiales de X y Facebook exigen sesión iniciada, así que no se pudieron ejecutar sin cuenta. Lighthouse en vivo: 100 en rendimiento, accesibilidad, buenas prácticas, SEO y navegación agéntica; LCP 1,1 s en móvil y 0,4 s en escritorio; CLS 0; TBT 0 ms. Commits `796490d` (metadatos e imagen) y `040ae98` (renombrado).
+
 ## 2026-11-04 - Portfolio: tres estados de tema, foto móvil y enlaces de identidad
 
 - Decisión: sustituir el selector claro/oscuro por tres estados (automático, claro y oscuro) con un ciclo que depende de `prefers-color-scheme`. Automático es el valor por defecto y borra la clave `tema` de `localStorage`; el botón muestra medio círculo, luna o sol; el `aria-label`, el `title` y `theme-color` cambian en cada paso y una región `role="status"` anuncia el estado. Añadir `data-theme-mode` en `<html>`, mover la foto de perfil por encima del texto y centrarla junto con el eyebrow y el `h1` a 720 px o menos, dejando el lead, la meta y los botones a la izquierda, poner `rel="me"` en los cuatro enlaces de LinkedIn y GitHub, enlazar el código de la página en el pie y usar un tinte de acento en el hover del botón secundario (`--accent-soft` de fondo, `--accent-strong` de texto y `--accent` de borde).
