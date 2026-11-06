@@ -2,6 +2,15 @@
 
 Cada decisión se anota con fecha, decisión tomada, motivo y alternativas descartadas.
 
+## 2026-11-04 - LinkedIn: experiencia real, una entrada por vínculo y Gráfica fuera
+
+- Decisión: publicar seis entradas de experiencia con las fechas de la vida laboral: VIÑA MAGNA SL, con «en Vinoteca CopaBoca» en la descripción (ago. 2025 – jul. 2026); Cerealto, con el contrato a través de Randstad ETT en la descripción (sept. 2022 – jul. 2025); Transportes y Mudanzas Buj, S.L. (mar. 2021 – ago. 2022); Logística de Transportes Raptor, S.L.U. (oct. 2020 – ene. 2021); Almacén de Recambios Paher, S.A. como prácticas no remuneradas (2022, mes sin determinar); e Hípica Paraíso como una sola entrada (sept. 1998 – oct. 2020). Eliminar Gráfica Impresiones de LinkedIn y del CV.
+- Motivo: la 7.2 exige que la experiencia coincida con la vida laboral y que cada entrada se pueda defender. Viña Magna es quien contrata y CopaBoca el nombre que reconoce el sector de la hostelería; Siro es el nombre antiguo de la planta de Cerealto en Venta de Baños, así que se usa el actual y se explica el contrato con la ETT; la hípica cambió cinco veces de situación contractual, pero fue el mismo puesto, y partirla en cinco entradas contaría la historia administrativa, no la profesional. Gráfica Impresiones fue una colaboración con un amigo que no llegó a cuajar: no hay empresa, no hay cliente y las dos webs no justifican una entrada de experiencia.
+- Alternativas descartadas: usar «Vinoteca CopaBoca» como organización, que oculta la razón social y no tiene página de empresa; mantener «Siro» como organización, que ya no existe con ese nombre; separar la hípica en cinco entradas por situación contractual; dejar Gráfica como «colaboración» en LinkedIn y en el CV; inventar un mes para Paher.
+- Consecuencia: el CV deja de tener el bloque de Gráfica y se regenera en DOCX y PDF. WordPress (Divi) se mantiene en habilidades porque las dos webs siguen online y son defendibles en una entrevista, pero ya no hay una entrada que las respalde; si se prefiere quitarlo, se elimina de una línea. Hípica Paraíso queda como organización de texto libre: no tiene página de empresa en LinkedIn y `/company/39804018/` es VIÑA MAGNA SL.
+- Descartado: Yeguada Tierra Íbera (2005-2014). El trabajo era del hermano, sin contrato y solo como colaboración, así que no se añade ni al CV ni a LinkedIn; únicamente queda en el CV original sin optimizar, que se conserva como fuente.
+- Verificación: ocho entradas visibles en `https://www.linkedin.com/in/edu84gp/details/experience/`, con Telefónica de marzo a abril y Enerpal de mayo a junio de 2006; PDF del CV en una página, con texto extraíble y sin la palabra «Gráfica», comprobado con `pypdf` y renderizado a imagen.
+
 ## 2026-11-04 - Portfolio: tarjeta social versionada y metadatos completos
 
 - Decisión: reconstruir la tarjeta social a 1200×630 con la tipografía del sitio (nombre a 76 px, rol a 44 px y stack a 34 px), eliminar la línea `edu84gp.github.io` y publicarla como `og-image-2026-11.png`. Añadir `og:image:type` como `image/png` y `twitter:image:alt`, y mantener `twitter:card` como `summary_large_image`.

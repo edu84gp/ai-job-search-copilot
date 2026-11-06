@@ -2,6 +2,32 @@
 
 Historial de fases del plan definido en `PLAN.md`.
 
+## 2026-11-06 - Segundo título superior en el CV y post de presentación listo
+
+- Añadido a Formación el título de **Técnico Superior Deportivo en Equitación (2008)**, que solo estaba en el CV original. El CV queda con los dos grados superiores y sigue en una página; DOCX y PDF regenerados.
+- Añadido a Educación de LinkedIn el mismo título, en el **Centro Ecuestre de Castilla y León** (Segovia), con solo el año 2008 porque no se recuerda la fecha de inicio. La sección queda con cuatro entradas y los dos grados superiores visibles.
+- Redactado el post de presentación del examen 7.5 a partir del pitch de la 6.3, con el gancho de los tres oficios. La versión final la escribió la persona y se cerró en 1.148 caracteres, 92,9 PASS en `li-human`.
+- El CV y el post dicen lo mismo sobre la formación: dos grados superiores, uno de ellos Deporte Ecuestre.
+- **Publicado el post de presentación del examen 7.5** (2026-11-06, 1.123 caracteres, 92,9 PASS) en `https://www.linkedin.com/feed/update/urn:li:activity:7524393292369702912/`, con el primer comentario de portfolio y GitHub. Registrado en `docs/privado/linkedin/log.md`.
+- Detectado al terminar la publicación que el titular del perfil había quedado como «Instalador electrotécnico en prácticas en Enerpal». Restaurado a «Junior Full-Stack Developer | React · Node.js · PostgreSQL | IA aplicada | Remoto/híbrido» y verificado en el perfil público.
+
+## 2026-11-05 - Prácticas de 2006 en Telefónica y Enerpal
+
+- Añadidas a LinkedIn las dos prácticas FCT del ciclo superior de Instalaciones Electrotécnicas, en el tercer trimestre del segundo curso: Telefónica de marzo a abril y Enerpal de mayo a junio de 2006, con 190 horas cada una. Se corrigieron las fechas para que no se solapen: la persona estuvo mes y medio en cada empresa, primero en Telefónica y después en Enerpal.
+- El CV ya incluía el bloque «Prácticas de instalación electrotécnica — Telefónica y Enerpal (2006)»; se regeneraron DOCX y PDF y se verificó que sigue en una página.
+- Se eliminaron dos entradas duplicadas creadas en paralelo durante la misma sesión. La sección de experiencia queda con ocho entradas: seis de la vida laboral, Paher y las dos prácticas.
+- Yeguada Tierra Íbera (2005-2014) se descarta: el trabajo era del hermano, sin contrato y solo como colaboración. Solo aparece en el CV original sin optimizar; no está en el CV actual ni en LinkedIn.
+
+## 2026-11-04 - Unidad 7: perfil de LinkedIn con experiencia real
+
+- La 7.2 se aplicó sobre el perfil: titular «Junior Full-Stack Developer | React · Node.js · PostgreSQL | IA aplicada | Remoto/híbrido», extracto nuevo en cuatro párrafos con portfolio, GitHub y enlaces (94,3 PASS en `li-human`) y aptitudes destacadas JavaScript, Node.js y React.js.
+- Se creó la sección Experiencia con seis entradas y las fechas de la vida laboral: VIÑA MAGNA SL, con Vinoteca CopaBoca en la descripción (ago. 2025 – jul. 2026); Cerealto, con el contrato a través de Randstad ETT (sept. 2022 – jul. 2025); Transportes y Mudanzas Buj, S.L. (mar. 2021 – ago. 2022); Logística de Transportes Raptor, S.L.U. (oct. 2020 – ene. 2021); Almacén de Recambios Paher, S.A. como prácticas no remuneradas (2022); e Hípica Paraíso (sept. 1998 – oct. 2020).
+- Criterios: la razón social se usa cuando es quien contrata y el nombre comercial se explica en la descripción; la hípica va como una sola entrada porque los cinco cambios de situación contractual fueron el mismo puesto; Paher se publica sin mes porque no se conoce.
+- Gráfica Impresiones se eliminó de LinkedIn y del CV: era una colaboración con un amigo que no llegó a cuajar. El DOCX se regeneró con `scripts/build-cv-docx.py` y el PDF con Chrome headless, porque Word COM se cuelga al exportar; queda en una página, con texto extraíble y sin la palabra «Gráfica».
+- Hípica Paraíso no tiene página de empresa en LinkedIn: `/company/39804018/` corresponde a VIÑA MAGNA SL, así que la entrada queda como organización de texto libre.
+- Corregida la ficha del Copilot en Proyectos: pasa de 8 MCP, 6 comandos y 3 skills a 10 servidores MCP, 20 comandos y 14 skills. El extracto ya decía 10 MCP. Se dejaron de seguir los cuatro juegos de LinkedIn (Queens, Tango, Mini Sudoku y Patches) que aparecían como empresas seguidas en Intereses.
+- Pendiente para cerrar la 7.5: pedir recomendaciones, publicar el post de presentación y enviar cinco mensajes de conexión. La publicación del 2026-11-02 menciona 19 comandos; se deja tal cual porque ya está publicada.
+
 ## 2026-11-04 - Portfolio: fase 1 publicada y tarjeta social validada
 
 - La fase 1 se publicó en https://edu84gp.github.io/ con HTML, CSS y JavaScript sin build: cabecera fija, tema de tres estados, ajustes responsive y cuatro fichas de proyecto.
